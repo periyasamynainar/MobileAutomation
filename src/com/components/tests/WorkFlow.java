@@ -27,7 +27,7 @@ public class WorkFlow extends JSN_Framework{
 	AccountsPage accountsPage=new AccountsPage();
 	InventoryToolPage inventoryToolPage=new InventoryToolPage();
 //	SetupInventoryPage setupInventoryPage=new SetupInventoryPage();
-	LocationsPage locationsPage=new LocationsPage();
+//	LocationsPage locationsPage=new LocationsPage();
 	CategoryPage categoryPage=new CategoryPage();
 	VendorPage vendorPage=new VendorPage();
 	PurchasesPage purchasespage=new PurchasesPage();
