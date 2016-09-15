@@ -29,9 +29,8 @@ import org.testng.Assert;
 import org.testng.Reporter;
 
 
-import com.sysco.jsn_framework.JSN_Framework;
-import com.sysco.locators.Screenshot;
-public class LocationsPage extends JSN_Framework {
+
+public class LocationsPage extends LibraryPage {
 	private static final Logger LOGGER= Logger.getLogger(LocationsPage.class.getCanonicalName());
 JSN_Framework jsn_Framework= new JSN_Framework();
 	

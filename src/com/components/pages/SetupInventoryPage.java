@@ -32,12 +32,11 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.Reporter;
 
-import com.sysco.pages.VendorPage;
-import com.sysco.jsn_framework.JSN_Framework;
-import com.sysco.locators.Screenshot;
 
 
-public class SetupInventoryPage extends JSN_Framework {
+
+
+public class SetupInventoryPage extends LibraryPage {
 	private static final Logger LOGGER= Logger.getLogger(SetupInventoryPage.class.getCanonicalName());
 	public static final String SetUp_Pg1Title = 
 			"//*[@class='mm-c-inventory-setup']//*[contains(text(),'Import Items')]";

@@ -27,9 +27,8 @@ import java.util.logging.Logger;
 import org.testng.Assert;
 import org.testng.Reporter;
 
-import com.sysco.jsn_framework.JSN_Framework;
-import com.sysco.locators.Screenshot;
-public class PurchasesPage extends JSN_Framework {
+
+public class PurchasesPage extends LibraryPage {
 	private static final Logger LOGGER= Logger.getLogger(PurchasesPage.class.getCanonicalName());
 	public static final String Purchases_Add = 
 			"//*[@id='add-nav']/a/i";

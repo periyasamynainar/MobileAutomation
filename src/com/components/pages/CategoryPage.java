@@ -17,7 +17,7 @@
 		 ********************************************************************************************************************************************
 		 ********************************************************************************************************************************************
 		 **/
-package com.sysco.pages;
+package com.components.pages;
 import java.io.IOException;
 
 import java.util.Set;
@@ -26,13 +26,12 @@ import java.util.logging.Logger;
 import org.testng.Assert;
 import org.testng.Reporter;
 
-import com.sysco.jsn_framework.JSN_Framework;
-import com.sysco.locators.Screenshot;
+
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 		
-		public class CategoryPage extends JSN_Framework{
+		public class CategoryPage extends LibraryPage{
 			
 			private static final Logger LOGGER= Logger.getLogger(CategoryPage.class.getCanonicalName());
 			

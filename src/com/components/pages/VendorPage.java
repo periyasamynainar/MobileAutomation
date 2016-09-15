@@ -26,12 +26,11 @@ import java.util.logging.Logger;
 import org.testng.Assert;
 import org.testng.Reporter;
 
-import com.sysco.jsn_framework.JSN_Framework;
-import com.sysco.locators.Screenshot;
+
 
 import io.appium.java_client.ios.IOSDriver;
 
-public class VendorPage extends JSN_Framework {
+public class VendorPage extends LibraryPage {
 	private static final Logger LOGGER= Logger.getLogger(VendorPage.class.getCanonicalName());
 	public static final String ADD_Vendor = 
 			"//*[@id='add-nav']/a/i";

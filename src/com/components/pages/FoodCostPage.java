@@ -32,12 +32,11 @@ import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.Reporter;
 
-import com.sysco.jsn_framework.JSN_Framework;
-import com.sysco.locators.Screenshot;
 
 
 
-public class FoodCostPage extends JSN_Framework {
+
+public class FoodCostPage extends LibraryPage {
 	
 	private static final Logger LOGGER= Logger.getLogger(FoodCostPage.class.getCanonicalName());
 

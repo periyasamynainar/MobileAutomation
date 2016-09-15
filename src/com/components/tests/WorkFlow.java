@@ -4,7 +4,7 @@ package com.components.tests;
 
 import java.io.IOException;
 import com.components.pages.*;
-
+import com.framework.utilities.Starter;
 
 import java.net.URL;
 import java.util.Set;
@@ -20,7 +20,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 
 
-public class WorkFlow extends JSN_Framework{
+public class WorkFlow extends Starter{
 
 	LoginPage loginPage=new LoginPage();
 	HomePage homePage=new HomePage();
@@ -89,7 +89,7 @@ public class WorkFlow extends JSN_Framework{
 
 
 		user=1;
-
+/*
 		loginPage.verifyLoginPage("SI - WF 1-LoginPage");
 		loginPage.saveUsernameCheckBoxclickElement("SI - WF 1-save username");	
 		loginPage.signIn(datapool.readFromExcelUserInfo().userNameDataPool[user],datapool.readFromExcelUserInfo().passwordDataPool[user],"SI - WF 1-Login");	
@@ -119,7 +119,7 @@ public class WorkFlow extends JSN_Framework{
 		//.VerifyCountOfItemsInLocation(locDataFreezer.LocationName, "")
 		locationsPage.SelectLocation(datapool.readFromExcelLocationInfo().locationNameDataPool[8], "SI - WF 1-Selected dry");
 		locationsPage.VerifyItemsOnDefaultLocation(datapool.readFromExcelLocationInfo().locationNameDataPool[8], "SI - WF 1-Verified dry");
-		locationsPage.TapOnBack("SI - WF 1-Tapped on Back");
+		locationsPage.TapOnBack("SI - WF 1-Tapped on Back");*/
 		//.VerifyCountOfItemsInLocation(locDataDry.LocationName, "");
 	}
 

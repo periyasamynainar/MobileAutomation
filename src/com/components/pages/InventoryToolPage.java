@@ -28,8 +28,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.Reporter;
 
-import com.sysco.jsn_framework.JSN_Framework;
-import com.sysco.locators.Screenshot;
+
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileDriver;
@@ -38,7 +37,7 @@ import io.appium.java_client.SwipeElementDirection;
 import io.appium.java_client.TouchAction;
 
 
-public class InventoryToolPage extends JSN_Framework {
+public class InventoryToolPage extends LibraryPage {
 	private static final Logger LOGGER= Logger.getLogger(InventoryToolPage.class.getCanonicalName());
 	
 	public static final String InvTool_SetUpInv = "//*[@id='menu-item']/a/div/span[contains(text(),'Setup Inventory')]";

@@ -27,9 +27,8 @@ import java.util.logging.Logger;
 import org.testng.Assert;
 import org.testng.Reporter;
 
-import com.sysco.jsn_framework.JSN_Framework;
-import com.sysco.locators.Screenshot;
-public class LoginPage extends JSN_Framework {
+
+public class LoginPage extends LibraryPage {
 	private static final Logger LOGGER= Logger.getLogger(LoginPage.class.getCanonicalName());
 	/* Defining the locators on the Page */
 

@@ -27,8 +27,7 @@ import java.util.logging.Logger;
 import org.testng.Assert;
 import org.testng.Reporter;
 
-import com.sysco.jsn_framework.JSN_Framework;
-import com.sysco.locators.Screenshot;
+
 
 public class ListPage extends JSN_Framework {
 
