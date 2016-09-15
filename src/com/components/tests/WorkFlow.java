@@ -26,8 +26,8 @@ public class WorkFlow extends JSN_Framework{
 	HomePage homePage=new HomePage();
 	AccountsPage accountsPage=new AccountsPage();
 	InventoryToolPage inventoryToolPage=new InventoryToolPage();
-//	SetupInventoryPage setupInventoryPage=new SetupInventoryPage();
-//	LocationsPage locationsPage=new LocationsPage();
+	SetupInventoryPage setupInventoryPage=new SetupInventoryPage();
+	LocationsPage locationsPage=new LocationsPage();
 	CategoryPage categoryPage=new CategoryPage();
 	VendorPage vendorPage=new VendorPage();
 	PurchasesPage purchasespage=new PurchasesPage();
@@ -124,7 +124,7 @@ public class WorkFlow extends JSN_Framework{
 	}
 
 
-
+/*
 	@SuppressWarnings("static-access")
 	@Test(groups={"SI - WF 3"},priority=1, description = "SI - WF 3-OG + Cus Loc + Cust Category")
 	public void SI_WF3_OG_CustomMultipleLocation_CustomMultipleCategory() throws Exception {	
@@ -309,13 +309,13 @@ public class WorkFlow extends JSN_Framework{
 		inventoryToolPage.InvTools_TrackInventory("SI - WF 6-Selected track inventory");
 	}
 
-	/*
+	
 	 * Validating user is able to setup inventory by adding items from OrderGuide and then assign those items to Default locations and skip category.
 	 * Validating users cache is not cleared when logout after setting up inventory.  
 	 * Validating Track Inventory displayed after setting up inventory.
 	 * Validating location is created on Track Inventory and adding items to that location by product catalog addition.
 	 * Prerequisite:Normal/MA User with OG items.
-	 */
+	 
 	@Test(groups={"SI - WF 7"},priority=5, description = "SI - WF 7-OG+Default loc + Skip Category")
 	public void SI_WF7_OG_DefaultLocation_SkipCategory() throws Exception {
 
@@ -366,10 +366,10 @@ public class WorkFlow extends JSN_Framework{
 	}
 	
 	
-	/*
+	
 	 * Validating user is able to setup inventory by adding items from OrderGuide and then skip location and assigning to Default category.
 	 * Prerequisite:Normal/MA User with OG items.
-	 */
+	 
 	@Test(groups={"SI-WF8"},priority=6, description = "SI-WF8-OG + Skip Loc + Default Category")
 	public void SI_WF8_OG_SkipLocation_DefaultCategory() throws Exception{
 
@@ -397,11 +397,11 @@ public class WorkFlow extends JSN_Framework{
 
 		;
 	}		
-	/*
+	
 	 * Validating user is able to setup inventory by adding items from CustomList and then assign those items to Default  location and default category.
 	 * Validating Default categories are listed on Expense categories page 
 	 * Prerequisite:Normal/MA User with MyList.
-	 */
+	 
 	@Test(groups={"SI-WF19"},priority=7, description = "SI-WF19-Custom List + default Loc + default Category ")
 	public void SI_WF19_CustomList_defaultLoc_defaultcategory() throws Exception {	
 
@@ -436,7 +436,7 @@ public class WorkFlow extends JSN_Framework{
 
 	}
 	
-	/*
+	
 	 * Validating user is able to setup inventory by adding items from CustomList and then assigning all items to multiple  locations and Custom category.
 	 * Validating items are displayed on corresponding locations assigned
 	 * Validating location and category displayed on item section on locations page is same as assigned ones.
@@ -444,7 +444,7 @@ public class WorkFlow extends JSN_Framework{
 	 * Validating delete category functionality and checking no category is displayed for those items on No Location in Track Inventory
 	 * Prerequisite:Normal/MA User with MyList with 6 items.
 	 * 
-	 */
+	 
 	@Test(groups={"SI-WF20"},priority=8, description = "SI-WF20-Custom List + Custom Loc + Custom Category ")
 	public void SI_WF20_CustomList_CustomLoc_Customcategory() throws Exception {	
 
@@ -547,12 +547,12 @@ public class WorkFlow extends JSN_Framework{
 		;
 	}	
 	
-	/*
+	
 	 * Validating user is able to setup inventory by adding items from CustomList and then assign few items to multiple  locations and Custom category.
 	 * Validating items are displayed on corresponding locations assigned
 	 * Prerequisite:Normal/MA User with MyList with 6 items.
 	 * 
-	 */
+	 
 	@Test(groups={"SI - WF 21"},priority=9, description = "SI - WF 21-Custom List + Custom Loc + Custom Category + Few items")
 	public void SI_WF21_CustomList_CustomLoc_Customcategory_FewItems() throws Exception {	
 
@@ -612,11 +612,11 @@ public class WorkFlow extends JSN_Framework{
 		;
 	}	
 
-	/*
+	
 	 * Validating user is able to setup inventory by adding items from CustomList and then assign items to Default  locations and Custom category.
 	 * Prerequisite:Normal/MA User with MyList with 6 items.
 	 * 
-	 */
+	 
 
 	@Test(groups={"SI - WF 22"},priority=10, description = "SI - WF 22-Custom List + Default Loc + custom Category")
 	public void SI_WF22_CustomList_DefaultLoc_Customcategory() throws Exception {	
@@ -659,13 +659,13 @@ public class WorkFlow extends JSN_Framework{
 
 	}
 	
-	/*
+	
 	 * Validating user is able to setup inventory by adding items from CustomList and then assign items to multiple  locations and default category.
 	 * Validating items are displayed on corresponding locations assigned
 	 * Validating category displayed on item section on locations page is same as assigned ones.
 	 * Prerequisite:Normal/MA User with MyList with 6 items.
 	 * 
-	 */
+	 
 
 	@Test(groups={"SI - WF 23"},priority=11, description = "SI - WF 23-Custom List + Custom Loc + default Category")
 	public void SI_WF23_CustomList_CustomLoc_defaultcategory() throws Exception {	
@@ -741,11 +741,11 @@ public class WorkFlow extends JSN_Framework{
 
 	}
 	
-	/*
+	
 	 * Validating user is able to setup inventory by adding items from CustomList and then assign items by skipping locations and category.
 	 * Prerequisite:Normal/MA User with MyList with 6 items.
 	 * 
-	 */
+	 
 
 	@Test(groups={"SI - WF 24"},priority=12, description = "SI - WF 24-Custom List + Skip location+ Skip Category")
 	public void SI_WF24_CustomList_SkipLoc_Skipcategory() throws Exception {	
@@ -781,11 +781,11 @@ public class WorkFlow extends JSN_Framework{
 	}
 	
 	
-	/*
+	
 	 * Validating user is able to setup inventory by adding items from CustomList and then assign items to Default  locations and skip category.
 	 * Prerequisite:Normal/MA User with MyList with 6 items.
 	 * 
-	 */
+	 
 
 	@Test(groups={"SI - WF 25"},priority=13, description = "SI - WF 25-Custom List+Default loc + Skip Category")
 	public void SI_WF25_CustomList_DefaultLoc_Skipcategory() throws Exception {	
@@ -816,11 +816,11 @@ public class WorkFlow extends JSN_Framework{
 
 	}
 	
-	/*
+	
 	 * Validating user is able to setup inventory by adding items from CustomList and then assign items by skipping locations and default category.
 	 * Prerequisite:Normal/MA User with MyList with 6 items.
 	 * 
-	 */
+	 
 	@Test(groups={"SI - WF 26"},priority=14, description = "SI - WF 26-Custom List+skip location + default category for Normal user")
 	public void SI_WF26_CustomList_SkipLoc_defaultcategory_NU() throws Exception {	
 
@@ -856,12 +856,12 @@ public class WorkFlow extends JSN_Framework{
 	}
 
 	
-	/*
+	
 	 * Validating user is able to setup inventory by adding items from CustomList(Multiple list) and then assign items to Default category.
 	 * Validating items are displayed on corresponding locations assigned
 	 * Prerequisite:Normal/MA User with MyList having 2 items each for List2,List3
 	 * 
-	 */
+	 
 	@Test(groups={"SI - WF 27"},priority=15, description = "SI - WF 27-Custom List + Select Multiple List +List Names+Default Cat")
 	public void SI_WF27_CustomList_MultipleList_ListNames_DefaultCat() throws Exception {	
 
@@ -879,9 +879,9 @@ public class WorkFlow extends JSN_Framework{
 
 		listPage.TapCustomList("SI - WF 27-custom list Selected");
 		listPage.tapContinue("SI - WF 27-Tapped Continue1");
-		/*listPage.SelectListwithItems(datapool.readFromExcelUserInfo().listNameDataPool[2], "SI - WF 27-select list");
+		listPage.SelectListwithItems(datapool.readFromExcelUserInfo().listNameDataPool[2], "SI - WF 27-select list");
 		listPage.SelectListwithItems(datapool.readFromExcelUserInfo().listNameDataPool[3], "SI - WF 27-select list");
-		*/listPage.SelectListwithItems("List2", "SI - WF 27-select list");
+		listPage.SelectListwithItems("List2", "SI - WF 27-select list");
 		listPage.SelectListwithItems("List3", "SI - WF 27-select list");
 		listPage.TapOnNext("SI - WF 27-tapped next");
 
@@ -893,27 +893,27 @@ public class WorkFlow extends JSN_Framework{
 
 		setupInventoryPage.TapTakeHome("SI - WF 27-Tapped take me home")      ;
 		inventoryToolPage.InvTools_TrackInventory("SI - WF 27-Selected track inventory");
-		/*locationsPage.SelectLocation(datapool.readFromExcelUserInfo().listNameDataPool[2], "SI - WF 27-select added location");
+		locationsPage.SelectLocation(datapool.readFromExcelUserInfo().listNameDataPool[2], "SI - WF 27-select added location");
 		locationsPage.VerifyListItemsOnLocation(datapool.readFromExcelUserInfo().listProduct1DataPool[2],datapool.readFromExcelUserInfo().listProduct2DataPool[2],"SI - WF 27-Item verification");
-		*/locationsPage.SelectLocation("List2", "SI - WF 27-select added location");
+		locationsPage.SelectLocation("List2", "SI - WF 27-select added location");
 		locationsPage.VerifyListItemsOnLocation("1358522","208845","SI - WF 27-Item verification");
 		
 		locationsPage.TapOnDone("SI - WF 1-Tapped Done");
-		/*locationsPage.SelectLocation(datapool.readFromExcelUserInfo().listNameDataPool[3], "SI - WF 27-select added location");
+		locationsPage.SelectLocation(datapool.readFromExcelUserInfo().listNameDataPool[3], "SI - WF 27-select added location");
 		locationsPage.VerifyListItemsOnLocation(datapool.readFromExcelUserInfo().listProduct1DataPool[3],datapool.readFromExcelUserInfo().listProduct2DataPool[3],"SI - WF 27-Item verification");
-		*/locationsPage.SelectLocation("List3", "SI - WF 27-select added location");
+		locationsPage.SelectLocation("List3", "SI - WF 27-select added location");
 		locationsPage.VerifyListItemsOnLocation("1141142","1145283","SI - WF 27-Item verification");
 		
 		locationsPage.TapOnDone("SI - WF 27-Tapped Done") ;     
 		
 	}
 	
-	/*
+	
 	 * Validating user is able to setup inventory by adding items from CustomList(Multiple list) and then assign items to custom category.
 	 * Validating items are displayed on corresponding locations assigned
 	 * Prerequisite:Normal/MA User with MyList having 2 items each for List2,List3
 	 * 
-	 */
+	 
 	@Test(groups={"SI - WF 28"},priority=16, description = "SI - WF 28-Custom List + Select Multiple List +List Names as location+custom Cat")
 	public void SI_WF28_1_CustomList_MultipleList_ListNames_Customcategory() throws Exception {	
 
@@ -929,8 +929,8 @@ public class WorkFlow extends JSN_Framework{
 		
 		listPage.TapCustomList("SI - WF 28-custom list Selected");
 		listPage.tapContinue("SI - WF 28-Tapped Continue1");
-	/*	listPage.SelectListwithItems(datapool.readFromExcelUserInfo().listNameDataPool[2], "SI - WF 28-select list");
-		listPage.SelectListwithItems(datapool.readFromExcelUserInfo().listNameDataPool[3], "SI - WF 28-select list");*/
+		listPage.SelectListwithItems(datapool.readFromExcelUserInfo().listNameDataPool[2], "SI - WF 28-select list");
+		listPage.SelectListwithItems(datapool.readFromExcelUserInfo().listNameDataPool[3], "SI - WF 28-select list");
 		listPage.SelectListwithItems("List2", "SI - WF 27-select list");
 		listPage.SelectListwithItems("List3", "SI - WF 27-select list");
 		listPage.TapOnNext("SI - WF 28-tapped next");
@@ -950,16 +950,16 @@ public class WorkFlow extends JSN_Framework{
 
 		inventoryToolPage.InvTools_TrackInventory("SI - WF 28-Selected track inventory");
 		
-		/*locationsPage.SelectLocation(datapool.readFromExcelUserInfo().listNameDataPool[2], "SI - WF 28-select added location");
+		locationsPage.SelectLocation(datapool.readFromExcelUserInfo().listNameDataPool[2], "SI - WF 28-select added location");
 		locationsPage.VerifyListItemsOnLocation(datapool.readFromExcelUserInfo().listProduct1DataPool[2],datapool.readFromExcelUserInfo().listProduct2DataPool[2],"SI - WF 28-Item verification");
-		*/locationsPage.SelectLocation("List2", "SI - WF 27-select added location");
+		locationsPage.SelectLocation("List2", "SI - WF 27-select added location");
 		locationsPage.VerifyListItemsOnLocation("1358522","208845","SI - WF 27-Item verification");
 		//locationsPage.TapOnDone("SI - WF 28-Tapped Done");
 		locationsPage.TapOnBack("SI - WF 28-Tapped Back");
 		
-		/*locationsPage.SelectLocation(datapool.readFromExcelUserInfo().listNameDataPool[3], "SI - WF 28-select added location");
+		locationsPage.SelectLocation(datapool.readFromExcelUserInfo().listNameDataPool[3], "SI - WF 28-select added location");
 		locationsPage.VerifyListItemsOnLocation(datapool.readFromExcelUserInfo().listProduct1DataPool[3],datapool.readFromExcelUserInfo().listProduct2DataPool[3],"SI - WF 28-Item verification");
-		*/locationsPage.SelectLocation("List3", "SI - WF 27-select added location");
+		locationsPage.SelectLocation("List3", "SI - WF 27-select added location");
 		locationsPage.VerifyListItemsOnLocation("1141142","1145283","SI - WF 27-Item verification");
 		
 		//locationsPage.TapOnDone("SI - WF 28-Tapped Done");      
@@ -1012,11 +1012,11 @@ public class WorkFlow extends JSN_Framework{
 
 	}	
 
-	/*
+	
 	 * Validating user is able to setup inventory by adding items from CustomList(single list) and then assign items to custom category as location and Default Cat .
 	 * Prerequisite:Normal/MA User with MyList having 6 items and items should be categorized
 	 * 
-	 */
+	 
 	@Test(groups={"SI - WF 29"},priority=17, description = "SI - WF 29-Custom List + Select single  List +Custom categories as location+Default Cat")
 	public void SI_WF29_CustomListSingleList_CustomCategoryOnLocationsPage_defaultcategory() throws Exception {	
 
@@ -1054,12 +1054,12 @@ public class WorkFlow extends JSN_Framework{
 
 	}
 	
-	/*
+	
 	/*
 	 * Validating user is able to setup inventory by adding items from CustomList(single list) and then assign items to custom category as location and Custom Cat 
 	 * Prerequisite:Normal/MA User with MyList having 6 items and items should be categorized
 	 * 
-	 */
+	 
 
 
 	@Test(groups={"SI - WF 30"},priority=18, description = "SI - WF 30-Custom List + Select single  List +Custom Categories as location+Custom Cat")
@@ -1120,12 +1120,12 @@ public class WorkFlow extends JSN_Framework{
 
 	}
 	
-	/*
+	
 	 * Validating user is able to setup inventory by adding items from CustomList(Multiple list) and then skipping Category 
 	 * Validating items are displayed on corresponding locations assigned
 	 * Prerequisite:Normal/MA User with MyList having 2 items each for List2,List3
 	 * 
-	 */
+	 
 	@Test(groups={"SI - WF 31"},priority=19, description = "SI - WF 31-Custom List + Select Multiple List +List Names as location+skip Cat")
 	public void SI_WF31_CustomList_MultipleList_ListNames_Skipcategory() throws Exception {	
 
@@ -1142,9 +1142,9 @@ public class WorkFlow extends JSN_Framework{
 
 		listPage.TapCustomList("SI - WF 31-custom list Selected");
 		listPage.tapContinue("SI - WF 31-Tapped Continue1");
-		/*listPage.SelectListwithItems(datapool.readFromExcelUserInfo().listNameDataPool[2], "SI - WF 31-select list");
+		listPage.SelectListwithItems(datapool.readFromExcelUserInfo().listNameDataPool[2], "SI - WF 31-select list");
 		listPage.SelectListwithItems(datapool.readFromExcelUserInfo().listNameDataPool[3], "SI - WF 31-select list");
-		*/listPage.SelectListwithItems("List2", "SI - WF 27-select list");
+		listPage.SelectListwithItems("List2", "SI - WF 27-select list");
 		listPage.SelectListwithItems("List3", "SI - WF 27-select list");
 		listPage.TapOnNext("SI - WF 31-tapped next");
 
@@ -1156,15 +1156,15 @@ public class WorkFlow extends JSN_Framework{
 
 		inventoryToolPage.InvTools_TrackInventory("SI - WF 31-Selected track inventory");
 		
-		/*locationsPage.SelectLocation(datapool.readFromExcelUserInfo().listNameDataPool[2], "SI - WF 31-select added location");
+		locationsPage.SelectLocation(datapool.readFromExcelUserInfo().listNameDataPool[2], "SI - WF 31-select added location");
 		locationsPage.VerifyListItemsOnLocation(datapool.readFromExcelUserInfo().listProduct1DataPool[2],datapool.readFromExcelUserInfo().listProduct2DataPool[2],"SI - WF 31-Item verification");
-		*/locationsPage.SelectLocation("List2", "SI - WF 27-select added location");
+		locationsPage.SelectLocation("List2", "SI - WF 27-select added location");
 		locationsPage.VerifyListItemsOnLocation("1358522","208845","SI - WF 27-Item verification");
 		
 		locationsPage.TapOnDone("SI - WF 31-Tapped Done");
-		/*locationsPage.SelectLocation(datapool.readFromExcelUserInfo().listNameDataPool[3], "SI - WF 31-select added location");
+		locationsPage.SelectLocation(datapool.readFromExcelUserInfo().listNameDataPool[3], "SI - WF 31-select added location");
 		locationsPage.VerifyListItemsOnLocation(datapool.readFromExcelUserInfo().listProduct1DataPool[3],datapool.readFromExcelUserInfo().listProduct2DataPool[3],"SI - WF 31-Item verification");
-		*/
+		
 		locationsPage.SelectLocation("List3", "SI - WF 27-select added location");
 		locationsPage.VerifyListItemsOnLocation("1141142","1145283","SI - WF 27-Item verification");
 		
@@ -1172,11 +1172,11 @@ public class WorkFlow extends JSN_Framework{
 	
 	}
 	
-	/*
+	
 	 * Validating user is able to setup inventory by adding items from CustomList(single list) and then assign items to custom category as location and then skipping Category 
 	 * Prerequisite:Normal/MA User with MyList having 6 items 
 	 * 
-	 */
+	 
 	@Test(groups={"SI - WF 32"},priority=20, description = "SI - WF 32-Custom List + Select single  List +Custom categories as location+Skip Cat")
 	public void SI_WF32_CustomList_SingleList_CustomCatLoc_Skipcategory() throws Exception {	
 
@@ -1210,10 +1210,10 @@ public class WorkFlow extends JSN_Framework{
 	
 	
 	
-	/*
+	
 	 * Validating user is able to setup inventory by adding items from OrderGuide and then assign those items to Default locations and Suggested category.
 	 * Prerequisite:Normal/MA User with OG items.
-	 */
+	 
 
 	@Test(groups={"SI - WF 33"},priority=21, description = "SI - WF 33-OG + Default Loc + Suggested Category")
 	public void SI_WF33_OG_DefaultLocation_SuggestedCategory() throws Exception {	
@@ -1245,12 +1245,12 @@ public class WorkFlow extends JSN_Framework{
 
 
 	}
-	/*
+	
 	 * Validating user is able to setup inventory by adding items from OrderGuide and then assign those items to Custom locations and Suggested category.
 	 * Validating items are displayed on corresponding locations assigned
 	 * Validating suggested categories are displayed for each item on Track Inv
 	 * Prerequisite:Normal/MA User with OG items.
-	 */
+	 
 
 	@Test(groups={"SI - WF 34"},priority=22, description = "SI - WF 34-OG + Custom Loc + Suggested Category")
 	public void SI_WF34_OG_CustomLocation_SuggestedCategory() throws Exception {	
@@ -1302,11 +1302,11 @@ public class WorkFlow extends JSN_Framework{
 	}
 	
 	
-	/*
+	
 	 * Validating user is able to setup inventory by adding items from CustomList(single list) and then assign items to custom category as location and Suggested Cat .
 	 * Prerequisite:Normal/MA User with MyList having 6 items and items should be categorized
 	 * 
-	 */
+	 
 
 	@Test(groups={"SI - WF 35"},priority=23, description = "SI - WF 35-Custom List + Select single  List +Custom Categories as location+Suggested Cat")
 	public void SI_WF35_CustomListSingleList_CustomCategoryOnLocationsPage_suggestedcategory() throws Exception {
@@ -1339,12 +1339,12 @@ public class WorkFlow extends JSN_Framework{
 
 
 	}
-	/*
+	
 	 * Validating user is able to setup inventory by adding items from CustomList(Multiple list) and then assign items to Suggested Category .
 	 * Validating suggested category can be edited on product detail page and verifying.
 	 * Prerequisite:Normal/MA User with MyList having  2 items each for List2,List3
 	 * 
-	 */
+	 
 	@Test(groups={"SI - WF 36"},priority=24, description = "SI - WF 36-Custom List + Select Multiple List +List Names+Suggested Cat")
 	public void SI_WF36_CustomList_MultipleList_ListNames_SuggestedCat() throws Exception {
 
@@ -1361,9 +1361,9 @@ public class WorkFlow extends JSN_Framework{
 
 		listPage.TapCustomList("SI - WF 36-custom list Selected");
 		listPage.tapContinue("SI - WF 36-Tapped Continue1");
-		/*listPage.SelectListwithItems(datapool.readFromExcelUserInfo().listNameDataPool[2], "SI - WF 36-select list");
+		listPage.SelectListwithItems(datapool.readFromExcelUserInfo().listNameDataPool[2], "SI - WF 36-select list");
 		listPage.SelectListwithItems(datapool.readFromExcelUserInfo().listNameDataPool[3], "SI - WF 36-select list");
-		*/listPage.SelectListwithItems("List2", "SI - WF 27-select list");
+		listPage.SelectListwithItems("List2", "SI - WF 27-select list");
 		listPage.SelectListwithItems("List3", "SI - WF 27-select list");
 		listPage.TapOnNext("SI - WF 36-tapped next");
 
@@ -1376,15 +1376,15 @@ public class WorkFlow extends JSN_Framework{
 		setupInventoryPage.TapTakeHome("SI - WF 36-Tapped take me home")   ;   
 		inventoryToolPage.InvTools_TrackInventory("SI - WF 36-Selected track inventory");
 
-		/*locationsPage.SelectLocation(datapool.readFromExcelUserInfo().listNameDataPool[2], "SI - WF 36-select added location");
+		locationsPage.SelectLocation(datapool.readFromExcelUserInfo().listNameDataPool[2], "SI - WF 36-select added location");
 		locationsPage.VerifyListItemsOnLocation(datapool.readFromExcelUserInfo().listProduct1DataPool[2],datapool.readFromExcelUserInfo().listProduct2DataPool[2],"SI - WF 36-Item verification");
-		*/locationsPage.SelectLocation("List2", "SI - WF 27-select added location");
+		locationsPage.SelectLocation("List2", "SI - WF 27-select added location");
 		locationsPage.VerifyListItemsOnLocation("1358522","208845","SI - WF 27-Item verification");
 		
 		locationsPage.TapOnDone("SI - WF 36-Tapped Done");
-		/*locationsPage.SelectLocation(datapool.readFromExcelUserInfo().listNameDataPool[3], "SI - WF 36-select added location");
+		locationsPage.SelectLocation(datapool.readFromExcelUserInfo().listNameDataPool[3], "SI - WF 36-select added location");
 		locationsPage.VerifyListItemsOnLocation(datapool.readFromExcelUserInfo().listProduct1DataPool[3],datapool.readFromExcelUserInfo().listProduct2DataPool[3],"SI - WF 36-Item verification");
-		*/locationsPage.SelectLocation("List3", "SI - WF 27-select added location");
+		locationsPage.SelectLocation("List3", "SI - WF 27-select added location");
 		locationsPage.VerifyListItemsOnLocation("1141142","1145283","SI - WF 27-Item verification");
 		
 		//changing category and verification
@@ -1409,12 +1409,12 @@ public class WorkFlow extends JSN_Framework{
 	@Test(groups={"TI-WF1-WF2"},priority=25, description = "TI-WF1-WF2-Select a location from trackinventory updating quantity and uom")
 	public void TI_WF1_WF2_Location_Item_UOMQuantity() throws Exception {	
 
-		/*LoginData loginData =LoginData.fetch("LoginData1");	
+		LoginData loginData =LoginData.fetch("LoginData1");	
 		LocationsData locationsData1 =LocationsData.fetch("LocationsData");
 		UOMQuantityData uomQuantityData=UOMQuantityData.fetch("UOMQuantityData");
 		UOMQuantityData uomQuantityData1=UOMQuantityData.fetch("UOMQuantityData1");
 		PrepItemData prepItemData =PrepItemData.fetch("PrepItemData");
-		 */
+		 
 		user=8;
 
 		loginPage.verifyLoginPage("TI-WF1-WF2 LoginPage");
@@ -1475,24 +1475,24 @@ public class WorkFlow extends JSN_Framework{
 
 
 
-	/*
+	
 	 * Validating user is able to setup inventory.
 	 * Validating creation of location on Track inventory,adding multiple items to location (Pdt catalog + OG +Non sysco+Prep)
 	 * Validating nickname can be assigned for OG and catalog items  
 	 * Prerequisite:Normal/MA User with OG items
-	 */
+	 
 
 	@Test(groups={"MIL-WF1-WF4"},priority=26, description = "MIL - WF 1,WF 4-Creating Location in trackinventory and add items from multiple lists to location")
 	public void MIL_WF1_WF4_Location_AddItems() throws Exception {	
 
-		/*	LoginData loginData =LoginData.fetch("LoginData2");	
+			LoginData loginData =LoginData.fetch("LoginData2");	
 		LocationsData locationsData =LocationsData.fetch("LocatiosData3");
 		ProductNickNameData productNickNameData=ProductNickNameData.fetch("ProductNickNameData");
 		NonSyscoItemData nonSyscoItemData =NonSyscoItemData.fetch("NonSyscoItmData");
 		PrepItemData prepItemData =PrepItemData.fetch("PrepItemData");
 		VendorDetailsData vendorDetailsData =VendorDetailsData.fetch("VDNonsysco");
 		SearchData searchData=SearchData.fetch("SearchData");
-		 */
+		 
 		user=8;
 
 		loginPage.verifyLoginPage("MIL-WF1-WF4 LoginPage");
@@ -1589,18 +1589,18 @@ public class WorkFlow extends JSN_Framework{
 		;
 	}
 
-	/*
+	
 	 * Validating user is able to setup inventory.
 	 * Validating creation of location on Track inventory,adding Non sysco and Prep items to multiple locations
 	 * Validating  quantity updation on Product detail page for same item on different locations
 	 * Prerequisite:Normal/MA User with OG items
-	 */
+	 
 
 
 	@Test(groups={"MIL - WF 2"},priority=27, description = "MIL - WF 2-Selecing a location, adding same items to multiple location")
 	public void MIL_WF2_Location_AddItems__MultipleLocation() throws Exception {	
 
-		/*LoginData loginData =LoginData.fetch("LoginData3");
+		LoginData loginData =LoginData.fetch("LoginData3");
 		LocationsData locationsData3 =LocationsData.fetch("LocatiosData3");
 		LocationsData locationsData1 =LocationsData.fetch("LocatiosData1");
 		LocationsData locationsData2 =LocationsData.fetch("LocatiosData2");
@@ -1610,7 +1610,7 @@ public class WorkFlow extends JSN_Framework{
 		//SearchData searchData=SearchData.fetch("SearchData");
 		UOMQuantityData uomQuantityData = UOMQuantityData.fetch("UOMQuantityData");
 		UOMQuantityData uomQuantityData1 = UOMQuantityData.fetch("UOMQuantityData1");
-		 */
+		 
 		user=12;
 
 		loginPage.verifyLoginPage("MIL-WF 2 LoginPage");
@@ -1730,22 +1730,22 @@ public class WorkFlow extends JSN_Framework{
 
 		;
 	}
-	/*
+	
 	 * Validating user is able to setup inventory.
 	 * Validating creation of location on Track inventory,adding OG items to location and searching items within location
 	 * Validating count of items displayed for each location.
 	 * Prerequisite:Normal/MA User with OG items
-	 */
+	 
 	@Test(groups={"MIL - WF 3"},priority=28, description = "MIL - WF 3-Selecting a specific location in trackinventory and search for items within location for MA user")
 	public void MIL_WF3_Location_SearchItems() throws Exception {	
 
-		/*LoginData loginData =LoginData.fetch("LoginData1");
+		LoginData loginData =LoginData.fetch("LoginData1");
 		LocationsData locationsData =LocationsData.fetch("LocatiosData3");
 		SearchData searchData=SearchData.fetch("SearchData");
 		LocationsData locationsData1 =LocationsData.fetch("LocatiosData1");
 		LocationsData locationsData2 =LocationsData.fetch("LocatiosData2");
 		CategoryData categoryData=CategoryData.fetch("CategoryData");
-		 */
+		 
 		user=12;
 
 		loginPage.verifyLoginPage("MIL-WF-3LoginPage");
@@ -1835,21 +1835,21 @@ public class WorkFlow extends JSN_Framework{
 
 		;
 	}
-	/*
+	
 	 * Validating user is able to setup inventory.
 	 * Validating creation of location on Track inventory,adding Non sysco item to location 
 	 * Validating different locations can be assigned to same item through product detail page
 	 * Prerequisite:Normal/MA User with OG items
 	 * 
-	 */@Test(groups={"MIL - WF 5"},priority=29, description = "MIL - WF 5-Selecting a location navigate to product and assiging  item  to diff location")
+	 @Test(groups={"MIL - WF 5"},priority=29, description = "MIL - WF 5-Selecting a location navigate to product and assiging  item  to diff location")
 	 public void MIL_WF5_Locations_ItemEdit_UpdateLocation() throws Exception {	
 
-		 /*LoginData loginData =LoginData.fetch("LoginData2");
+		 LoginData loginData =LoginData.fetch("LoginData2");
 		LocationsData locationsData =LocationsData.fetch("LocatiosData3");
 		LocationsData locationsData1 =LocationsData.fetch("LocatiosData2");
 		NonSyscoItemData nonSyscoItemData =NonSyscoItemData.fetch("NonSyscoItmData");
 		VendorDetailsData vendorDetailsData =VendorDetailsData.fetch("VDNonsysco");
-		  */	user=12;
+		  	user=12;
 
 		  loginPage.verifyLoginPage("MIL-WF-5 LoginPage");
 		  loginPage.saveUsernameCheckBoxclickElement("MIL-WF-5-save username");	
@@ -1928,21 +1928,21 @@ public class WorkFlow extends JSN_Framework{
 		  ;
 	 }
 
-	 /*
+	 
 	  * Validating user is able to setup inventory.
 	  * Validating Creating Location,Editing Location in Manage Locations and deleting location
 	  * Prerequisite:Normal/MA User with OG items
 	  * 
-	  */
+	  
 
 
 	 @Test(groups={"MIL - WF 6"},priority=30, description = "MIL - WF 6-Creating Location,Editing Location in Manage Locations and assiging  item  to diff location")
 	 public void MIL_WF6_Create_Edit_Delete_Locations() throws Exception {	
 
-		 /*LoginData loginData =LoginData.fetch("LoginData4");
+		 LoginData loginData =LoginData.fetch("LoginData4");
 		LocationsData locationsData2 =LocationsData.fetch("LocatiosData2");
 		LocationsData locationsData1 =LocationsData.fetch("LocatiosData1");
-		  */
+		  
 		 user=12;
 
 		 loginPage.verifyLoginPage("MIL-WF-6 LoginPage");
@@ -2006,17 +2006,17 @@ public class WorkFlow extends JSN_Framework{
 
 		 ;
 	 }
-	 /*
+	 
 	  * Validating user is able to setup inventory.
 	  * Validating Creating Location and Delete Items from location
 	  * Prerequisite:Normal/MA User with OG items
 	  * 
-	  */
+	  
 
 	 @Test(groups={"MIL - WF 7"},priority=31, description = "MIL - WF 7-Track Inventory+Location+Edit+Delete Items from location")
 	 public void MIL_WF7_TrackInventory_Location_Edit_Delete_Items_location_MA() throws Exception {
 
-		 /*LoginData loginData =LoginData.fetch("LoginData3"); 
+		 LoginData loginData =LoginData.fetch("LoginData3"); 
 		LocationsData locationsData8 =LocationsData.fetch("LocatiosData8");
 		LocationsData locationsData9 =LocationsData.fetch("LocatiosData9");
 
@@ -2029,7 +2029,7 @@ public class WorkFlow extends JSN_Framework{
 		//SearchData searchData=SearchData.fetch("SearchData");
 		UOMQuantityData uomQuantityData = UOMQuantityData.fetch("UOMQuantityData");
 		UOMQuantityData uomQuantityData1 = UOMQuantityData.fetch("UOMQuantityData1");
-		  */
+		  
 		 user=8;
 
 		 loginPage.verifyLoginPage("MIL-WF-7 LoginPage");
@@ -2172,23 +2172,23 @@ public class WorkFlow extends JSN_Framework{
 
 				 ;
 	 }
-	 /*
+	 
 	  * Validating user is able to setup inventory.
 	  * Validating Creating Location and updating quantity on product card
 	  * Prerequisite:Normal/MA User with OG items
 	  * 
-	  */
+	  
 
 
 	 @Test(groups={"MIL - WF 10"},priority=32, description = "MIL - WF 10 NU Track Inventory+Location+item product card + update qty & UOM")
 	 public void MIL_WF10_TrackInventory_Location_item_productcard_updateqtyUOM() throws Exception {	
 
-		 /*LoginData loginData =LoginData.fetch("LoginData4");;
+		 LoginData loginData =LoginData.fetch("LoginData4");;
 			LocationsData locationsData =LocationsData.fetch("LocationsData");
 			PrepItemData prepItemData =PrepItemData.fetch("PrepItemData");
 			PrepItemData prepItemData1 =PrepItemData.fetch("PrepItemData1");
 			UOMQuantityData uomQuantityData1 = UOMQuantityData.fetch("UOMQuantityData1");
-		  */
+		  
 		 user=12;
 
 		 loginPage.verifyLoginPage("MIL - WF 10 LoginPage");
@@ -2244,12 +2244,12 @@ public class WorkFlow extends JSN_Framework{
 	 }
 
 
-	 /*
+	 
 	  * Validating user is able to setup inventory.
 	  * Validating editing item and updating category on product card
 	  * Prerequisite:Normal/MA User with OG items
 	  * 
-	  */
+	  
 
 	 @Test(groups={"MEC - WF 1"},priority=33, description = "MEC - WF 1-Selecting a location navigate to product and assiging  item  to category created")
 	 public void MEC_WF1_Locations_ItemEdit_UpdateCategory() throws Exception {	
@@ -2426,12 +2426,12 @@ public class WorkFlow extends JSN_Framework{
 				 ;
 	 }
 
-	 /*
+	 
 	  * Validating user is able to setup inventory.
 	  * Validating Creating, editing and deleting category
 	  * Prerequisite:Normal/MA User with OG items
 	  * 
-	  */
+	  
 
 	 @Test(groups={"MEC - WF 2"},priority=34, description = "MEC - WF 2-Creating, editing and deleting category ")
 	 public void MEC_WF2_Category_Create_Edit_Delete_Category() throws Exception {	
@@ -2477,15 +2477,15 @@ public class WorkFlow extends JSN_Framework{
 		 ;
 	 }	
 
-	 /*
+	 
 	  * Validating user is able to add purchase and Food cost
-	  */
+	  
 
 
 	 @Test(groups={"MP-WF1"},priority=35, description = "MP - WF 1-Purchases-FoodCost")
 	 public void MP_WF1_Purchases_FoodCost() throws Exception
 	 {
-		 /*LoginData loginData =LoginData.fetch("LoginData7");
+		 LoginData loginData =LoginData.fetch("LoginData7");
 			LocationsData locDataCooler=LocationsData.fetch("LocatiosData5");
 			LocationsData locDataFreezer=LocationsData.fetch("LocatiosData6");
 			LocationsData locDataDry=LocationsData.fetch("LocatiosData7");
@@ -2493,7 +2493,7 @@ public class WorkFlow extends JSN_Framework{
 			UOMQuantityData uomQuantityData3=UOMQuantityData.fetch("UOMQuantityData3");
 			VendorDetailsData vendorData=VendorDetailsData.fetch("VendorDetailData1");
 			PurchasesData purchasesData=PurchasesData.fetch("PurchasesData");
-		  */	
+		  	
 		 user=12;
 
 		 loginPage.verifyLoginPage("MP-WF 1 LoginPage");
@@ -2594,12 +2594,12 @@ public class WorkFlow extends JSN_Framework{
 
 	 
 
-	  /*
+	  
 		 * Validating user is able to setup inventory.
 		 * Validating Non sysco item addition through Homepage and linking supplier location and category
 		 * Prerequisite:Normal/MA User with OG items
 		 * 
-		 */
+		 
 	 
 	 @Test(groups={"MNS-1"},priority=36, description = "MNS-1-Manage_Create Non-Sysco Item_Link Supplier_Location_Expense Category")
 		public void MNS_1_CreateNonSyscoItem_LinkSupplier_Location_Category() throws Exception {	
@@ -2902,12 +2902,12 @@ user=2;
 	}
 	
 	
-		 /*
+		 
 		 * Validating user is able to setup inventory.
 		 * Validating Prep item addition through Homepage and linking supplier location and category
 		 * Prerequisite:Normal/MA User with OG items
 		 * 
-		 */
+		 
 
 		@Test(groups={"MPI-1"},priority=37, description = "MPI-1-Manage_Create Prep Item_LinkLocation_Expense Category")
 		public void MPI_1_CreatePrepItem_LinkLocation_Category_NU() throws Exception {	
@@ -3108,12 +3108,12 @@ user=2;
 		}
 		
 		
-		 /*
+		 
 		 * Validating user is able to setup inventory.
 		 * Validating add/edit/delete supplier  through Homepage 
 		 * Prerequisite:Normal/MA User with OG items
 		 * 
-		 */
+		 
 
 		@Test(groups={"MSP-1 MSP-2"},priority=38, description = "MSP-1 MSP-2 Home Screen-->Suppliers-->Add new Suppliers/View/Maintain Suppliers")
 		public void MSP1_MSP2_Add_View_ManageSuppliers() throws Exception
@@ -3175,7 +3175,7 @@ user=2;
 			loginPage.verifyLoginPage("SI - WF 39-LoginPage");
 			loginPage.saveUsernameCheckBoxclickElement("SI - WF 39-save username");	
 			loginPage.signIn(datapool.readFromExcelUserInfo().userNameDataPool[user],datapool.readFromExcelUserInfo().passwordDataPool[user],"SI - WF 39-Login");	
-		/*	homePage.ClickAccount(datapool.readFromExcelUserInfo().userNameDataPool[user],"Clicked account");
+			homePage.ClickAccount(datapool.readFromExcelUserInfo().userNameDataPool[user],"Clicked account");
 			accountsPage.First_AccountSelection(datapool.readFromExcelUserInfo().userNameDataPool[user],"SI - WF 39-FirstAccountSelect");
 			inventoryToolPage.InvTools_SetUpInventory("SI - WF 39-SetupInventoryTap");
 			setupInventoryPage.TapOnSkip("SI - WF 39-Skip1 Tapped");
@@ -3188,7 +3188,7 @@ user=2;
 			categoryPage.VerifyOptionsOnSetUpFoodCost("SI - WF 39-Category page verified");
 			categoryPage.defaultCategories("SI - WF 39-Tapped Default category");
 			categoryPage.tapComplete("SI - WF 39-Tapped Complete");
-			setupInventoryPage.TapTakeHome("SI - WF 39-Tapped take me home")  ; */
+			setupInventoryPage.TapTakeHome("SI - WF 39-Tapped take me home")  ; 
 			
 			//clicked on track inventory link
 			inventoryToolPage.InvTools_TrackInventory("SI - WF 39-Selected track inventory");			
@@ -3286,13 +3286,13 @@ user=2;
 		}
 		
 		
-		/**
+		*//**
 		 * @author Parvathy_P
 		 * @testcase INV_300
 		 * @description Validate when a customer tries to change the location for sysco item, the list should be available as a drop down in product card
 		 * @date 14/8/2016
 		 * @throws Exception
-		 */
+		 *//*
 				
 		@Test(groups={"SI - WF 39"},priority=5, description = "SI - WF 39 ")
 		public void SI_WF39_OG_INV_300() throws Exception {
@@ -3370,7 +3370,7 @@ user=2;
 			
 			
 		}
-
+*/
 	 
 }
 
