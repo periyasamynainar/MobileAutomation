@@ -17,15 +17,14 @@ public class Starter {
 
 
 	
-
 	public static ThreadLocal<WebDriver> localThread = new ThreadLocal<WebDriver>();
-	public static  WebDriver driver ;
+
 	public static DesiredCapabilities cap;
 //	static{			
 	public static String strPlatformName, strPlatformVersion, strDeviceName, strAutoWebView, strUDID, strAppPath;
 	public static String strHost, strPort ;	
 	public static Boolean boolIsAppVal;
-	AppiumDriver<WebElement> driver1 ;
+	AppiumDriver<WebElement> driver ;
 	
 	
 	
@@ -36,14 +35,15 @@ public class Starter {
 			
 			switch(strPlatformName){			
 				case "android":
-					driver = new AndroidDriver<WebElement>(urlObj, getAndroidCapabilities());	
-				//	localThread.set(driver1);
+					driver = new AndroidDriver<WebElement>(urlObj, getAndroidCapabilities());
+					localThread.set(driver);
+					break;
 				case "ios":
 					driver = new IOSDriver<WebElement>(urlObj, getIOSCapabilities());	
-					//localThread.set(driver1);
+					localThread.set(driver);
+					break;
 				case "desktop":
-					driver = new RemoteWebDriver(urlObj, getDesktopCapabilities());	
-				//	localThread.set(driver);
+					driver = (AppiumDriver<WebElement>) new RemoteWebDriver(urlObj, getDesktopCapabilities());	
 				default:
 					System.out.println("Specify correct platformType in testType parameters in test.properties file");
 			}
@@ -52,14 +52,14 @@ public class Starter {
 		}
 						
 		localThread.set(driver);
-		localThread.get().manage().window().maximize();
+	//	localThread.get().manage().window().maximize();
 		System.out.print("local Thread"+ localThread.toString()+ "   ");
 		System.out.println("driver"+ localThread.get().toString()); 
 		
 	}
 	
-	public WebDriver getDriver(){
-		LibraryPage.setWebDriver(localThread.get());      // This line of code is used to send current thread instance to library page class
+	public static WebDriver getDriver(){
+		//LibraryPage.setWebDriver(localThread.get());      // This line of code is used to send current thread instance to library page class
 		return localThread.get();
 	}
 	

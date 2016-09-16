@@ -14,7 +14,7 @@ import java.util.Set;
 public class TestProperties {
 
 	
-public	static Set<Entry<Object, Object>> obj ;
+public static Set<Entry<Object, Object>> obj ;
 public static	Map<Object, Object> mapObject = new HashMap<>();
 	
 	static{
@@ -43,7 +43,7 @@ public static	Map<Object, Object> mapObject = new HashMap<>();
 		}
 }
 
-	static String getProperty(String str){
+	public static String getProperty(String str){
 	
 	return mapObject.get(str).toString();
 	

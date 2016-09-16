@@ -26,10 +26,12 @@ import java.util.logging.Logger;
 import org.testng.Assert;
 import org.testng.Reporter;
 
+import com.components.pages.AccountsPage;
 
 
 
-public class IOSTabletPage {
+
+public class IOSTabletPage extends AccountsPage{
 	
 	private static final Logger LOGGER= Logger.getLogger(IOSTabletPage.class.getCanonicalName());
 	
@@ -41,4 +43,8 @@ public class IOSTabletPage {
 
 	/* Functions on the Page are defined below */
 
+	
+	
+	
+	
 }

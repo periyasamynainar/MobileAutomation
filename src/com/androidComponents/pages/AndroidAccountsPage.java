@@ -26,10 +26,12 @@ import java.util.logging.Logger;
 import org.testng.Assert;
 import org.testng.Reporter;
 
+import com.components.pages.AccountsPage;
 
 
 
-public class AndroidAccountsPage {
+
+public class AndroidAccountsPage extends AccountsPage {
 	
 	private static final Logger LOGGER= Logger.getLogger(AndroidAccountsPage.class.getCanonicalName());
 	

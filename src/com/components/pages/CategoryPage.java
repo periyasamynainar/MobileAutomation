@@ -17,145 +17,176 @@
 		 ********************************************************************************************************************************************
 		 ********************************************************************************************************************************************
 		 **/
-package com.components.pages;
-import java.io.IOException;
-
-import java.util.Set;
-import java.util.logging.Logger;
-
-import org.testng.Assert;
-import org.testng.Reporter;
-
-
-
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.ios.IOSDriver;
+		package com.components.pages;
+		import java.io.IOException;
 		
-		public class CategoryPage extends LibraryPage{
+		import java.util.Set;
+		import java.util.logging.Logger;
+		
+		import org.testng.Assert;
+		import org.testng.Reporter;		
+		
+		
+		import io.appium.java_client.android.AndroidDriver;
+		import io.appium.java_client.ios.IOSDriver;
+		
+		public class CategoryPage extends LibraryPage {
 			
 			private static final Logger LOGGER= Logger.getLogger(CategoryPage.class.getCanonicalName());
 			
-			public static final String Continue ="//*[@class='btn btn-default' and contains(text(),'Continue')]";
-			public static final String Header="//*[@id='mount']/div/div/div[2]/nav/div/div/span/h3";
-			public static final String Category_FirstItemSelect= "//*[@class='checkbox']//*[@class='mm-o-icon']//*[@class='item-input'and @data-index='0']";
-			public static final String Category_FirstItemHeader= "//*[@id='mount']/div/div/div[2]/div/div[2]/div[1]/div/div/div[1]/div/div[2]/div[2]/h4";
-			public static final String InvToolsPg = "//*[@class='navbar-brand']//*[contains(text(),'Inventory Tools')]";
-			public static final String SecondCategory_FirstItemSelect= "//*[@class='checkbox']//*[@class='mm-o-icon']//*[@class='item-input'and @data-index='1']";
-			public static final String FoodAndNonFood = "//*[contains(text(),'Food & Non-Food')]";
-			//public static final String FoodAndNonFood="//*[@id='content-container']/div[1]/div[2]/div[1]/button";
-			//public static final String FoodAndNonFood="//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.widget.Button[2]";
-
-			public static final String  SuggestedCategories = "//*[contains(text(),'Suggested Categories')]";
-			public static final String  CustomCategories = "//*[contains(text(),'Create Expense Cat.')]";
 		
-			public String CategoryName;
-			public String ItemNameSelected;
-			public String ItemNameAdded;
-			public static final String Complete = "//*[@class='btn btn-default' and contains(text(),'Complete')]";
-			public static final String SetupInventoryCustomCategoryAllItemsTab ="//*[@id='mount']//*[@class='mm-c-productList--pill-left']/a";
-			public static final String SetupInventoryCustomCategoryUncategorizedTab = "//*[@id='mount']//*[@class='mm-c-productList--pill-right']/a";
-			public static String ItemAdded;
-			public static final String Category_Header= "//*[@id='mount']/div/div/div[2]/nav/div/div/span/h3";
-			//public static final String ExpenseCategory_Food= "(//*[@class='mm-c-customexpense__details-category']//*[@class='radio'])[1]/label";
-			public static final String ExpenseCategory_Food= "(//*[@class='radio'])[1]/label";
-			public static final String ExpenseCategory_Page="//*[contains(text(),'Create Custom Expense Categories')]";
-			//public static final String ExpenseCategory_Page="//*[@class='mm-c-customexpense__setup-text']//*[contains(text(),'Create Custom Expense Categories')]";
-			public static final String ExpenseCategory_Name="//*[@class='mm-c-customexpense__details-category-name form-control form-control' and @name='formFields[0].name']";
-			public static final String ExpenseCategory_NonFood= "(//*[@class='mm-c-customexpense__details-category']//*[@class='radio'])[2]/label";
-			public static final String Next="//UIAStaticText[@label='Next']";
-			public static final String NextWeb ="//*[@id='next-nav']/a";
-			//public static final String ExpenseCategory_NameTxt= "//*[@class='mm-c-customexpense__details-category-name form-control form-control' and @name='dynamicFields[0].name']";
-			public static final String ExpenseCategory_NameTxt= "//*[@name='dynamicFields[0].name']";
-			//public static final String ExpenseCategory_AnotherCategory="//*[@class='mm-c-customexpense__setup-cta']//*[contains(text(),'Add Another Category')]";
-			public static final String ExpenseCategory_AnotherCategory="//*[contains(text(),'Add Another Category')]";
-			//public static final String ExpenseCategory_Name1= "//*[@class='mm-c-customexpense__details-category-name form-control form-control' and @name='dynamicFields[1].name']";
-			public static final String ExpenseCategory_Name1= "//*[@name='dynamicFields[1].name']";
-			//public static final String ExpenseCategory_Food1= "(//*[@class='mm-c-customexpense__details-category']//*[@class='radio'])[3]/label";
-			public static final String ExpenseCategory_Food1= "(//*[@class='radio'])[3]/label";
-
-			public static final String Category_1stItemSelect= "(//*[@class='mm-c-product-minlist mm-c-product__sysco']//*[@class='mm-o-icon'])[1]";
-			public static final String Category_2ndItemSelect= "(//*[@class='mm-c-product-minlist mm-c-product__sysco']//*[@class='mm-o-icon'])[2]";
-			public static final String Category_3rdItemSelect= "(//*[@class='mm-c-product-minlist mm-c-product__sysco']//*[@class='mm-o-icon'])[3]";
-			public static final String Category_1stItemHeading="(//*[@class='mm-c-product-minlist__item']/h4)[1]";
-			public static final String Category_2ndItemHeading="(//*[@class='mm-c-product-minlist__item']/h4)[2]";
-			public static final String Category_3rdItemHeading= "(//*[@class='mm-c-product-minlist__item']/h4)[3]";
-		
-			public static	String CategoryItemName1_1;
-			public static	String CategoryItemName1_2;
-			public static	String CategoryItemName1_3;
-		
-			public static	String CategoryItemName2_1;
-			public static	String CategoryItemName2_2;
-			public static	String CategoryItemName2_3;
-		
-			public static	int CategoryNoOfElements1;
-			public static	int CategorysNoOfElements2;
-			public static final String ADD_CategoryName= "//*[@id='name']";
-			public static final String AddCategory_FoodWeb= "(//*[@class='mm-c-expense__details-radio']//*[@class='radio'])[1]";
-			public static final String AddCategory_Food="//android.widget.RadioButton[@content-desc='FOOD']";
+			 
 			
-			public static final String AddCategory_NonFood="//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIAElement[2]";
+			public static final String[] Continue ={"//*[@class='btn btn-default' and contains(text(),'Continue')]",ID};
+			public static final String[] Header={"//*[@id='mount']/div/div/div[2]/nav/div/div/span/h3", XPATH};
+			public static final String[] Category_FirstItemSelect= {"//*[@class='checkbox']//*[@class='mm-o-icon']//*[@class='item-input'and @data-index='0']",XPATH};
+			public static final String[] Category_FirstItemHeader= {"//*[@id='mount']/div/div/div[2]/div/div[2]/div[1]/div/div/div[1]/div/div[2]/div[2]/h4",XPATH};
+			public static final String[] InvToolsPg = {"//*[@class='navbar-brand']//*[contains(text(),'Inventory Tools')]",XPATH};
+			public static final String[] SecondCategory_FirstItemSelect= {"//*[@class='checkbox']//*[@class='mm-o-icon']//*[@class='item-input'and @data-index='1']",XPATH};
+			public static final String[] FoodAndNonFood = {"//*[contains(text(),'Food & Non-Food')]",XPATH};		
+			public static final String[]  SuggestedCategories = {"//*[contains(text(),'Suggested Categories')]",XPATH};
+			public static final String[]  CustomCategories = {"//*[contains(text(),'Create Expense Cat.')]",XPATH};		
+		
+			public static final String[] Complete = {"//*[@class='btn btn-default' and contains(text(),'Complete')]",XPATH};
+			public static final String[] SetupInventoryCustomCategoryAllItemsTab ={"//*[@id='mount']//*[@class='mm-c-productList--pill-left']/a",XPATH};
+			public static final String[] SetupInventoryCustomCategoryUncategorizedTab = {"//*[@id='mount']//*[@class='mm-c-productList--pill-right']/a",XPATH};
+			
+			public static final String[] Category_Header= {"//*[@id='mount']/div/div/div[2]/nav/div/div/span/h3",XPATH};
+		
+			public static final String[] ExpenseCategory_Food= {"(//*[@class='radio'])[1]/label",XPATH};
+			public static final String[] ExpenseCategory_Page={"//*[contains(text(),'Create Custom Expense Categories')]",XPATH};
+		
+			public static final String[] ExpenseCategory_Name={"//*[@class='mm-c-customexpense__details-category-name form-control form-control' and @name='formFields[0].name']",XPATH};
+			public static final String[] ExpenseCategory_NonFood= {"{(//*[@class='mm-c-customexpense__details-category']//*[@class='radio'])[2]/label",XPATH};
+		
+			public static final String[] NextWeb ={"//*[@id='next-nav']/a",XPATH};
+			
+			public static final String[] ExpenseCategory_NameTxt= {"//*[@name='dynamicFields[0].name']",XPATH};
+			
+			public static final String[] ExpenseCategory_AnotherCategory={"//*[contains(text(),'Add Another Category')]",XPATH};
+			
+			public static final String[] ExpenseCategory_Name1= {"//*[@name='dynamicFields[1].name']",XPATH};
+			
+			public static final String[] ExpenseCategory_Food1= {"(//*[@class='radio'])[3]/label",XPATH};
+
+			public static final String[] Category_1stItemSelect= {"(//*[@class='mm-c-product-minlist mm-c-product__sysco']//*[@class='mm-o-icon'])[1]",XPATH};
+			public static final String[] Category_2ndItemSelect= {"(//*[@class='mm-c-product-minlist mm-c-product__sysco']//*[@class='mm-o-icon'])[2]",XPATH};
+			public static final String[] Category_3rdItemSelect= {"(//*[@class='mm-c-product-minlist mm-c-product__sysco']//*[@class='mm-o-icon'])[3]",XPATH};
+			public static final String[] Category_1stItemHeading={"(//*[@class='mm-c-product-minlist__item']/h4)[1]",XPATH};
+			public static final String[] Category_2ndItemHeading={"(//*[@class='mm-c-product-minlist__item']/h4)[2]",XPATH};
+			public static final String[] Category_3rdItemHeading= {"(//*[@class='mm-c-product-minlist__item']/h4)[3]",XPATH};
+		
+		
+			
+			public static final String[] ADD_CategoryName= {"//*[@id='name']",XPATH};
+			public static final String[] AddCategory_FoodWeb= {"(//*[@class='mm-c-expense__details-radio']//*[@class='radio'])[1]",XPATH};
+			public static final String[] AddCategory_Food="//android.widget.RadioButton[@content-desc='FOOD']"
+
+
+
+
+		
+			
+			public static final String[] AddCategory_NonFood="//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIAElement[2]",XPATH};
 		    
 		
-			public static final String Done="//UIAStaticText[@label='Done']";
-			public static final String DoneWeb="//*[@id='done-nav']/a";
+			
 		
-			public static final String Back ="//*[@id='back-nav']/a/i";
-			public static final String AddWeb= "//*[@id='add-nav']/a/i";
-			public static final String EditWeb = "//*[@id='edit-nav']/a/i";
-			public static final String Delete ="//*[@id='delete-button' and contains(text(),'Delete Expense Category')]";
-			public static final String YesDelete ="//*[@id='yes-button' and contains(text(),'Yes, Delete')]";
 		
-			public static final String Category_NonSyscoItem1Select="(//*[@class='mm-c-product-minlist mm-c-product__custom']//*[@class='mm-o-icon'])[1]";
-			public static final String Category_NonSyscoItem2Select="(//*[@class='mm-c-product-minlist mm-c-product__custom']//*[@class='mm-o-icon'])[2]";
-			public static final String Category_4thItemHeading= "(//*[@class='mm-c-product-minlist__item']/h4)[4]";
+			public static final String[] Category_NonSyscoItem1Select="(//*[@class='mm-c-product-minlist mm-c-product__custom']//*[@class='mm-o-icon'])[1]",XPATH};
+			public static final String[] Category_NonSyscoItem2Select="(//*[@class='mm-c-product-minlist mm-c-product__custom']//*[@class='mm-o-icon'])[2]",XPATH};
+			public static final String[] Category_4thItemHeading= {"(//*[@class='mm-c-product-minlist__item']/h4)[4]",XPATH};
 			public static	String CategoryItemName1_4;
-			public static final String SetUp_Pg3Header ="//*[@class='navbar-brand']//*[contains(text(),'Setup Inventory')]";
-			//public static final String CreateExpenseCategoryHeader ="//*[@class='mm-c-customexpense__setup-text']//*[contains(text(),'Create Custom Expense Categories')]";
-			public static final String CreateExpenseCategoryHeader ="//*[contains(text(),'Create Custom Expense Categories')]";
+			public static final String[] SetUp_Pg3Header ="//*[@class='navbar-brand']//*[contains(text(),'Setup Inventory')]",XPATH};
+			
+			public static final String[] CreateExpenseCategoryHeader ="//*[contains(text(),'Create Custom Expense Categories')]",XPATH};
 					
-			//public static final String CreateExpenseCategoryDesc1 ="//*[@class='mm-c-customexpense__setup-text']//*[contains(text(),'Create one or more custom expense categories ')]";
-			public static final String CreateExpenseCategoryDesc1 ="//*[contains(text(),'Create one or more custom expense categories ')]";
-			//public static final String CreateExpenseCategoryDesc2 ="//*[@class='mm-c-customexpense__setup-text']//*[contains(text(),'and then select items that belong to each.')]";
-			public static final String CreateExpenseCategoryDesc2 ="//*[contains(text(),'and then select items that belong to each.')]";
+			
+			public static final String[] CreateExpenseCategoryDesc1 ="//*[contains(text(),'Create one or more custom expense categories ')]",XPATH};
+			
+			public static final String[] CreateExpenseCategoryDesc2 ="//*[contains(text(),'and then select items that belong to each.')]",XPATH};
 					 
-			public static String SyscocategoryKeyword1;
+		
+			public static final String[] Select_SuggCat_Dairy = {"//*[@id='list-item']//*[contains(text(),'Dairy')]",XPATH};
+			public static final String[] Select_SuggCat_Meat = {"//*[@id='list-item']//*[contains(text(),'Meat')]",XPATH};
+		
+		
+		
+			
+			public static final String[] SetUp_Pg3Title = {"//*[@id='content-container']/div[1]/div[2]/h2",XPATH};
+			
+			
+			
+			
+			
+			//old elements - which needs to be removed
+			public static final String[] DoneWeb={"//*[@id='done-nav']/a",XPATH};		
+			public static final String Back ="//*[@id='back-nav']/a/i",XPATH};
+			public static final String AddWeb= {"//*[@id='add-nav']/a/i",XPATH};
+			public static final String EditWeb = {"//*[@id='edit-nav']/a/i",XPATH};
+			public static final String Delete ="//*[@id='delete-button' and contains(text(),'Delete Expense Category')]",XPATH};
+			public static final String YesDelete ="//*[@id='yes-button' and contains(text(),'Yes, Delete')]",XPATH};
+			//new for above elements
+			
+			
+			
+			
+			
+			
+			
+			
+			//old elements - which needs to be removed
+			public static final String[] textUnderFoodAndNOnFood = {"//*[contains(text(),'Use these as expense categories')]",LibraryPage.XPATH};
+			public static final String[] textUnderSuggestedCat = {"//*[contains(text(),'Meat, Poultry, Seafood, Dairy, Produce, Groceries, Beverages, & Miscellaneous')]",XPATH};
+			public static final String[] textUnderCreateExpCat = {"//*[contains(text(),'Create your own')]",XPATH};	
+			public static final String[] FoodAndNonFoodDesc = {"//*[contains(text(),'Use these as expense categories')]",LibraryPage.XPATH};
+			public static final String[] SuggestedCategoriesDesc ={"//*[contains(text(),'Meat, Poultry, Seafood, Dairy, Produce, Groceries, Beverages, and Miscellaneous')]",XPATH};
+			public static final String[] CustomCategoriesDesc = {"//*[contains(text(),'Create your own')]",XPATH};
+			//new for above elements
+			public static final String[] lbl_FoodAndNonFoodDesc = {"//*[contains(text(),'Use these as expense categories')]",XPATH};
+			public static final String[] lbl_SuggestedCategoriesDesc ={"//*[contains(text(),'Meat, Poultry, Seafood, Dairy, Produce, Groceries, Beverages, and Miscellaneous')]",XPATH};
+			public static final String[] lbl_CustomCategoriesDesc = {"//*[contains(text(),'Create your own')]",XPATH};
+			
+						
+			
+			//old elements - which needs to be removed
+			public static final String[] SuggestedCategory_Dairy= {"//*[@id='list-item']//span[contains(text(),'Dairy')]",XPATH};
+			public static final String[] SuggestedCategory_Meat= {"//*[@id='list-item']//span[contains(text(),'Meat')]",XPATH};
+			public static final String[] SuggestedCategory_Poultry={ "//*[@id='list-item']//span[contains(text(),'Poultry')]",XPATH};
+			public static final String[] SuggestedCategory_Seafood= {"//*[@id='list-item']//span[contains(text(),'Seafood')]",XPATH};
+			public static final String[] SuggestedCategory_Produce= {"//*[@id='list-item']//span[contains(text(),'Produce')]",XPATH};
+			public static final String[] SuggestedCategory_Groceries={ "//*[@id='list-item']//span[contains(text(),'Groceries')]",XPATH};
+			public static final String[] SuggestedCategory_Beverage= {"//*[@id='list-item']//span[contains(text(),'Beverage')]",XPATH};
+			public static final String[] SuggestedCategory_Miscellaneous= {"//*[@id='list-item']//span[contains(text(),'Miscellaneous')]",XPATH};
+			public static final String[] DefaultCategory_Food= {"//*[@id='list-item']//span[contains(text(),'Food')]",XPATH};
+			public static final String[] DefaultCategory_NonFood= {"//*[@id='list-item']//span[contains(text(),'Non-Food')]",XPATH};
+			//new for above elements
+			public static final String[] lst_SelectCategory= {"//*[@id='list-item']//span[contains(text(),'{dynamic1}')]",XPATH};
+			
+			
+			
+			//native elements
+			public static final String Next="//UIAStaticText[@label='Next']";
+			public static final String Done="//UIAStaticText[@label='Done']";
+			
+			
+			
+			
+			
+			public static String CategoryItemName1_1,String CategoryItemName1_2,CategoryItemName1_3,CategoryItemName2_1,CategoryItemName2_2,CategoryItemName2_3;		
+			public static int CategoryNoOfElements1,CategorysNoOfElements2;
+			public String CategoryName,ItemNameSelected,ItemNameAdded,SyscocategoryKeyword1,Selected_SuggCat1;
 			public static String[] SyscoCategory1;
-			public static String Selected_SuggCat1;
-			public static final String Select_SuggCat_Dairy = "//*[@id='list-item']//*[contains(text(),'Dairy')]";
-			public static final String Select_SuggCat_Meat = "//*[@id='list-item']//*[contains(text(),'Meat')]";
-		
-			public static final String SuggestedCategory_Dairy= "//*[@id='list-item']//span[contains(text(),'Dairy')]";
-			public static final String SuggestedCategory_Meat= "//*[@id='list-item']//span[contains(text(),'Meat')]";
-			public static final String SuggestedCategory_Poultry= "//*[@id='list-item']//span[contains(text(),'Poultry')]";
-			public static final String SuggestedCategory_Seafood= "//*[@id='list-item']//span[contains(text(),'Seafood')]";
-			public static final String SuggestedCategory_Produce= "//*[@id='list-item']//span[contains(text(),'Produce')]";
-			public static final String SuggestedCategory_Groceries= "//*[@id='list-item']//span[contains(text(),'Groceries')]";
-			public static final String SuggestedCategory_Beverage= "//*[@id='list-item']//span[contains(text(),'Beverage')]";
-			public static final String SuggestedCategory_Miscellaneous= "//*[@id='list-item']//span[contains(text(),'Miscellaneous')]";
-			public static final String DefaultCategory_Food= "//*[@id='list-item']//span[contains(text(),'Food')]";
-			public static final String DefaultCategory_NonFood="//*[@id='list-item']//span[contains(text(),'Non-Food')]";
-		
-			//public static final String SetUp_Pg3Title = "//*[contains(text(),'Set up Food Cost')]";
-			public static final String SetUp_Pg3Title = "//*[@id='content-container']/div[1]/div[2]/h2";
-			public static final String textUnderFoodAndNOnFood = "//*[contains(text(),'Use these as expense categories')]";
-			public static final String textUnderSuggestedCat = "//*[contains(text(),'Meat, Poultry, Seafood, Dairy, Produce, Groceries, Beverages, & Miscellaneous')]";
-			public static final String textUnderCreateExpCat = "//*[contains(text(),'Create your own')]";
-		
-			public static final String FoodAndNonFoodDesc = "//*[contains(text(),'Use these as expense categories')]";
-			public static final String SuggestedCategoriesDesc ="//*[contains(text(),'Meat, Poultry, Seafood, Dairy, Produce, Groceries, Beverages, and Miscellaneous')]";
-			public static final String CustomCategoriesDesc = "//*[contains(text(),'Create your own')]";
+			public static String ItemAdded;
 		
 		
 		
 			/* Functions on the Page are defined below */
 			
-			@SuppressWarnings("rawtypes")
+			
 			public CategoryPage CustomCategories(String string) throws InterruptedException, IOException
 			{
-				  String string2="Issue"; 
-		          String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
-		          try{
+				 
 		        	 	waitForElementToBeClickable(FoodAndNonFood);
 		        	 	waitForElementToBeClickable(SetUp_Pg3Header);
 						waitForElementToBeClickable(CustomCategories);
@@ -166,44 +197,27 @@ import io.appium.java_client.ios.IOSDriver;
 							  
 							Reporter.log("Custom Category selected from Food cost page :Pass");	
 						}
-		          }
-				catch(Exception e){
-					Reporter.log("Custom category selected from food cost page :Fail");
-					switchToNativeContext();
-					takeScreenshot(finalPath1); 
-					Assert.assertTrue(false);
-				}
+		         
 				return this;
 				
 			}
-			@SuppressWarnings("rawtypes")
+			
 			 public CategoryPage tapContinue(String string) throws InterruptedException, IOException{
-				  String string2="Issue";
-			       String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
-			     	try{
+				 
 			     	waitForElementToBeClickable(Continue);
 					clickElement(Continue);
 					Reporter.log("Tapped on Continue :Pass");
-				}
 				
-				catch(Exception e)
-				{
-					Reporter.log("Tapped on Continue :Fail");
-					switchToNativeContext();
-					takeScreenshot(finalPath1);
-					Assert.assertTrue(false);
-				}
 				return this;
 			}
 			
-			@SuppressWarnings("rawtypes")
+			
 			 public CategoryPage CategoryDetails(String Name, String string) throws InterruptedException, IOException
 			 {
-			 	Reporter.log("Creating custom category");
-			 	  String string2="Issue";
-			       String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
+			 
+			 	  
 			       String name=Name;
-			       try{
+			      
 			 		waitForElementToBeClickable(ExpenseCategory_Page);
 			 		waitForElementToBeClickable(ExpenseCategory_Name);
 			 		if(isElementPresent(ExpenseCategory_Name))
@@ -215,23 +229,14 @@ import io.appium.java_client.ios.IOSDriver;
 			 				
 			 		}
 			 				Reporter.log("Custom category created  :Pass");	
-			 	}
-			 	catch(Exception e){
-			 		Reporter.log("Custom category created  :Fail");
-			 		switchToNativeContext();
-			 		takeScreenshot(finalPath1);
-			 		Assert.assertTrue(false);
-			 	}
+			 	
 			 	return this;
 			 	
 			 }
 			
 			@SuppressWarnings({ "rawtypes", "unchecked", "unused" })
 			  public CategoryPage TapOnNext(String string) throws InterruptedException, IOException{
-			       	  String string2="Issue";
-			       String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
-			       	try{
-			       		
+			       	
 			       			waitForElementToBeClickable(NextWeb);
 			       		if (isElementPresent(NextWeb))
 			       		{
@@ -239,75 +244,12 @@ import io.appium.java_client.ios.IOSDriver;
 			       			Reporter.log("Tapped on Next : Pass");
 			       		}
 			       		
-			       	}
-			       	catch(Exception e)
-			       	{ 	
-			       		Reporter.log("Tapped on Next :Fail");
-			       		switchToNativeContext();
-			       		takeScreenshot(finalPath1);
-			       		Assert.assertTrue(false);
-			       	}
+			      
 			       	return this;
-			       }
-			/*@SuppressWarnings({ "rawtypes", "unused", "unchecked" })
-			  public CategoryPage SelectItemFromCategory(String name,String string) throws InterruptedException, IOException { 
-			    	Reporter.log("Selecting item to custom category created"); ;
-			    	String string2="Issue";
-			    	String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
-			    	try{ 
-			    	waitFor(5);
-			    	waitForElementToBeClickable(Header);
-			    	CategoryName= getElementText(Header);
-			    	waitFor(5);
-			    	if(isElementPresent(Category_FirstItemSelect)) {
-			    		waitFor(5);
-			    		clickElement(Category_FirstItemSelect); 
-			    		ItemNameSelected=getElementText(Category_FirstItemHeader); 
-			    		System.out.println("Item heading:"+ItemNameSelected); 			    		
-			    		Reporter.log("First item selected :Pass"); 
-			    		} 
-			    	switchToNativeContext(); 
-			    	 if(isElementPresent(Done)) { 
-			    		clickElement(Done); 
-			    		switchToWebContext();
-			    		waitForElementToBeClickable(InvToolsPg);
-			    		Reporter.log("First item added to category created :Passed"); 
-			    		
-			    		}
-			    	else { 
-			    			if(isElementPresent(Next)) { 
-			    			clickElement(Next);
-			    			Reporter.log("Second Category Page available :Pass");
-			    	    	 switchToWebContext();
-			    	    	waitForElementToBeClickable(Header).getElementText(Header).equalsIgnoreCase(name);
-			    			clickElement(SecondCategory_FirstItemSelect); 
-			    			Reporter.log("First item selected in second category:Pass"); 		    			
-			    			switchToNativeContext(); 
-			    				clickElement(Done); 
-			    				  switchToWebContext();
-			    				waitForElementToBeClickable(InvToolsPg);
-			    			 Reporter.log("Item added to Second Category :Pass");	
-			    			} 
-			    		}
-			    	} 
-			    	catch(Exception e){ 
-			    		Reporter.log(" Item added to category created :Fail"); 
-			    		switchToNativeContext();
-			    		takeScreenshot(finalPath1); 
-			    		Assert.assertTrue(false); 
-			    		} 
-			    	return this; 
-			    	
-			    }*/
-			@SuppressWarnings("rawtypes")
+			
 			  public CategoryPage defaultCategories(String string) throws InterruptedException, IOException
 				{
-					Reporter.log("Selecting default category from Food cost page");
-					  String string2="Issue";
-			          String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
 					
-			          try{
-			        	  //switchToNativeContext();
 			        	    waitForElementToBeClickable(FoodAndNonFood);
 			        	    waitForElementToBeClickable(SetUp_Pg3Header);
 							if(isElementPresent(FoodAndNonFood))
@@ -319,45 +261,34 @@ import io.appium.java_client.ios.IOSDriver;
 								
 							}
 							
-			          }
-			          catch(Exception e){
-			        	  Reporter.log("default category selected from food cost page :Fail");
-						switchToNativeContext();
-						takeScreenshot(finalPath1);
-						Assert.assertTrue(false);
-					}
+			        
 					return this;
 					
 				}
-			  @SuppressWarnings("rawtypes")
+			  
+			  
+			  
 			public CategoryPage tapComplete(String string) throws InterruptedException, IOException{
 				  String string2="Issue";
 			       String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
-			     	try{
+			     	
 			     		waitForElementToBeClickable(Complete);
 					clickElement(Complete);
 					
 					
 					Reporter.log("Tapped on Complete :Pass");
-				}
-				catch(Exception e)
-				{
-					Reporter.log("Tapped on Complete :Fail");
-					switchToNativeContext();
-					takeScreenshot(finalPath1);
-					Assert.assertTrue(false);
-		
-				}
+				
+				
 				
 				return this;
 				
 			}       
-			  @SuppressWarnings("rawtypes")
+			  
 			public CategoryPage CreateTwoExpenseCategory(String Name1,String Name2,String string) throws InterruptedException, IOException {
 			       	Reporter.log("Creating multiple custom category"); 
 			       	String finalPath1=Screenshot.drivePath+string+Screenshot.string2+Screenshot.pathExtension;
 			       	 
-			       	try{ 
+			       
 			       		 
 			        		waitForElementToBeClickable(ExpenseCategory_Page);
 		
@@ -392,26 +323,17 @@ import io.appium.java_client.ios.IOSDriver;
 		    		Reporter.log("Custom Categories created:Pass"); 
 			       		} 
 			       
-			   }
-			       catch(Exception e){
-			    	   Reporter.log("Custom Categories created:Fail");
-			    	switchToNativeContext();
-			    	takeScreenshot(finalPath1);
-			       	Assert.assertTrue(false); 
-			       	} 
+			    
 			       return this;
 			       	}  
 		
-			  @SuppressWarnings("rawtypes")
+			  
 			public CategoryPage CustomCategory_ItemSelectAndCheck(String string) throws InterruptedException, IOException
 			   	{
 			   		Reporter.log("Verifying added item is in  custom category - Uncategorised and All Items");
 
-			   		  String string2="Issue";
-			   		  String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
-			            
-			   			
-			             try{
+			   		 
+			          
 			   			
 			           	  
 			           	  waitForElementToBeClickable(Category_Header);
@@ -454,16 +376,13 @@ import io.appium.java_client.ios.IOSDriver;
 			   		   	}
 			   		
 			   	
-			   		catch(Exception e){
-			   			Reporter.log("Added item  is present in category created :Fail");
-			   			switchToNativeContext();
-			   			takeScreenshot(finalPath1);
-			   			Assert.assertTrue(false);
-			   		}
 			   		return this;
 			   		
 			   	}	
-			  @SuppressWarnings("rawtypes")
+			
+		}
+			
+			
 			public CategoryPage selectMultipleItemsFromCategory1(String string) throws InterruptedException, IOException {
 			   	   	  String string2="Issue";
 			   	     String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
@@ -493,20 +412,20 @@ import io.appium.java_client.ios.IOSDriver;
 			   	   			clickElement(Category_3rdItemSelect);
 			   	   		}
 			   	   			Reporter.log("Multiple items selected :Pass"); 			
-			   	   		}
+			   	   		
 			   	   	
-			   	   	catch(Exception e){
-			   	   	Reporter.log("Multiple items selected :Fail");
-			   	   	switchToNativeContext();takeScreenshot(finalPath1);
-			   	   		Assert.assertTrue(false);
-			   	   	}
+			   	   
 			   	      return this;
 			   	   }
-			        @SuppressWarnings("rawtypes")
+			   	      
+			   	      
+			   	      
+			   	      
+			   	      
+			   	      
+			        
 					public CategoryPage selectMultipleItemsFromCategory2(String string) throws InterruptedException, IOException {
-			      	   	  String string2="Issue";
-			      	     String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
-			      	      try{
+			      	   	  
 		
 			    	      	waitForElementToBeClickable(Category_1stItemSelect);
 			    	      	waitForElementToBeClickable(Category_2ndItemSelect);
@@ -532,37 +451,19 @@ import io.appium.java_client.ios.IOSDriver;
 			      	   			clickElement(Category_3rdItemSelect);
 			      	   		}
 			      	   			Reporter.log("Multiple items selected :Pass"); 			
-			      	   		}
-			      	   	
-			      	   	catch(Exception e){
-			      	   	Reporter.log("Multiple items selected :Fail");
-			      	   	switchToNativeContext();takeScreenshot(finalPath1);
-	                Assert.assertTrue(false);
-			      	   	}
+			      	  
 			      	      return this;
 			      	   }
 
-		@SuppressWarnings("rawtypes")
+		
 		public CategoryPage AddCategoryName(String categoryName,String string) throws InterruptedException, IOException
 		   	{
-		   		String string2="Issue";   
-		   		String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;	
 		   		
-		   		try{
 		   				clearElement(ADD_CategoryName);
 		   			clickElement(ADD_CategoryName);
 		   			sendText(ADD_CategoryName,categoryName);
 		   		 		Reporter.log("added category name :Pass");
-		   			}
-		   			
-		   	
 		   		
-		   		catch(Exception e)
-		   		{
-		   			Reporter.log("added category name :Fail");
-		   			switchToNativeContext();takeScreenshot(finalPath1);
-		   			Assert.assertTrue(false);
-		   		}
 		   		
 		   		return this;
 		   		
@@ -570,25 +471,11 @@ import io.appium.java_client.ios.IOSDriver;
 		   @SuppressWarnings({ "rawtypes", "unchecked", "unused" })
 		public CategoryPage AddLocationCooler(String string) throws InterruptedException, IOException
 		   	{
-		   		String string2="Issue";   
-		   		String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;	
-		   		
-		   		try{
 		  		
 	           waitForElementToBeClickable(AddCategory_FoodWeb);
 		   		    clickElement(AddCategory_FoodWeb);
 		   		
-		   			 		Reporter.log("Selected food :Pass");
-		   			}
 		   			
-		   	
-		   		
-		   		catch(Exception e)
-		   		{
-		   			Reporter.log("Selected food :Fail");
-		   			switchToNativeContext();takeScreenshot(finalPath1);
-		   			Assert.assertTrue(false);
-		   		}
 		   		
 		   		return this;
 		   		
@@ -597,13 +484,7 @@ import io.appium.java_client.ios.IOSDriver;
 		
 		@SuppressWarnings({ "unchecked", "unused", "rawtypes" })
 		public CategoryPage TapOnDone(String string) throws InterruptedException, IOException{
-		    	String string1="Success";
-		    	  String string2="Issue";
-		
-		    String finalPath=Screenshot.drivePath+string+string1+Screenshot.pathExtension;
-		    String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
-		
-		    	try{
+		    
 		    		
 		    		
 		    		
@@ -617,26 +498,16 @@ import io.appium.java_client.ios.IOSDriver;
 		    			
 		    		}
 		    		
-		    	}
-		    	catch(Exception e)
-		    	{
-		    		Reporter.log("Tapped on done :Fail");
-		    		switchToNativeContext(); 
-		    		takeScreenshot(finalPath1);
-		    		Assert.assertTrue(false);
-		    	}
+		    
 		    	
 		    	return this;
 		    }
 		
 		
-		@SuppressWarnings("rawtypes")
+		
 		public CategoryPage SelectCategory(String name,String string) throws InterruptedException, IOException
 		{
-		    String finalPath1=Screenshot.drivePath+string+Screenshot.string2+Screenshot.pathExtension;
-		    
-			Reporter.log("Selecting Category");
-		try{
+		   
 			
 		 waitFor(2);
 			final String Locname= "//*[@id='list-item']//*[contains(text(),'"+name+"')]";
@@ -644,51 +515,27 @@ import io.appium.java_client.ios.IOSDriver;
 			  clickElement(Locname); 
 		      
 			 	Reporter.log("Category is selected for item :Pass");						
-			}
-			
-			
-			
-			catch(Exception e){
-				Reporter.log("Category is selected for item   :Fail");
-				switchToNativeContext(); 
-				 takeScreenshot(finalPath1); 
-				
-				Assert.assertTrue(false);
-			}
+		
 			return this;
 			
 		}
 		   @SuppressWarnings({ "rawtypes", "unchecked", "unused" })
 			public CategoryPage AddCategoryFood(String string) throws InterruptedException, IOException
 			   	{
-			   		String string2="Issue";   
-			   		String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;	
 			   		
-			   		try{
 			  			switchToNativeContext();
 			  			waitForElementToBeClickable(AddCategory_Food);
 			   		    clickElement(AddCategory_Food);
 			   		 switchToWebContext();
 			   			 		Reporter.log("Selected food :Pass");
-			   			}
-			   			
-			   	
 			   		
-			   		catch(Exception e)
-			   		{
-			   			Reporter.log("Selected food :Fail");
-			   			switchToNativeContext();takeScreenshot(finalPath1);
-			   			Assert.assertTrue(false);
-			   		}
 			   		
 			   		return this;
 			   		
 			   	}
-		@SuppressWarnings("rawtypes")
-		public CategoryPage TapOnBack(String string) throws InterruptedException, IOException{
-			String finalPath1=Screenshot.drivePath+string+Screenshot.string2+Screenshot.pathExtension;
 		
-				try{
+		public CategoryPage TapOnBack(String string) throws InterruptedException, IOException{
+
 					
 					waitForElementToBeClickable(Back);
 					if (isElementPresent(Back))
@@ -698,55 +545,31 @@ import io.appium.java_client.ios.IOSDriver;
 						Reporter.log("tap on back :Pass");
 					}
 					
-				}
-				catch(Exception e)
-				{
-					Reporter.log("tap on back :Fail");
-					switchToNativeContext(); 
-					
-					takeScreenshot(finalPath1);
-					Assert.assertTrue(false);
-				}
+				
 				
 				return this;
 			}
 		
 		
 		
-		@SuppressWarnings("rawtypes")
+		
 		public CategoryPage VerifyCategory(String name,String string) throws InterruptedException, IOException
 		{
-			String string2="Issue";
-		    String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
-		    
-			Reporter.log("Selected Category is there");
-		try{
 			
 			
 		 waitFor(2);
 			final String  Locname= "//*[@class='mm-c-product-list__details']//*[contains(text(),'"+name+"')]";    
 			waitForElementToBeClickable(Locname);
 				Reporter.log("Category is verified for item :Pass");						
-			}
-			
-				catch(Exception e){
-					Reporter.log("Category is verified for item   :Fail");
-				switchToNativeContext(); 
-				 takeScreenshot(finalPath1); 
-				
-				Assert.assertTrue(false);
-			}
+		
 			return this;
 			
 		}
 
-		@SuppressWarnings("rawtypes")
+		
 		public CategoryPage TapAdd(String string) throws InterruptedException, IOException
 		{
-		String string2="Issue";   
-		String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;	
 		
-		try{
 		waitForElementToBeClickable(AddWeb);
 		if(isElementPresent(AddWeb))
 		{
@@ -755,26 +578,14 @@ import io.appium.java_client.ios.IOSDriver;
 		
 		}
 
-		}
-		catch(Exception e)
-		{
-			Reporter.log("Navigating to Add categories page :Fail");
-			switchToNativeContext(); 
-		takeScreenshot(finalPath1);
-		
-		Assert.assertTrue(false);
-		}
 		
 		return this;
 		
 		}
 		
-		@SuppressWarnings("rawtypes")
+		
 		public  CategoryPage VerifyCategoryList(String categoryAdded,String string) throws InterruptedException, IOException{
-		String string2="Issue";
-		String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
-		Reporter.log("Checking addeded Location in location list");
-		try{	
+	
 		
 		final String  CatAdded="//*[@id='list-item']//span[contains(text(),'"+categoryAdded+"')]";  
 		
@@ -783,27 +594,16 @@ import io.appium.java_client.ios.IOSDriver;
 			Reporter.log("Added Category is listed :Pass");
 		}
 		
-		}
-		catch(Exception e)
-		{
-			Reporter.log("Added Category is listed   :Fail");	
-			switchToNativeContext(); 
-		takeScreenshot(finalPath1);
-		
-		Assert.assertTrue(false);
-		}
+
 		
 		return this;
 		
 		
 		}
 		
-		@SuppressWarnings("rawtypes")
-		public CategoryPage TapOnEdit(String string) throws InterruptedException, IOException{
-		String string2="Issue";
-		String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
 		
-		try{
+		public CategoryPage TapOnEdit(String string) throws InterruptedException, IOException{
+		
 		
 			waitForElementToBeClickable(EditWeb);
 			if (isElementPresent(EditWeb))
@@ -813,25 +613,14 @@ import io.appium.java_client.ios.IOSDriver;
 				Reporter.log("tap on edit :Pass");
 			}
 			
-		}
-		catch(Exception e)
-		{
-			Reporter.log("tap on edit :Fail");
-			switchToNativeContext(); 
-			takeScreenshot(finalPath1);
-			Assert.assertTrue(false);
-		}
+		
 		
 		return this;
 		}
 		
-		@SuppressWarnings("rawtypes")
-		public CategoryPage TapOnDeleteCategory(String string) throws InterruptedException, IOException{
-		String string2="Issue";
-
-		String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
 		
-		try{
+		public CategoryPage TapOnDeleteCategory(String string) throws InterruptedException, IOException{
+		
 			
 			
 			waitFor(5);
@@ -843,24 +632,15 @@ import io.appium.java_client.ios.IOSDriver;
 				Reporter.log("tap on Delete :Pass");
 			}
 			
-		}
-		catch(Exception e)
-		{Reporter.log("tap on delete:Fail");
-			switchToNativeContext(); 
-			
-			takeScreenshot(finalPath1);
-			Assert.assertTrue(false);
-		}
+	
 		
 		return this;
 		}
 		
-		@SuppressWarnings("rawtypes")
+		
 		public CategoryPage TapOnYesDelete(String string) throws InterruptedException, IOException{
 			  String string2="Issue";
-		String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
-		Reporter.log("Deleted");
-			try{
+		
 				
 				waitFor(5);
 				waitForElementToBeClickable(YesDelete);
@@ -870,24 +650,13 @@ import io.appium.java_client.ios.IOSDriver;
 					clickElement(YesDelete);
 					Reporter.log("tap on yes delete :Pass");
 				}
-				
-			}
-			catch(Exception e)
-			{Reporter.log("tap on yes delete :Fail");
-				switchToNativeContext(); 
-				
-				takeScreenshot(finalPath1);
-				Assert.assertTrue(false);
-			}
-			
+		
 			return this;
 		}
-		@SuppressWarnings("rawtypes")
-		public  CategoryPage VerifyDeletedCategoryList(String categoryAdded,String string) throws InterruptedException, IOException{
-		String string2="Issue";
-		String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
+
 		
-		try{	
+		public  CategoryPage VerifyDeletedCategoryList(String categoryAdded,String string) throws InterruptedException, IOException{
+	
 		
 			waitFor(5);
 		final String  CatAdded="//*[@id='list-item']//span[contains(text(),'"+categoryAdded+"')]";   
@@ -898,13 +667,7 @@ import io.appium.java_client.ios.IOSDriver;
 		}
 		Reporter.log("Deleted category is not listed   :Pass");
 		}
-		catch(Exception e)
-		{	Reporter.log("Deleted category is  listed   :Fail");	
-			switchToNativeContext(); 
-		takeScreenshot(finalPath1);
 		
-		Assert.assertTrue(false);
-		}
 		
 		return this;
 		
@@ -912,11 +675,9 @@ import io.appium.java_client.ios.IOSDriver;
 		}  	
 		
 		
-		@SuppressWarnings("rawtypes")
+	
 		public CategoryPage AssignMultipleItemsToCategory(String string) throws InterruptedException, IOException {
-		 String string2="Issue";
-		String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
-		try{
+		
 		
 			waitFor(5);
 		waitForElementToBeClickable(Category_1stItemSelect);
@@ -950,28 +711,16 @@ import io.appium.java_client.ios.IOSDriver;
 					clickElement(Category_NonSyscoItem2Select);
 				}	
 				Reporter.log("Multiple items selected :Pass"); 			
-			}
-		
-		catch(Exception e){
-			Reporter.log("Multiple items selected :Fail");
-			switchToNativeContext(); 
-		takeScreenshot(finalPath1); 
-			
-			Assert.assertTrue(false);
-		}
+	
 		return this;
 		}
 
-		@SuppressWarnings("rawtypes")
+		
 		public CategoryPage SuggestedCategories(String string) throws InterruptedException, IOException
 		{
 			Reporter.log("Selecting suggested category from Food cost page");
 
-			  String string2="Issue";
-		      String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
 			
-		      try{
-		    	 
 		    		 waitForElementToBeClickable(FoodAndNonFood);
 		    		 waitForElementToBeClickable(SetUp_Pg3Header);
 					waitForElementToBeClickable(SuggestedCategories);
@@ -984,30 +733,19 @@ import io.appium.java_client.ios.IOSDriver;
 						
 					}
 					
-		      }
-			
-		
-			catch(Exception e){
-				Reporter.log("Suggested category selected from food cost page :Fail");
-				switchToNativeContext(); 
-				takeScreenshot(finalPath1); 
-				
-				Assert.assertTrue(false);
-			}
+		 
 			return this;
 			
 		}
 		
 		
-		@SuppressWarnings("rawtypes")
+		
 		public CategoryPage VerifyMultipleListSyscoSuggestedCategory(String string) throws InterruptedException, IOException
 		{
 			
 			 Boolean flag1=false;
 			 Boolean flag2=false;
-			  String string2="Issue";
-		    String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
-		    
+			
 			
 		try{
 			
@@ -1027,32 +765,18 @@ import io.appium.java_client.ios.IOSDriver;
 		   
 			  
 				Reporter.log("Category is verified for item :Pass");						
-			}
 			
-			
-			
-			catch(Exception e){
-				Reporter.log("Category is verified for item   :Fail");
-				switchToNativeContext(); 
-				 takeScreenshot(finalPath1); 
-				
-				Assert.assertTrue(false);
-			}
 			return this;
 			
 		}
 		
 	
-		@SuppressWarnings("rawtypes")
+		
 		public CategoryPage VerifyPrepCustomCategory(String customcategory,String string) throws InterruptedException, IOException
 		{
 			
 			 Boolean flag4=false;
-			  String string2="Issue";
-		    String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
-		    
-			Reporter.log("Category verification for nonsysco");
-		try{
+		
 			
 			
 		 waitFor(2);
@@ -1066,29 +790,17 @@ import io.appium.java_client.ios.IOSDriver;
 		   
 			
 				Reporter.log("Category is verified for prep item :Pass");						
-			}
 			
-			
-			
-			catch(Exception e){
-				Reporter.log("Category is verified for prep item   :Fail");
-				switchToNativeContext(); 
-				 takeScreenshot(finalPath1); 
-				
-				Assert.assertTrue(false);
-			}
 			return this;
 			
 		}
-		@SuppressWarnings("rawtypes")
+		
 		public CategoryPage VerifyOGSyscoItemsSuggestedCategoryLocation1(String string) throws InterruptedException, IOException
 		{
 			Boolean flag3=false;
 			 Boolean flag1=false;
 			 Boolean flag2=false;
-			  String string2="Issue";
-		    String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;	
-		try{
+	
 		 waitFor(2);
 			
 		 if((LocationsPage.Category3[0].equalsIgnoreCase("Meat"))||(LocationsPage.Category3[0].equalsIgnoreCase("Groceries"))||(LocationsPage.Category3[0].equalsIgnoreCase("Dairy"))||(LocationsPage.Category3[0].equalsIgnoreCase("Poultry"))||(LocationsPage.Category3[0].equalsIgnoreCase("Seafood"))||(LocationsPage.Category3[0].equalsIgnoreCase("Produce"))||(LocationsPage.Category3[0].equalsIgnoreCase("Beverage"))||(LocationsPage.Category3[0].equalsIgnoreCase("Miscellaneous"))){
@@ -1108,30 +820,18 @@ import io.appium.java_client.ios.IOSDriver;
 			   throw new Exception();
 		 } 
 				Reporter.log("Category is verified for item :Pass");						
-			}
-
-			catch(Exception e){
-				Reporter.log("Category is verified for item   :Fail");
-				switchToNativeContext();
-				 takeScreenshot(finalPath1); 
-				
-				Assert.assertTrue(false);
-			}
+			
 			return this;
 			
 		}
 
-		@SuppressWarnings("rawtypes")
+		
 		public CategoryPage VerifyOGSyscoItemsSuggestedCategoryLocation2(String string) throws InterruptedException, IOException
 		{
 			Boolean flag3=false;
 			 Boolean flag1=false;
 			 Boolean flag2=false;
-			  String string2="Issue";
-		    String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
-		    
-			Reporter.log("Ctegory verification");
-		try{
+		
 			
 			
 		 waitFor(2);
@@ -1154,30 +854,17 @@ import io.appium.java_client.ios.IOSDriver;
 		 
 		
 				Reporter.log("Category is verified for item :Pass");						
-			}
 			
 			
-			
-			catch(Exception e){
-				Reporter.log("Category is verified for item   :Fail");
-				switchToNativeContext();
-				 takeScreenshot(finalPath1); 
-				
-				Assert.assertTrue(false);
-			}
 			return this;
 			
 		}
-		@SuppressWarnings("rawtypes")
+		
 		public CategoryPage VerifyNonSycoCustomCategory(String customcategory,String string) throws InterruptedException, IOException
 		{
 			
 			 Boolean flag3=false;
-			  String string2="Issue";
-		  String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
-		  
-			Reporter.log("Category verification for nonsysco");
-		try{
+		
 			
 		
 		waitFor(2);
@@ -1191,28 +878,16 @@ import io.appium.java_client.ios.IOSDriver;
 		 
 			
 				Reporter.log("Category is verified for nonsysco item :Pass");						
-			}
-			
-			catch(Exception e){
-				Reporter.log("Category is verified for nonsyco item   :Fail");
-				switchToNativeContext();
-				 takeScreenshot(finalPath1); 
-				
-				Assert.assertTrue(false);
-			}
+		
 			return this;
 			
 		}
 		
 		
-		@SuppressWarnings("rawtypes")
+		
 		public CategoryPage VerifySuggestedCategory(String string) throws InterruptedException, IOException
 		{
-			  String string2="Issue";
-		    String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
-		    
-			
-		try{
+			  
 			
 		  final String Sysco_Product_Select= "(//*[@class='mm-c-product-list']//*[@class='mm-c-product-list__item mm-c-product__sysco ']//*[@class='mm-c-product-list__image'])[1]";
 				if(isElementPresent(Sysco_Product_Select)){
@@ -1225,28 +900,14 @@ import io.appium.java_client.ios.IOSDriver;
 				}
 			   
 				Reporter.log("Suggested Category is verified for item :Pass");						
-			}
 			
-			
-			
-			catch(Exception e){
-				Reporter.log("Suggested Category is verified for item   :Fail");
-				switchToNativeContext(); 
-				 takeScreenshot(finalPath1); 
-				
-				Assert.assertTrue(false);
-			}
 			return this;
 			
 		}
-		@SuppressWarnings("rawtypes")
+		
 		public CategoryPage TapAnySuggestedCategory(String string) throws InterruptedException, IOException
 		{
-			  String string2="Issue";
-		    String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
-		    
-		
-		try{
+			  
 
 			if(SyscoCategory1[0].equalsIgnoreCase("Dairy"))
 				{waitForElementToBeClickable(Select_SuggCat_Meat).clickElement(Select_SuggCat_Meat);
@@ -1257,26 +918,14 @@ import io.appium.java_client.ios.IOSDriver;
 				Selected_SuggCat1="Dairy";
 				}
 				Reporter.log("Suggested Category is selected for item :Pass");						
-			}
-			
-			
-			
-			catch(Exception e){
-				Reporter.log("Suggested Category is selected for item   :Fail");
-				switchToNativeContext(); 
-				 takeScreenshot(finalPath1); 
-				
-				Assert.assertTrue(false);
-			}
+		
 			return this;
 			
 		}
-		@SuppressWarnings("rawtypes")
+		
 		public CategoryPage VerifySelectedSuggestedCategory(String string) throws InterruptedException, IOException
 		{
-			  String string2="Issue";
-		    String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
-		    try{
+			
 			if(SyscoCategory1[0].equalsIgnoreCase(Selected_SuggCat1))
 				 throw new Exception();
 			else
@@ -1284,28 +933,14 @@ import io.appium.java_client.ios.IOSDriver;
 				Reporter.log("Suggested Category is changed for item :Pass");	
 			
 			
-			}
-			
-			
-			
-			catch(Exception e){
-				Reporter.log("Suggested Category is verified for item   :Fail");
-				switchToNativeContext(); 
-				 takeScreenshot(finalPath1); 
-				
-				Assert.assertTrue(false);
-			}
+		
 			return this;
 			
 		}
-		@SuppressWarnings("rawtypes")
+		
 		public CategoryPage VerifySuggestedCategoryList(String string) throws InterruptedException, IOException
 		{
-			  String string2="Issue";
-		  String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
-		  
 			
-		try{
 			boolean flag2_1 = isElementPresentAfterWait(SuggestedCategory_Dairy, 3);
 			boolean flag2_2 = isElementPresentAfterWait(SuggestedCategory_Meat, 3);
 			boolean flag2_3 = isElementPresentAfterWait(SuggestedCategory_Poultry, 3);
@@ -1321,30 +956,18 @@ import io.appium.java_client.ios.IOSDriver;
 			else {
 				throw new Exception();
 				}
-				}
 			
-			catch(Exception e){
-				Reporter.log("Suggested categories are listed  :Fail");
-				switchToNativeContext();
-				takeScreenshot(finalPath1);
-		     	
-				Assert.assertTrue(false);
-			}
 			return this;
 			
 		}
 		
-		@SuppressWarnings("rawtypes")
+		
 		public CategoryPage VerifyCustomListItemsDefaultCategoryLocation1(String string) throws InterruptedException, IOException
 		{
 			Boolean flag3=false;
 			 Boolean flag1=false;
 			 Boolean flag2=false;
-			  String string2="Issue";
-		    String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
-		    
 		
-		try{
 			
 		 waitFor(2);
 			
@@ -1367,30 +990,17 @@ import io.appium.java_client.ios.IOSDriver;
 		   
 		 
 		 
-				Reporter.log("Default Category is verified for items :Pass");						
-			}
-			catch(Exception e){
-				Reporter.log("Category is verified for item   :Fail");
-				switchToNativeContext();
-				takeScreenshot(finalPath1);
-				
-				Assert.assertTrue(false);
-			}
 			return this;
 			
 		}
 		
-		@SuppressWarnings("rawtypes")
 		public CategoryPage VerifyCustomListItemsDefaultCategoryLocation2(String string) throws InterruptedException, IOException
 		{
 			Boolean flag3=false;
 			 Boolean flag1=false;
 			 Boolean flag2=false;
-			  String string2="Issue";
-		    String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
-		    
-			Reporter.log("Default Category verification");
-		try{
+		
+		 
 			
 		 waitFor(2);
 
@@ -1416,27 +1026,14 @@ import io.appium.java_client.ios.IOSDriver;
 			
 			
 			
-			catch(Exception e){
-				Reporter.log("Category is verified for item   :Fail");
-				switchToNativeContext();
-				takeScreenshot(finalPath1);
-				
-				Assert.assertTrue(false);
-			}
 			return this;
 			
 		}
 		
-		@SuppressWarnings("rawtypes")
+		
 		public CategoryPage VerifyDefaultCategoryList(String string) throws InterruptedException, IOException
 		{
-			  String string2="Issue";
-		  String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
-		  
 		
-		try{
-			
-			
 		
 			boolean flag2_1 = isElementPresentAfterWait(DefaultCategory_Food, 3);
 			boolean flag2_2 = isElementPresentAfterWait(DefaultCategory_NonFood, 3);
@@ -1448,28 +1045,17 @@ import io.appium.java_client.ios.IOSDriver;
 				throw new Exception();
 				}
 			
-				}
 			
-			catch(Exception e){
-				Reporter.log("Default categories are listed  :Fail");
-				switchToNativeContext();
-				takeScreenshot(finalPath1);
-		     	
-				Assert.assertTrue(false);
-			}
+			
 			return this;
 			
 		}
 		
 		
-		@SuppressWarnings("rawtypes")
+		
 		public CategoryPage VerifyItemPresentUncategorizedAndAllItems(String string) throws InterruptedException, IOException
 		{
-		  String string2="Issue";
-		String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
 		
-			
-		try{
 		waitFor(5);	
 		waitForElementToBeClickable(SetupInventoryCustomCategoryAllItemsTab);
 		clickElement(SetupInventoryCustomCategoryAllItemsTab);
@@ -1506,27 +1092,14 @@ import io.appium.java_client.ios.IOSDriver;
 		waitFor(5);	
 		
 		
-		
-		Reporter.log("Category is verified for nonsysco item :Pass");						
-		
-		}
-
-		catch(Exception e){
-		Reporter.log("Added item  is present in category Tab(Expected-Item should not be present)    :Fail");
-		switchToNativeContext();
-		 takeScreenshot(finalPath1); 
-		
-		Assert.assertTrue(false);
-		}
+	
 		return this;
 		
 		}
 
-		@SuppressWarnings("rawtypes")
+		
 		public CategoryPage VerifyOptionsOnSetUpFoodCost(String string) throws InterruptedException, IOException{
-		String string2="Issue";	
-		String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;
-		try{
+		
 		waitForElementToBeClickable(SetUp_Pg3Title);
 			if(isElementPresent(FoodAndNonFood) && isElementPresent(FoodAndNonFoodDesc) && isElementPresent(SuggestedCategories) && isElementPresent(SuggestedCategoriesDesc) && isElementPresent(CustomCategories) && isElementPresent(CustomCategoriesDesc))
 			{
@@ -1539,26 +1112,15 @@ import io.appium.java_client.ios.IOSDriver;
 			}
 			
 		
-		Reporter.log("Category page verification done :Pass");
-		}
-		catch(Exception e){
-			Reporter.log("Category page verification done  :Fail");
-		switchToNativeContext(); 
-		takeScreenshot(finalPath1);
-		
-		Assert.assertTrue(false);
-		}
+	
 		
 		return this;
 		
 		}
-		@SuppressWarnings({ "rawtypes", "unchecked", "unused" })
+		
 		public CategoryPage AddCategoryNonFood(String string) throws InterruptedException, IOException
 			{
-				String string2="Issue";   
-				String finalPath1=Screenshot.drivePath+string+string2+Screenshot.pathExtension;	
 				
-				try{
 					
 						switchToNativeContext();
 		
@@ -1566,28 +1128,17 @@ import io.appium.java_client.ios.IOSDriver;
 				    clickElement(AddCategory_NonFood);
 				    switchToWebContext();
 					 		Reporter.log("Selected Non Food :Pass");
-					}
-				catch(Exception e)
-				{
-					Reporter.log("Selected Non Food :Fail");
-					switchToNativeContext(); 
-					takeScreenshot(finalPath1);
 					
-					Assert.assertTrue(false);
-				}
+			
 				return this;
 			}
 		
-		@SuppressWarnings("rawtypes")
+		
 		public CategoryPage VerifyCustomListItemsCustomCategoryLocation1(String category, String string) throws InterruptedException, IOException {
 			Boolean flag3 = false;
 			Boolean flag1 = false;
 			Boolean flag2 = false;
-			String string2 = "Issue";
-			String finalPath1 = Screenshot.drivePath + string + string2 + Screenshot.pathExtension;
-		
-			Reporter.log("Custom Category verification on location1");
-			try {
+	
 		
 				waitFor(2);
 				if ((LocationsPage.Category3[0].equalsIgnoreCase(category))) {
@@ -1608,30 +1159,19 @@ import io.appium.java_client.ios.IOSDriver;
 				}
 		
 				Reporter.log("Custom Category is verified for items in location1 :Pass");
-			}
 		
-			catch (Exception e) {
-				Reporter.log("Custom Category is verified for item in location1  :Fail");
-				switchToNativeContext();
-				takeScreenshot(finalPath1);
 		
-				
-				Assert.assertTrue(false);
-			}
+			
 			return this;
 		
 		}
 		
-		@SuppressWarnings("rawtypes")
+		
 		public CategoryPage VerifyCustomListItemsCustomCategoryLocation2(String category, String string) throws InterruptedException, IOException {
 			Boolean flag3 = false;
 			Boolean flag1 = false;
 			Boolean flag2 = false;
-			String string2 = "Issue";
-			String finalPath1 = Screenshot.drivePath + string + string2 + Screenshot.pathExtension;
 		
-			Reporter.log("Custom Category verification on location2");
-			try {
 		
 				waitFor(2);
 		
@@ -1654,26 +1194,15 @@ import io.appium.java_client.ios.IOSDriver;
 				Reporter.log("Custom Category is verified for items in location2 :Pass");
 			}
 		
-			catch (Exception e) {
-				Reporter.log("Custom Category is verified for item in location2  :Fail");
-				switchToNativeContext();
-				takeScreenshot(finalPath1);
-		
 			
-				Assert.assertTrue(false);
-			}
 			return this;
 		
 		}
 		
-		@SuppressWarnings("rawtypes")
+	
 		public CategoryPage VerifyOptionsOnCreateExpenseCategory(String string) throws InterruptedException, IOException {
 
-			String string2 = "Issue";
-			String finalPath1 = Screenshot.drivePath + string + string2 + Screenshot.pathExtension;
-
-			Reporter.log("Category page verify ");
-			try {
+			
 
 				waitForElementToBeClickable(CreateExpenseCategoryHeader);
 				if (isElementPresent(CreateExpenseCategoryHeader) && isElementPresent(SetUp_Pg3Header)
@@ -1688,12 +1217,7 @@ import io.appium.java_client.ios.IOSDriver;
 					throw new Exception();
 				}
 				Reporter.log("Create custom Category page verification done :Pass");
-			} catch (Exception e) {
-				Reporter.log("Create custom Category page verification done  :Fail");
-				switchToNativeContext();
-				takeScreenshot(finalPath1);
-				Assert.assertTrue(false);
-			}
+		
 
 			return this;
 

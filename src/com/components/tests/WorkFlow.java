@@ -45,7 +45,7 @@ public class WorkFlow extends Starter{
 	 */
 
 	@SuppressWarnings("rawtypes")
-	@BeforeMethod
+	/*@BeforeMethod
 	public  void setUp() throws Exception{
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability("platformName", "android");
@@ -59,21 +59,22 @@ public class WorkFlow extends Starter{
 		//switchToWebContext();	
 		System.out.println("test");
 		System.out.println("adding a code for tsting point");
-	}
+	}*/
 	
 	
 	
-	/*@BeforeMethod
+	@BeforeMethod
 	public  void setUp() throws Exception{
-		DesiredCapabilities capabilities = new DesiredCapabilities();
+		/*DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability("platformName", "iOS");
 		capabilities.setCapability("platformVersion", "9.0");
 		capabilities.setCapability("deviceName", "Jasobanta’s iPad");
 		capabilities.setCapability("app", "/Users/naveen_raj04/Desktop/UOM_Files/Builds/july 27/UOMQASQ-13.ipa");
 		driver = new IOSDriver(new URL("http://10.155.162.74:4723/wd/hub"), capabilities);
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);  
-		switchToWebContext();	
-	}*/
+		switchToWebContext();*/	
+		startup();
+	}
 	@AfterMethod(alwaysRun=true)
 	public  void tearDown() throws Exception{
 		/*driver.close();
@@ -89,7 +90,7 @@ public class WorkFlow extends Starter{
 
 
 		user=1;
-/*
+
 		loginPage.verifyLoginPage("SI - WF 1-LoginPage");
 		loginPage.saveUsernameCheckBoxclickElement("SI - WF 1-save username");	
 		loginPage.signIn(datapool.readFromExcelUserInfo().userNameDataPool[user],datapool.readFromExcelUserInfo().passwordDataPool[user],"SI - WF 1-Login");	

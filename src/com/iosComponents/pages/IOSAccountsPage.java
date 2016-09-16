@@ -26,17 +26,22 @@ import java.util.logging.Logger;
 import org.testng.Assert;
 import org.testng.Reporter;
 
+import com.components.pages.AccountsPage;
 
 
 
-public class IOSAccountsPage {
+
+public class IOSAccountsPage extends AccountsPage {
 	
-	private static final Logger LOGGER= Logger.getLogger(IOSAccountsPage.class.getCanonicalName());
 	
-	public static final String Menu_Account ="//*[@id='accounts']";
-	public static final String Accounts_Page = "//*[@class='navbar-brand']//*[contains(text(),'Accounts')]";
-	public static final String Accounts_1Account = "//*[@id='list-item'][1]";	
-	public static final String Accounts_2Account =  "//*[@id='list-item'][2]";	
+	public static final String[] lnk_MenuAccount ={"//*[@id='accounts']",XPATH};		
+	public static final String[] lbl_AccountsPage = {"//*[@class='navbar-brand']//*[contains(text(),'Accounts')]",XPATH};
+	public static final String[] lbl_InvTools_Accountinfo = {"//*[@id='mount']/div/div/div[2]/nav/div/div/span/h4/a",XPATH};	
+	public static final String[] btn_HamburgerMenu ={"//*[@id='hamburger-nav']",XPATH};
+	public static final String[] lbl_InvToolsPage = {"//*[@class='navbar-brand']//*[contains(text(),'Inventory Tools')]",XPATH};
+	public static final String[] lnk_SelectAccount = {"//*[@class='navbar-brand']//*[contains(text(),'Please select an account')]",XPATH};
+	public static final String[] lbl_AccountNone = {"//*[@class='navbar-brand']//*[contains(text(),'Please select an account')]",XPATH};	
+	
 
 
 	/* Functions on the Page are defined below */
