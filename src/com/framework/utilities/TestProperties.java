@@ -19,7 +19,7 @@ public static	Map<Object, Object> mapObject = new HashMap<>();
 	
 	static{
 	
-	File file = new File("test.properties");	
+	File file = new File("configuration files\\test.properties");	
 	Properties prop = new Properties();
 	
 	try {

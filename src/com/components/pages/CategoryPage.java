@@ -35,111 +35,121 @@
 			private static final Logger LOGGER= Logger.getLogger(CategoryPage.class.getCanonicalName());
 			
 		
-			 
 			
-			public static final String[] Continue ={"//*[@class='btn btn-default' and contains(text(),'Continue')]",ID};
-			public static final String[] Header={"//*[@id='mount']/div/div/div[2]/nav/div/div/span/h3", XPATH};
-			public static final String[] Category_FirstItemSelect= {"//*[@class='checkbox']//*[@class='mm-o-icon']//*[@class='item-input'and @data-index='0']",XPATH};
-			public static final String[] Category_FirstItemHeader= {"//*[@id='mount']/div/div/div[2]/div/div[2]/div[1]/div/div/div[1]/div/div[2]/div[2]/h4",XPATH};
-			public static final String[] InvToolsPg = {"//*[@class='navbar-brand']//*[contains(text(),'Inventory Tools')]",XPATH};
-			public static final String[] SecondCategory_FirstItemSelect= {"//*[@class='checkbox']//*[@class='mm-o-icon']//*[@class='item-input'and @data-index='1']",XPATH};
-			public static final String[] FoodAndNonFood = {"//*[contains(text(),'Food & Non-Food')]",XPATH};		
-			public static final String[]  SuggestedCategories = {"//*[contains(text(),'Suggested Categories')]",XPATH};
-			public static final String[]  CustomCategories = {"//*[contains(text(),'Create Expense Cat.')]",XPATH};		
-		
-			public static final String[] Complete = {"//*[@class='btn btn-default' and contains(text(),'Complete')]",XPATH};
+			
+			//old elements - which needs to be removed	
+			public static final String[] Header={"//*[@id='mount']/div/div/div[2]/nav/div/div/span/h3", XPATH};		
 			public static final String[] SetupInventoryCustomCategoryAllItemsTab ={"//*[@id='mount']//*[@class='mm-c-productList--pill-left']/a",XPATH};
-			public static final String[] SetupInventoryCustomCategoryUncategorizedTab = {"//*[@id='mount']//*[@class='mm-c-productList--pill-right']/a",XPATH};
-			
+			public static final String[] SetupInventoryCustomCategoryUncategorizedTab = {"//*[@id='mount']//*[@class='mm-c-productList--pill-right']/a",XPATH};			
 			public static final String[] Category_Header= {"//*[@id='mount']/div/div/div[2]/nav/div/div/span/h3",XPATH};
-		
+			public static final String[] Continue ={"//*[@class='btn btn-default' and contains(text(),'Continue')]",XPATH};
+			public static final String[] InvToolsPg = {"//*[@class='navbar-brand']//*[contains(text(),'Inventory Tools')]",XPATH};
+			public static final String[] FoodAndNonFood = {"//*[contains(text(),'Food & Non-Food')]",XPATH};
+			public static final String[]  SuggestedCategories = {"//*[contains(text(),'Suggested Categories')]",XPATH};
+			public static final String[]  CustomCategories = {"//*[contains(text(),'Create Expense Cat.')]",XPATH};			
+			public static final String[] Complete = {"//*[@class='btn btn-default' and contains(text(),'Complete')]",XPATH};
+			
+			
+			//new for above elements
+			public static final String[] lbl_Header={"//*[@id='mount']/div/div/div[2]/nav/div/div/span/h3", XPATH};		
+			public static final String[] btn_CustomCategoryAllItemsTab ={"//*[@id='mount']//*[@class='mm-c-productList--pill-left']/a",XPATH};
+			public static final String[] btn_CustomCategoryUncategorizedTab = {"//*[@id='mount']//*[@class='mm-c-productList--pill-right']/a",XPATH};	
+			public static final String[] lbl_CategoryHeader= {"//*[@id='mount']/div/div/div[2]/nav/div/div/span/h3",XPATH};
+			public static final String[] btn_Continue ={"//*[@class='btn btn-default' and contains(text(),'Continue')]",XPATH};
+			public static final String[] btn_InvToolsPg = {"//*[@class='navbar-brand']//*[contains(text(),'Inventory Tools')]",XPATH};
+			public static final String[] btn_FoodAndNonFood = {"//*[contains(text(),'Food & Non-Food')]",XPATH};
+			public static final String[] btn_SuggestedCategories = {"//*[contains(text(),'Suggested Categories')]",XPATH};
+			public static final String[] btn_CustomCategories = {"//*[contains(text(),'Create Expense Cat.')]",XPATH};			
+			public static final String[] btn_Complete = {"//*[@class='btn btn-default' and contains(text(),'Complete')]",XPATH};
+			
+			
+			
+			//old elements - which needs to be removed	
 			public static final String[] ExpenseCategory_Food= {"(//*[@class='radio'])[1]/label",XPATH};
-			public static final String[] ExpenseCategory_Page={"//*[contains(text(),'Create Custom Expense Categories')]",XPATH};
-		
+			public static final String[] ExpenseCategory_Page={"//*[contains(text(),'Create Custom Expense Categories')]",XPATH};		
 			public static final String[] ExpenseCategory_Name={"//*[@class='mm-c-customexpense__details-category-name form-control form-control' and @name='formFields[0].name']",XPATH};
-			public static final String[] ExpenseCategory_NonFood= {"{(//*[@class='mm-c-customexpense__details-category']//*[@class='radio'])[2]/label",XPATH};
-		
-			public static final String[] NextWeb ={"//*[@id='next-nav']/a",XPATH};
-			
-			public static final String[] ExpenseCategory_NameTxt= {"//*[@name='dynamicFields[0].name']",XPATH};
-			
-			public static final String[] ExpenseCategory_AnotherCategory={"//*[contains(text(),'Add Another Category')]",XPATH};
-			
-			public static final String[] ExpenseCategory_Name1= {"//*[@name='dynamicFields[1].name']",XPATH};
-			
+			public static final String[] ExpenseCategory_NonFood= {"{(//*[@class='mm-c-customexpense__details-category']//*[@class='radio'])[2]/label",XPATH};		
+			public static final String[] ExpenseCategory_NameTxt= {"//*[@name='dynamicFields[0].name']",XPATH};			
+			public static final String[] ExpenseCategory_AnotherCategory={"//*[contains(text(),'Add Another Category')]",XPATH};			
+			public static final String[] ExpenseCategory_Name1= {"//*[@name='dynamicFields[1].name']",XPATH};			
 			public static final String[] ExpenseCategory_Food1= {"(//*[@class='radio'])[3]/label",XPATH};
-
+			//new for above elements
+			public static final String[] lbl_ExpenseCategoryFood= {"(//*[@class='radio'])[1]/label",XPATH};
+			public static final String[] lbl_ExpenseCategoryNonFood= {"{(//*[@class='mm-c-customexpense__details-category']//*[@class='radio'])[2]/label",XPATH};	
+			public static final String[] lbl_ExpenseCategoryPage={"//*[contains(text(),'Create Custom Expense Categories')]",XPATH};						
+			public static final String[] lbl_ExpenseCategoryName= {"//*[@name='dynamicFields[0].name']",XPATH};			
+			public static final String[] lbl_AddAnotherCategory={"//*[contains(text(),'Add Another Category')]",XPATH};			
+						
+			
+			
+			
+			//old elements - which needs to be removed
+			public static final String[] CreateExpenseCategoryDesc1 ={"//*[contains(text(),'Create one or more custom expense categories ')]",XPATH};			
+			public static final String[] CreateExpenseCategoryDesc2 ={"//*[contains(text(),'and then select items that belong to each.')]",XPATH};			
+			public static final String[] SetUp_Pg3Header ={"//*[@class='navbar-brand']//*[contains(text(),'Setup Inventory')]",XPATH};			
+			public static final String[] CreateExpenseCategoryHeader ={"//*[contains(text(),'Create Custom Expense Categories')]",XPATH};			
+						
+			public static final String[] SetUp_Pg3Title = {"//*[@id='content-container']/div[1]/div[2]/h2",XPATH}; // not needed
+			public static final String[] ADD_CategoryName= {"//*[@id='name']",XPATH};
+			public static final String[] AddCategory_FoodWeb= {"(//*[@class='mm-c-expense__details-radio']//*[@class='radio'])[1]",XPATH};
+			//new for above elements
+			public static final String[] lbl_CreateExpenseCategoryDesc1 ={"//*[contains(text(),'Create one or more custom expense categories ')]",XPATH};			
+			public static final String[] lbl_CreateExpenseCategoryDesc2 ={"//*[contains(text(),'and then select items that belong to each.')]",XPATH};			
+			public static final String[] lbl_SetUpInvPageHeader ={"//*[@class='navbar-brand']//*[contains(text(),'Setup Inventory')]",XPATH};			
+			public static final String[] lbl_CreateExpenseCategoryHeader ={"//*[contains(text(),'Create Custom Expense Categories')]",XPATH};
+			public static final String[] lbl_AddCategoryName= {"//*[@id='name']",XPATH};
+			public static final String[] lbl_AddCategoryFoodWeb= {"(//*[@class='mm-c-expense__details-radio']//*[@class='radio'])[1]",XPATH};
+			
+			
+			
+			
+			
+			
+			//old elements - which needs to be removed
+			public static final String[] Category_NonSyscoItem1Select={"(//*[@class='mm-c-product-minlist mm-c-product__custom']//*[@class='mm-o-icon'])[1]",XPATH};
+			public static final String[] Category_NonSyscoItem2Select={"(//*[@class='mm-c-product-minlist mm-c-product__custom']//*[@class='mm-o-icon'])[2]",XPATH};
+			//new for above elements
+			public static final String[] rbtn_CategoryNonSyscoItemSelect={"(//*[@class='mm-c-product-minlist mm-c-product__custom']//*[@class='mm-o-icon'])[{dynamic1}]",XPATH};
+			
+			
+			
+			//old elements - which needs to be removed
 			public static final String[] Category_1stItemSelect= {"(//*[@class='mm-c-product-minlist mm-c-product__sysco']//*[@class='mm-o-icon'])[1]",XPATH};
 			public static final String[] Category_2ndItemSelect= {"(//*[@class='mm-c-product-minlist mm-c-product__sysco']//*[@class='mm-o-icon'])[2]",XPATH};
 			public static final String[] Category_3rdItemSelect= {"(//*[@class='mm-c-product-minlist mm-c-product__sysco']//*[@class='mm-o-icon'])[3]",XPATH};
 			public static final String[] Category_1stItemHeading={"(//*[@class='mm-c-product-minlist__item']/h4)[1]",XPATH};
 			public static final String[] Category_2ndItemHeading={"(//*[@class='mm-c-product-minlist__item']/h4)[2]",XPATH};
 			public static final String[] Category_3rdItemHeading= {"(//*[@class='mm-c-product-minlist__item']/h4)[3]",XPATH};
-		
-		
-			
-			public static final String[] ADD_CategoryName= {"//*[@id='name']",XPATH};
-			public static final String[] AddCategory_FoodWeb= {"(//*[@class='mm-c-expense__details-radio']//*[@class='radio'])[1]",XPATH};
-			public static final String[] AddCategory_Food="//android.widget.RadioButton[@content-desc='FOOD']"
-
-
-
-
-		
-			
-			public static final String[] AddCategory_NonFood="//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIAElement[2]",XPATH};
-		    
-		
-			
-		
-		
-			public static final String[] Category_NonSyscoItem1Select="(//*[@class='mm-c-product-minlist mm-c-product__custom']//*[@class='mm-o-icon'])[1]",XPATH};
-			public static final String[] Category_NonSyscoItem2Select="(//*[@class='mm-c-product-minlist mm-c-product__custom']//*[@class='mm-o-icon'])[2]",XPATH};
 			public static final String[] Category_4thItemHeading= {"(//*[@class='mm-c-product-minlist__item']/h4)[4]",XPATH};
-			public static	String CategoryItemName1_4;
-			public static final String[] SetUp_Pg3Header ="//*[@class='navbar-brand']//*[contains(text(),'Setup Inventory')]",XPATH};
+			//new for above elements
+			public static final String[] rbtn_CategoryItemSelect= {"(//*[@class='mm-c-product-minlist mm-c-product__sysco']//*[@class='mm-o-icon'])[{dynamic1}]",XPATH};
+			public static final String[] lbl_CategoryItemHeading={"(//*[@class='mm-c-product-minlist__item']/h4)[{dynamic1}]",XPATH};
 			
-			public static final String[] CreateExpenseCategoryHeader ="//*[contains(text(),'Create Custom Expense Categories')]",XPATH};
-					
-			
-			public static final String[] CreateExpenseCategoryDesc1 ="//*[contains(text(),'Create one or more custom expense categories ')]",XPATH};
-			
-			public static final String[] CreateExpenseCategoryDesc2 ="//*[contains(text(),'and then select items that belong to each.')]",XPATH};
-					 
-		
-			public static final String[] Select_SuggCat_Dairy = {"//*[@id='list-item']//*[contains(text(),'Dairy')]",XPATH};
-			public static final String[] Select_SuggCat_Meat = {"//*[@id='list-item']//*[contains(text(),'Meat')]",XPATH};
-		
-		
-		
-			
-			public static final String[] SetUp_Pg3Title = {"//*[@id='content-container']/div[1]/div[2]/h2",XPATH};
-			
-			
-			
-			
-			
+
 			//old elements - which needs to be removed
 			public static final String[] DoneWeb={"//*[@id='done-nav']/a",XPATH};		
-			public static final String Back ="//*[@id='back-nav']/a/i",XPATH};
-			public static final String AddWeb= {"//*[@id='add-nav']/a/i",XPATH};
-			public static final String EditWeb = {"//*[@id='edit-nav']/a/i",XPATH};
-			public static final String Delete ="//*[@id='delete-button' and contains(text(),'Delete Expense Category')]",XPATH};
-			public static final String YesDelete ="//*[@id='yes-button' and contains(text(),'Yes, Delete')]",XPATH};
+			public static final String[] Back ={"//*[@id='back-nav']/a/i",XPATH};
+			public static final String[] AddWeb= {"//*[@id='add-nav']/a/i",XPATH};
+			public static final String[] EditWeb = {"//*[@id='edit-nav']/a/i",XPATH};
+			public static final String[] Delete ={"//*[@id='delete-button' and contains(text(),'Delete Expense Category')]",XPATH};
+			public static final String[] YesDelete ={"//*[@id='yes-button' and contains(text(),'Yes, Delete')]",XPATH};
+			public static final String[] NextWeb ={"//*[@id='next-nav']/a",XPATH};	
 			//new for above elements
-			
-			
-			
-			
-			
+			public static final String[] btn_DoneWeb={"//*[@id='done-nav']//a",XPATH};		
+			public static final String[] btn_BackWeb ={"//*[@id='back-nav']/a/i",XPATH};
+			public static final String[] btn_AddWeb= {"//*[@id='add-nav']/a/i",XPATH};
+			public static final String[] btn_EditWeb = {"//*[@id='edit-nav']/a/i",XPATH};
+			public static final String[] btn_Delete ={"//*[@id='delete-button' and contains(text(),'Delete Expense Category')]",XPATH};
+			public static final String[] btn_YesDelete ={"//*[@id='yes-button' and contains(text(),'Yes, Delete')]",XPATH};
+			public static final String[] btn_NextWeb ={"//*[@id='next-nav']/a",XPATH};	
 			
 			
 			
 			//old elements - which needs to be removed
-			public static final String[] textUnderFoodAndNOnFood = {"//*[contains(text(),'Use these as expense categories')]",LibraryPage.XPATH};
+			public static final String[] textUnderFoodAndNOnFood = {"//*[contains(text(),'Use these as expense categories')]",XPATH};
 			public static final String[] textUnderSuggestedCat = {"//*[contains(text(),'Meat, Poultry, Seafood, Dairy, Produce, Groceries, Beverages, & Miscellaneous')]",XPATH};
 			public static final String[] textUnderCreateExpCat = {"//*[contains(text(),'Create your own')]",XPATH};	
-			public static final String[] FoodAndNonFoodDesc = {"//*[contains(text(),'Use these as expense categories')]",LibraryPage.XPATH};
+			public static final String[] FoodAndNonFoodDesc = {"//*[contains(text(),'Use these as expense categories')]",XPATH};
 			public static final String[] SuggestedCategoriesDesc ={"//*[contains(text(),'Meat, Poultry, Seafood, Dairy, Produce, Groceries, Beverages, and Miscellaneous')]",XPATH};
 			public static final String[] CustomCategoriesDesc = {"//*[contains(text(),'Create your own')]",XPATH};
 			//new for above elements
@@ -160,6 +170,8 @@
 			public static final String[] SuggestedCategory_Miscellaneous= {"//*[@id='list-item']//span[contains(text(),'Miscellaneous')]",XPATH};
 			public static final String[] DefaultCategory_Food= {"//*[@id='list-item']//span[contains(text(),'Food')]",XPATH};
 			public static final String[] DefaultCategory_NonFood= {"//*[@id='list-item']//span[contains(text(),'Non-Food')]",XPATH};
+			public static final String[] Select_SuggCat_Dairy = {"//*[@id='list-item']//*[contains(text(),'Dairy')]",XPATH};
+			public static final String[] Select_SuggCat_Meat = {"//*[@id='list-item']//*[contains(text(),'Meat')]",XPATH};
 			//new for above elements
 			public static final String[] lst_SelectCategory= {"//*[@id='list-item']//span[contains(text(),'{dynamic1}')]",XPATH};
 			
@@ -168,16 +180,18 @@
 			//native elements
 			public static final String Next="//UIAStaticText[@label='Next']";
 			public static final String Done="//UIAStaticText[@label='Done']";
+			public static final String[] AddCategory_Food={"//android.widget.RadioButton[@content-desc='FOOD']",XPATH};
+			public static final String[] AddCategory_NonFood={"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIAElement[2]",XPATH};
 			
 			
 			
 			
-			
-			public static String CategoryItemName1_1,String CategoryItemName1_2,CategoryItemName1_3,CategoryItemName2_1,CategoryItemName2_2,CategoryItemName2_3;		
+
+			public static String CategoryItemName1_1,CategoryItemName1_2,CategoryItemName1_3,CategoryItemName2_1,CategoryItemName2_2,CategoryItemName2_3;		
 			public static int CategoryNoOfElements1,CategorysNoOfElements2;
 			public String CategoryName,ItemNameSelected,ItemNameAdded,SyscocategoryKeyword1,Selected_SuggCat1;
 			public static String[] SyscoCategory1;
-			public static String ItemAdded;
+			public static String ItemAdded,CategoryItemName1_4;
 		
 		
 		
