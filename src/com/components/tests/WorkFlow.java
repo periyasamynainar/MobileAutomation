@@ -3,6 +3,10 @@ package com.components.tests;
 
 
 import java.io.IOException;
+import java.lang.reflect.Method;
+
+import com.DataRead.Excel;
+import com.ExcelSheetObject.FirstClass;
 import com.components.pages.*;
 import com.framework.utilities.Starter;
 
@@ -12,7 +16,9 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import io.appium.java_client.AppiumDriver;
@@ -36,7 +42,9 @@ public class WorkFlow extends Starter{
     ProductPage productPage = new ProductPage();
 
     
-
+    public static String[][] arrComplete ;
+    Excel excel = new Excel();
+    FirstClass firstClassObject = new FirstClass();
 	
 	/*
 	 * Validating user is able to setup inventory by adding items from OrderGuide and then assign those items to Default location and Default category. 
@@ -44,24 +52,25 @@ public class WorkFlow extends Starter{
 	 * Prerequisite:Normal/MA User with OG items.
 	 */
 
-	@SuppressWarnings("rawtypes")
-	/*@BeforeMethod
-	public  void setUp() throws Exception{
-		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities.setCapability("platformName", "android");
-		capabilities.setCapability("platformVersion", "6.0.1");
-		capabilities.setCapability("deviceName", "1215fc6c06180a04");
-		capabilities.setCapability("chromedriverExecutable", "D:\\Selenium\\chromedriver_win32\\chromedriver.exe");
-		//capabilities.setCapability("app", "D:/Periyasamy_Nainar/Download_08122016/UOMQA_SQ-debug.apk");
-		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-		//driver = new AppiumDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);  
-		//switchToWebContext();	
-		System.out.println("test");
-		System.out.println("adding a code for tsting point");
-	}*/
+		
+	
+	@BeforeClass
+	public void beforeC(){
+		System.out.println("Before class");
+		System.setProperty("webdriver.chrome.driver", "D:\\Selenium\\chromedriver.exe");
+		String strData = "TestData.xls";		
+		arrComplete=excel.read(strData, "FirstClass");
+	}
 	
 	
+	@DataProvider(name="DP1", parallel=true)
+	public Object[][] dataReadLogic(Method method){
+		System.out.println("DataProvider");
+		System.out.println(method.getName());
+		String[][] strArray = excel.getMethodData(arrComplete, method.getName());
+		Object[][] retObjArr = firstClassObject.getTestData(strArray);
+		return retObjArr;
+	}
 	
 	@BeforeMethod
 	public  void setUp() throws Exception{
