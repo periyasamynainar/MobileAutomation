@@ -31,35 +31,63 @@ import org.testng.Reporter;
 import io.appium.java_client.ios.IOSDriver;
 
 public class VendorPage extends LibraryPage {
-	private static final Logger LOGGER= Logger.getLogger(VendorPage.class.getCanonicalName());
-	public static final String ADD_Vendor = 
-			"//*[@id='add-nav']/a/i";
-	public static final String ADD_VendorPage = 
-			"//*[@class='navbar-brand']//*[contains(text(),'Add Supplier')]";
-		
-
-	public static final String ADD_VendorName = 
-			"//*[@id='name']";
-	public static final String ADD_VendorNumber =  "//*[@id='phoneNumber']";
-	public static final String ADD_VendorAddress =  "//*[@id='address']";
-	public static final String ADD_VendorContactInfo =  "//*[@id='contactName']";
-	public static final String ADD_VendorEmail = 	"//*[@id='emailAddress']";
-	public static final String ADD_VendorNote = "//*[@id='notes']";
-	public static final String DoneWeb = "//*[@id='done-nav']";
-	//done-nav
-	public static final String Done = 	"//UIAStaticText[@label='Done']";
-	public static final String Back = 	"//*[@id='back-nav']/a/i";
-
-	//public static final String Vendor_firstVendorname = "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIAButton[2]";
 	
+	private static final Logger LOGGER= Logger.getLogger(VendorPage.class.getCanonicalName());
+	
+	//new objects
+	
+	//Suppliers page
+	public static final String[] btn_AddSupplier={"//*[@id='add-nav']/a/i",XPATH};
 
-	public static final String VendorDetails_name = "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIATextField[1]";
-	public static final String VendorDetails_number = 	"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIATextField[2]";
-	public static final String VendorDetails_address =	"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIATextField[3]";
-	public static final String VendorDetails_contact = 	"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIATextField[4]";
-	public static final String VendorDetails_email = "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIATextField[5]";
-	public static final String VendorDetails_note =	"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIATextField[6]";
-	public static final String Edit = "//*[@id='edit-nav']//*[@class='mm-o-icon icon-edit']";
+	//Add Supplier Page
+	public static final String[] lbl_AddSupplierPage={"//*[@class='navbar-brand']//*[contains(text(),'Add Supplier')]",XPATH};
+	public static final String[] txt_SupplierName={"//*[@id='name']",XPATH};
+	public static final String[] txt_PhoneNumber={"//*[@id='phoneNumber']",XPATH};
+	public static final String[] txt_Address={"//*[@id='address']",XPATH};
+	public static final String[] txt_ContactInfo={"//*[@id='contactName']",XPATH};
+	public static final String[] txt_Email={"//*[@id='emailAddress']",XPATH};
+	public static final String[] txt_Note={"//*[@id='notes']",XPATH};
+	public static final String[] lnk_DoneWeb={"//*[@id='done-nav']",XPATH};
+	public static final String[] lnk_Cancel={"//*[contains(text(),'Cancel')]",XPATH};
+	public static final String[] lbl_SupplierName={"//*[contains(text(),'SUPPLIER NAME')]",XPATH};
+	public static final String[] lbl_PhoneNumber={"//*[contains(text(),'PHONE NUMBER')]",XPATH};
+	public static final String[] lbl_Address={"//*[contains(text(),'ADDRESS')]",XPATH};
+	public static final String[] lbl_ContactInfo={"//*[contains(text(),'CONTACT INFORMATION')]",XPATH};
+	public static final String[] lbl_Email={"//*[contains(text(),'EMAIL ADDRESS')]",XPATH};
+	public static final String[] lbl_Note={"//*[contains(text(),'NOTE/COMMENTS')]",XPATH};
+	
+	//Supplier Details page
+	public static final String[] lbl_SupplierDetailsName={"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIATextField[1]",XPATH};
+	public static final String[] lbl_SupplierDetailsPhoneNumber={"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIATextField[2]",XPATH};
+	public static final String[] lbl_SupplierDetailsAddress={"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIATextField[3]",XPATH};
+	public static final String[] lbl_SupplierDetailsContactInfo={"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIATextField[4]",XPATH};
+	public static final String[] lbl_SupplierDetailsEmail={"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIATextField[5]",XPATH};
+	public static final String[] lbl_SupplierDetailsNote={"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIATextField[6]",XPATH};
+	
+	//Below elements should move to Native element page - Common page
+	public static final String[] lnk_Done = 	{"//UIAStaticText[@label='Done']",XPATH};
+	
+	//old objects - Needs to be removed after updating correct locators
+	public static final String[] ADD_Vendor = {"//*[@id='add-nav']/a/i",XPATH};
+	public static final String[] ADD_VendorPage ={"//*[@class='navbar-brand']//*[contains(text(),'Add Supplier')]",XPATH};
+	public static final String[] ADD_VendorName ={"//*[@id='name']",XPATH};
+	public static final String[] ADD_VendorNumber ={"//*[@id='phoneNumber']",XPATH};
+	public static final String[] ADD_VendorAddress = {"//*[@id='address']",XPATH};
+	public static final String[] ADD_VendorContactInfo = {"//*[@id='contactName']",XPATH};
+	public static final String[] ADD_VendorEmail = {"//*[@id='emailAddress']",XPATH};
+	public static final String[] ADD_VendorNote = {"//*[@id='notes']",XPATH};
+	public static final String[] DoneWeb = {"//*[@id='done-nav']",XPATH};
+	//done-nav
+	public static final String[] Done = 	{"//UIAStaticText[@label='Done']",XPATH};
+	public static final String[] Back = 	{"//*[@id='back-nav']/a/i",XPATH};
+	//public static final String Vendor_firstVendorname = "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIAButton[2]";
+	public static final String[] VendorDetails_name = {"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIATextField[1]",XPATH};
+	public static final String[] VendorDetails_number = 	{"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIATextField[2]",XPATH};
+	public static final String[] VendorDetails_address =	{"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIATextField[3]",XPATH};
+	public static final String[] VendorDetails_contact = 	{"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIATextField[4]",XPATH};
+	public static final String[] VendorDetails_email = {"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIATextField[5]",XPATH};
+	public static final String[] VendorDetails_note =	{"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIATextField[6]",XPATH};
+	public static final String[] Edit = {"//*[@id='edit-nav']//*[@class='mm-o-icon icon-edit']",XPATH};
 	public static String Name;
 	public static final String ADD_VendorDelete = "//*[@id='delete-button' and contains(text(),'Delete Supplier')]";
 	public static final String Delete_Yes = 	"//*[@id='yes-button' and contains(text(),'Yes, Delete')]";
@@ -67,13 +95,13 @@ public class VendorPage extends LibraryPage {
 
 	public static final String VendorsPage = "//*[contains(text(),'Suppliers')]";
 
-	public static final String ADD_VendorNameLabel = "//*[contains(text(),'SUPPLIER NAME')]";
-	public static final String ADD_VendorNumberLabel ="//*[contains(text(),'PHONE NUMBER')]";
-	public static final String ADD_VendorAddressLabel =  "//*[contains(text(),'ADDRESS')]";
-	public static final String ADD_VendorContactInfoLabel = "//*[contains(text(),'CONTACT INFORMATION')]";
-	public static final String ADD_VendorEmailLabel =  "//*[contains(text(),'EMAIL ADDRESS')]";
-	public static final String ADD_VendorNoteLabel =  "//*[contains(text(),'NOTE/COMMENTS')]";
-	public static final String Cancel = "//*[contains(text(),'Cancel')]";
+	public static final String[] ADD_VendorNameLabel = {"//*[contains(text(),'SUPPLIER NAME')]",XPATH};
+	public static final String[] ADD_VendorNumberLabel ={"//*[contains(text(),'PHONE NUMBER')]",XPATH};
+	public static final String[] ADD_VendorAddressLabel =  {"//*[contains(text(),'ADDRESS')]",XPATH};
+	public static final String[] ADD_VendorContactInfoLabel = {"//*[contains(text(),'CONTACT INFORMATION')]",XPATH};
+	public static final String[] ADD_VendorEmailLabel =  {"//*[contains(text(),'EMAIL ADDRESS')]",XPATH};
+	public static final String[] ADD_VendorNoteLabel =  {"//*[contains(text(),'NOTE/COMMENTS')]",XPATH};
+	public static final String[] Cancel = {"//*[contains(text(),'Cancel')]",XPATH};
 
 	
 	
