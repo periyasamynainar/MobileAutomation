@@ -11,7 +11,7 @@ import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.Set;
 
-public class TestProperties {
+public class ConfigFile {
 
 	
 public static Set<Entry<Object, Object>> obj ;

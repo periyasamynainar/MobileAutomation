@@ -10,7 +10,7 @@ import org.testng.Reporter;
 
 import com.framework.utilities.FrameworkReporter;
 import com.framework.utilities.Starter;
-import com.framework.utilities.TestProperties;
+import com.framework.utilities.ConfigFile;
 import com.gargoylesoftware.htmlunit.javascript.host.Element;
 
 import io.appium.java_client.AppiumDriver;

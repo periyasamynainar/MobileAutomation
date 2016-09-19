@@ -29,7 +29,7 @@ import org.testng.Assert;
 import org.testng.Reporter;
 
 import com.androidComponents.pages.AndroidAccountsPage;
-import com.framework.utilities.TestProperties;
+import com.framework.utilities.ConfigFile;
 import com.iosComponents.pages.IOSAccountsPage;
 import com.iosTabletComponents.pages.IOSTabletPage;
 
@@ -90,7 +90,7 @@ public class AccountsPage extends LibraryPage{
 	Field[] accountPageObj = new AndroidAccountsPage().getClass().getDeclaredFields();
 	
 	public AccountsPage(){
-		String strBrand = TestProperties.getProperty("Brand").toString().toLowerCase();
+		String strBrand = ConfigFile.getProperty("Brand").toString().toLowerCase();
 		
 		
 		switch(strBrand){

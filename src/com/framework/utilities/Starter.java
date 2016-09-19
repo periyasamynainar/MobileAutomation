@@ -95,7 +95,7 @@ public class Starter {
 	
 	public DesiredCapabilities getDesktopCapabilities(){
 		
-		String strBrowser = TestProperties.getProperty("test.browser").toLowerCase();
+		String strBrowser = ConfigFile.getProperty("test.browser").toLowerCase();
 		
 		switch(strBrowser){
 			
@@ -116,43 +116,43 @@ public class Starter {
 	static{
 		
 		
-		strHost = TestProperties.getProperty("selenium.host");
-		strPort = TestProperties.getProperty("selenium.port");
+		strHost = ConfigFile.getProperty("selenium.host");
+		strPort = ConfigFile.getProperty("selenium.port");
 		
-		if(TestProperties.getProperty("testType")==null | TestProperties.getProperty("testType")=="null"){
+		if(ConfigFile.getProperty("testType")==null | ConfigFile.getProperty("testType")=="null"){
 			strPlatformName = "";			
 		}else{
-			strPlatformName = TestProperties.getProperty("testType").toLowerCase();}		
+			strPlatformName = ConfigFile.getProperty("testType").toLowerCase();}		
 		
-		if(TestProperties.getProperty("platformVersion")==null | TestProperties.getProperty("platformVersion")=="null"){
+		if(ConfigFile.getProperty("platformVersion")==null | ConfigFile.getProperty("platformVersion")=="null"){
 			strPlatformVersion = "";			
 		}else{
-			strPlatformVersion = TestProperties.getProperty("platformVersion");		}
+			strPlatformVersion = ConfigFile.getProperty("platformVersion");		}
 		
-		if(TestProperties.getProperty("deviceName")==null | TestProperties.getProperty("deviceName")=="null"){
+		if(ConfigFile.getProperty("deviceName")==null | ConfigFile.getProperty("deviceName")=="null"){
 			strDeviceName = "";
 			}else{
-			strDeviceName = TestProperties.getProperty("deviceName");		}
+			strDeviceName = ConfigFile.getProperty("deviceName");		}
 		
-		if(TestProperties.getProperty("autoWebView")==null | TestProperties.getProperty("autoWebView")=="null"){
+		if(ConfigFile.getProperty("autoWebView")==null | ConfigFile.getProperty("autoWebView")=="null"){
 			strAutoWebView = "";			
 		}else{
-			strAutoWebView = TestProperties.getProperty("autoWebView");		}
+			strAutoWebView = ConfigFile.getProperty("autoWebView");		}
 		
-		if(TestProperties.getProperty("udid")==null | TestProperties.getProperty("udid")=="null"){
+		if(ConfigFile.getProperty("udid")==null | ConfigFile.getProperty("udid")=="null"){
 			strUDID = "";			
 		}else{
-			strUDID = TestProperties.getProperty("udid");		}
+			strUDID = ConfigFile.getProperty("udid");		}
 		
-		if(TestProperties.getProperty("appPath")==null | TestProperties.getProperty("appPath")=="null"){
+		if(ConfigFile.getProperty("appPath")==null | ConfigFile.getProperty("appPath")=="null"){
 			strAppPath = "";	
 		}else{
-			strAppPath = TestProperties.getProperty("appPath");		}
+			strAppPath = ConfigFile.getProperty("appPath");		}
 		
-		if(TestProperties.getProperty("isApp")==null | TestProperties.getProperty("isApp")=="null"){
+		if(ConfigFile.getProperty("isApp")==null | ConfigFile.getProperty("isApp")=="null"){
 			boolIsAppVal = false;	
 		}else{
-			boolIsAppVal = Boolean.parseBoolean(TestProperties.getProperty("isApp"));		
+			boolIsAppVal = Boolean.parseBoolean(ConfigFile.getProperty("isApp"));		
 			}
 				
 	}

@@ -20,13 +20,17 @@
 package com.components.pages;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.Set;
 import java.util.logging.Logger;
 
 import org.testng.Assert;
 import org.testng.Reporter;
 
-
+import com.androidComponents.pages.AndroidVendorPage;
+import com.commonFunction.FunctionLibrary;
+import com.framework.utilities.FrameworkReporter;
+import com.framework.utilities.ConfigFile;
 
 import io.appium.java_client.ios.IOSDriver;
 
@@ -38,7 +42,11 @@ public class VendorPage extends LibraryPage {
 	
 	//Suppliers page
 	public static final String[] btn_AddSupplier={"//*[@id='add-nav']/a/i",XPATH};
-
+	public static final String[] lbl_SuppliersPage={"//*[contains(text(),'Suppliers')]",XPATH};
+	public static final String[] lst_Suppliers={"//*[@id='list-item']//*[contains(text(),'{dynamic1}')]",XPATH};
+	public static final String[] btn_Back={"//*[@id='back-nav']/a/i",XPATH};
+	public static final String[] lst_SupplierList={"//*[@id='list-item']",XPATH};
+	
 	//Add Supplier Page
 	public static final String[] lbl_AddSupplierPage={"//*[@class='navbar-brand']//*[contains(text(),'Add Supplier')]",XPATH};
 	public static final String[] txt_SupplierName={"//*[@id='name']",XPATH};
@@ -63,10 +71,15 @@ public class VendorPage extends LibraryPage {
 	public static final String[] lbl_SupplierDetailsContactInfo={"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIATextField[4]",XPATH};
 	public static final String[] lbl_SupplierDetailsEmail={"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIATextField[5]",XPATH};
 	public static final String[] lbl_SupplierDetailsNote={"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIATextField[6]",XPATH};
+	public static final String[] lnk_Edit={"//*[@id='edit-nav']//*[@class='mm-o-icon icon-edit']",XPATH};
+	public static final String[] lnk_DeleteSupplier={"//*[@id='delete-button' and contains(text(),'Delete Supplier')]",XPATH};
+	public static final String[] btn_DeleteYes={"//*[@id='yes-button' and contains(text(),'Yes, Delete')]",XPATH};
+	public static final String[] btn_DeleteCancel={"//*[@id='yes-button' and contains(text(),'No, Cancel')]",XPATH};
 	
 	//Below elements should move to Native element page - Common page
 	public static final String[] lnk_Done = 	{"//UIAStaticText[@label='Done']",XPATH};
 	
+	////////////////////////////////////////////////////////////////////////
 	//old objects - Needs to be removed after updating correct locators
 	public static final String[] ADD_Vendor = {"//*[@id='add-nav']/a/i",XPATH};
 	public static final String[] ADD_VendorPage ={"//*[@class='navbar-brand']//*[contains(text(),'Add Supplier')]",XPATH};
@@ -88,12 +101,14 @@ public class VendorPage extends LibraryPage {
 	public static final String[] VendorDetails_email = {"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIATextField[5]",XPATH};
 	public static final String[] VendorDetails_note =	{"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIATextField[6]",XPATH};
 	public static final String[] Edit = {"//*[@id='edit-nav']//*[@class='mm-o-icon icon-edit']",XPATH};
+	
 	public static String Name;
-	public static final String ADD_VendorDelete = "//*[@id='delete-button' and contains(text(),'Delete Supplier')]";
-	public static final String Delete_Yes = 	"//*[@id='yes-button' and contains(text(),'Yes, Delete')]";
-	public static final String Delete_Cancel = "//*[@id='yes-button' and contains(text(),'No, Cancel')]";
+	
+	public static final String[] ADD_VendorDelete = {"//*[@id='delete-button' and contains(text(),'Delete Supplier')]",XPATH};
+	public static final String[] Delete_Yes = 	{"//*[@id='yes-button' and contains(text(),'Yes, Delete')]",XPATH};
+	public static final String[] Delete_Cancel = {"//*[@id='yes-button' and contains(text(),'No, Cancel')]",XPATH};
 
-	public static final String VendorsPage = "//*[contains(text(),'Suppliers')]";
+	public static final String[] VendorsPage = {"//*[contains(text(),'Suppliers')]",XPATH};
 
 	public static final String[] ADD_VendorNameLabel = {"//*[contains(text(),'SUPPLIER NAME')]",XPATH};
 	public static final String[] ADD_VendorNumberLabel ={"//*[contains(text(),'PHONE NUMBER')]",XPATH};
@@ -103,39 +118,241 @@ public class VendorPage extends LibraryPage {
 	public static final String[] ADD_VendorNoteLabel =  {"//*[contains(text(),'NOTE/COMMENTS')]",XPATH};
 	public static final String[] Cancel = {"//*[contains(text(),'Cancel')]",XPATH};
 
+	public static final String[] VendorDetails_name_Android ={"//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[4]/android.widget.EditText[1]",XPATH};
+	public static final String[] VendorDetails_number_Android ={"//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[4]/android.widget.EditText[2]",XPATH};
+	public static final String[] VendorDetails_address_Android ={"//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[4]/android.widget.EditText[3]",XPATH};
+	public static final String[] VendorDetails_contact_Android ={"//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[4]/android.widget.EditText[4]",XPATH};
+	public static final String[] VendorDetails_email_Android ={"//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[4]/android.widget.EditText[5]",XPATH};
+	public static final String[] VendorDetails_note_Android ={"//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[4]/android.widget.EditText[6]",XPATH};
+	/////////////////////////////////////////////////////////////////////			
+	Field[] vendorPageObj;
 	
+	public VendorPage(){
+		String strBrand = ConfigFile.getProperty("Brand").toString().toLowerCase();
+		switch(strBrand){
+		case "android":
+			vendorPageObj=new AndroidVendorPage().getClass().getDeclaredFields();
+			break;
+		case "iphone":
+			//vendorPageObj=new IOSVendorPage();
+			break;
+		case "iostablet":
+			//vendorPageObj=new IOSVendorPage();
+			break;
+		}
+	}
 	
+	/* Functions on the Page are defined below */
 	
-	public static final String VendorDetails_name_Android ="//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[4]/android.widget.EditText[1]";
-			
-	public static final String VendorDetails_number_Android ="//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[4]/android.widget.EditText[2]";
-			
-	public static final String VendorDetails_address_Android ="//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[4]/android.widget.EditText[3]";
-			
-	public static final String VendorDetails_contact_Android ="//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[4]/android.widget.EditText[4]";
-			
-	public static final String VendorDetails_email_Android ="//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[4]/android.widget.EditText[5]";
-			
-	public static final String VendorDetails_note_Android ="//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[4]/android.widget.EditText[6]";
-				
+	/**
+	 * @Function verifySuppliersPage
+	 * @author Gayathri_Anand
+	 * @description	Verify Suppliers Page is displayed
+	 * @date 19-09-2016
+	 */
+	public VendorPage verifySuppliersPage(){
+		if(isElementPresentAfterWait(lbl_SuppliersPage,5)){
+			FrameworkReporter.pass("Suppliers page is displayed");
+			FunctionLibrary.consolePrint("PASSED: Suppliers page is displayed");
+		}
+		else{
+			FrameworkReporter.fail("Suppliers page is not displayed");
+			FunctionLibrary.consolePrint("FAILED: Suppliers page is not displayed");
+		}
+		return this;
+	}
 	
+	/**
+	 * @Function clickOnAddSupplierButton
+	 * @author Gayathri_Anand
+	 * @description	Click on Add Supplier button
+	 * @date 19-09-2016
+	 */
+	public VendorPage clickOnAddSupplierButton(){
+		clickElement(btn_AddSupplier);
+		
+		return this;
+	}
 	
+	/**
+	 *  @Function clickOnDone
+	 * @author Gayathri_Anand
+	 * @description	Click on Done
+	 * @date 19-09-2016
+	 */
+	public VendorPage clickOnDone(){
+		clickElement(lnk_DoneWeb);
+		
+		return this;
+	}
 	
+	/**
+	 *  @Function clickOnBackButton
+	 * @author Gayathri_Anand
+	 * @description	Click on Back button
+	 * @date 19-09-2016
+	 */
+	public VendorPage clickOnBackButton(){
+		clickElement(btn_Back);
+		
+		return this;
+	}
 	
-
-	public VendorPage verifySupplierPage(String string) throws InterruptedException {
+	/**
+	 * @Function selectSupplier
+	 * @author Gayathri_Anand
+	 * @description	Select supplier from the suppliers list
+	 * @param supplierName - Supplier name
+	 * @date 19-09-2016
+	 */
+	public VendorPage selectSupplier(String supplierName){
+		if(lst_Suppliers[0].contains("{dynamic1}")){
+			lst_Suppliers[0]=lst_Suppliers[0].replace("{dynamic1}",supplierName);
+			clickElement(lst_Suppliers);
+			FrameworkReporter.info("Selected supplier "+supplierName);
+			FunctionLibrary.consolePrint("Selected supplier "+supplierName);
+		}
+		return this;
+	}
+	
+	/**
+	 * @Function verifySupplierInSupplierList
+	 * @author Gayathri_Anand
+	 * @description	Verify whether the passed supplier is displayed in the supplier list
+	 * @param supplierName - Supplier name
+	 * @date 19-09-2016
+	 */
+	public VendorPage verifySupplierInSupplierList(String supplierName){
+		if(lst_Suppliers[0].contains("{dynamic1}")){
+			lst_Suppliers[0]=lst_Suppliers[0].replace("{dynamic1}",supplierName);
+		}
+			if(isElementPresentAfterWait(lst_Suppliers,5)){
+				FrameworkReporter.pass("Supplier '"+supplierName+"' is displayed in the supplier list");
+				FunctionLibrary.consolePrint("PASSED: Supplier '"+supplierName+"' is displayed in the supplier list");
+			}
+			else{
+				FrameworkReporter.fail("Supplier '"+supplierName+"' is not displayed in the supplier list");
+				FunctionLibrary.consolePrint("FAILED: Supplier '"+supplierName+"' is not displayed in the supplier list");
+			}
+		return this;
+	}
+	
+	/**
+	 * @Function verifySupplierList
+	 * @author Gayathri_Anand
+	 * @description	Verify supplier list is displayed
+	 * @date 19-09-2016
+	 */
+	public VendorPage verifySupplierList(){
+		if(isElementPresent(lst_SupplierList)&&isElementPresent(btn_AddSupplier)&&isElementPresent(btn_Back)){
+			FrameworkReporter.pass("Supplier list is displayed");
+			FunctionLibrary.consolePrint("PASSED: Supplier list is displayed");
+		}
+		else{
+			FrameworkReporter.fail("Supplier list is not displayed");
+			FunctionLibrary.consolePrint("FAILED: Supplier list is not displayed");
+		}
+		return this;
+	}
+	
+	/**
+	 * @Function verifySupplierDetails
+	 * @author Gayathri_Anand
+	 * @description	Verify supplier details
+	 * @param supplierName- supplier name, phoneNum - supplier phone number, address - supplier address, contactinfo - supplier contact info, email - supplier email, note - 
+	 * @date 19-09-2016
+	 */
+	public VendorPage verifySupplierDetails(String supplierName, String phoneNum,String address, String contactinfo, String email, String note){
+		switchToNativeContext();
+		boolean bVal=true;
+		if(getElementText(lbl_SupplierDetailsName).equals(supplierName)){
+			FrameworkReporter.pass("Supplier name is displayed as expected");
+			FunctionLibrary.consolePrint("PASSED: Supplier name is displayed as expected");
+		}
+		else{
+			bVal=false;
+			FrameworkReporter.fail("Supplier name is not displayed as expected value: "+supplierName+", displayed as: "+getElementText(lbl_SupplierDetailsName));
+			FunctionLibrary.consolePrint("FAILED: Supplier name is not displayed as expected value: "+supplierName+", displayed as: "+getElementText(lbl_SupplierDetailsName));
+		}
+		if(getElementText(lbl_SupplierDetailsPhoneNumber).equals(phoneNum)){
+			FrameworkReporter.pass("Supplier phone number is displayed as expected");
+			FunctionLibrary.consolePrint("PASSED: Supplier phone number is displayed as expected");
+		}
+		else{
+			bVal=false;
+			FrameworkReporter.fail("Supplier phone number is not displayed as expected value: "+phoneNum+", displayed as: "+getElementText(lbl_SupplierDetailsPhoneNumber));
+			FunctionLibrary.consolePrint("FAILED: Supplier phone number is not displayed as expected value: "+phoneNum+", displayed as: "+getElementText(lbl_SupplierDetailsPhoneNumber));
+		}
+		if(getElementText(lbl_SupplierDetailsAddress).equals(address)){
+			FrameworkReporter.pass("Supplier address is displayed as expected");
+			FunctionLibrary.consolePrint("PASSED: Supplier address is displayed as expected");
+		}
+		else{
+			bVal=false;
+			FrameworkReporter.fail("Supplier address is not displayed as expected value: "+address+", displayed as: "+getElementText(lbl_SupplierDetailsAddress));
+			FunctionLibrary.consolePrint("FAILED: Supplier address is not displayed as expected value: "+address+", displayed as: "+getElementText(lbl_SupplierDetailsAddress));
+		}
+		if(getElementText(lbl_SupplierDetailsContactInfo).equals(contactinfo)){
+			FrameworkReporter.pass("Supplier contactinfo is displayed as expected");
+			FunctionLibrary.consolePrint("PASSED: Supplier contactinfo is displayed as expected");
+		}
+		else{
+			bVal=false;
+			FrameworkReporter.fail("Supplier contactinfo is not displayed as expected value: "+contactinfo+", displayed as: "+getElementText(lbl_SupplierDetailsContactInfo));
+			FunctionLibrary.consolePrint("FAILED: Supplier contactinfo is not displayed as expected value: "+contactinfo+", displayed as: "+getElementText(lbl_SupplierDetailsContactInfo));
+		}
+		if(getElementText(lbl_SupplierDetailsEmail).equals(email)){
+			FrameworkReporter.pass("Supplier email is displayed as expected");
+			FunctionLibrary.consolePrint("PASSED: Supplier email is displayed as expected");
+		}
+		else{
+			bVal=false;
+			FrameworkReporter.fail("Supplier email is not displayed as expected value: "+email+", displayed as: "+getElementText(lbl_SupplierDetailsEmail));
+			FunctionLibrary.consolePrint("FAILED: Supplier email is not displayed as expected value: "+email+", displayed as: "+getElementText(lbl_SupplierDetailsEmail));
+		}
+		if(getElementText(lbl_SupplierDetailsNote).equals(note)){
+			FrameworkReporter.pass("Supplier note is displayed as expected");
+			FunctionLibrary.consolePrint("PASSED: Supplier note is displayed as expected");
+		}
+		else{
+			bVal=false;
+			FrameworkReporter.fail("Supplier note is not displayed as expected value: "+note+", displayed as: "+getElementText(lbl_SupplierDetailsNote));
+			FunctionLibrary.consolePrint("FAILED: Supplier note is not displayed as expected value: "+note+", displayed as: "+getElementText(lbl_SupplierDetailsNote));
+		}
+		if(bVal){
+			FrameworkReporter.pass("Supplier details are displayed as expected");
+			FunctionLibrary.consolePrint("PASSED: Supplier details are displayed as expected");
+		}
+		else{
+			FrameworkReporter.fail("Supplier details are not displayed as expected");
+			FunctionLibrary.consolePrint("FAILED: Supplier details are not displayed as expected");
+		}
+		switchToWebContext();
+		return this;
+	}
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////
+	//We can remove the below functions - Above functions are created instead of below functions
+	/**
+	 * 
+	 * 
+	 * 	 
+	 */
+	//We can remove the below functions - Above functions are created instead of below functions
+	
+	 public VendorPage verifySupplierPage(String string){
 		Reporter.log("Verify the Supplier Page");
 
 		waitForElementToBeClickable(VendorsPage);
 		return this;
 	}
-
+	
 	@SuppressWarnings("rawtypes")
 	public VendorPage Add_Supplier(String string) throws InterruptedException, IOException {
 			String string2 = "Issue";
 
-		String finalPath1 = Screenshot.drivePath + string + string2
-				+ Screenshot.pathExtension;
+	//	String finalPath1 = Screenshot.drivePath + string + string2
+	//			+ Screenshot.pathExtension;
 
 		try {
 			waitForElementToBeClickable(ADD_Vendor);
@@ -156,7 +373,7 @@ public class VendorPage extends LibraryPage {
 
 		catch (Exception e) {
 			switchToNativeContext();
-			takeScreenshot(finalPath1);
+			//takeScreenshot(finalPath1);
 			Reporter.log("Add vendor button clickElement :Fail");
 			Assert.assertTrue(false);
 		}
@@ -168,8 +385,8 @@ public class VendorPage extends LibraryPage {
 	public VendorPage TapOnDone(String string) throws InterruptedException, IOException {
 		String string2 = "Issue";
 
-			String finalPath1 = Screenshot.drivePath + string + string2
-				+ Screenshot.pathExtension;
+			//String finalPath1 = Screenshot.drivePath + string + string2
+			//	+ Screenshot.pathExtension;
 
 		try {
 			
@@ -185,7 +402,7 @@ public class VendorPage extends LibraryPage {
 		} catch (Exception e) {
 			switchToNativeContext();
 			Reporter.log("Tapped on done :Fail");
-			takeScreenshot(finalPath1);
+			//takeScreenshot(finalPath1);
 			Assert.assertTrue(false);
 		}
 
@@ -196,8 +413,8 @@ public class VendorPage extends LibraryPage {
 	public VendorPage TapOnBack(String string) throws InterruptedException, IOException {
 			String string2 = "Issue";
 
-			String finalPath1 = Screenshot.drivePath + string + string2
-				+ Screenshot.pathExtension;
+			//String finalPath1 = Screenshot.drivePath + string + string2
+			//	+ Screenshot.pathExtension;
 
 		try {
 			waitForElementToBeClickable(Back);
@@ -210,7 +427,7 @@ public class VendorPage extends LibraryPage {
 		} catch (Exception e) {
 			switchToNativeContext();
 			Reporter.log("tap on back :Fail");
-			takeScreenshot(finalPath1);
+			//takeScreenshot(finalPath1);
 			Assert.assertTrue(false);
 		}
 
@@ -221,16 +438,16 @@ public class VendorPage extends LibraryPage {
 	public VendorPage SupplierSelect(String name, String string) throws InterruptedException, IOException {
 
 			String string2 = "Issue";
-	String finalPath1 = Screenshot.drivePath + string + string2
-				+ Screenshot.pathExtension;
+	//String finalPath1 = Screenshot.drivePath + string + string2
+			//	+ Screenshot.pathExtension;
 
 		try {
 
 			String vendorName = name;
 
-			final String VD_Vendorname = 
-					"//*[@id='list-item']//*[contains(text(),'" + vendorName
-							+ "')]";
+			final String[] VD_Vendorname = 
+				{"//*[@id='list-item']//*[contains(text(),'" + vendorName
+							+ "')]",XPATH};
 			waitForElementToBeClickable(VD_Vendorname);
 			clickElement(VD_Vendorname);
 
@@ -239,7 +456,7 @@ public class VendorPage extends LibraryPage {
 
 		catch (Exception e) {
 			switchToNativeContext();
-			takeScreenshot(finalPath1);
+			//takeScreenshot(finalPath1);
 			Reporter.log("Vendor is selected for item   :Fail");
 					
 			Assert.assertTrue(false);
@@ -252,15 +469,15 @@ public class VendorPage extends LibraryPage {
 	public VendorPage SuppliersList(String vendorname, String string) throws InterruptedException, IOException {
 		String string2 = "Issue";
 
-			String finalPath1 = Screenshot.drivePath + string + string2
-				+ Screenshot.pathExtension;
+			//String finalPath1 = Screenshot.drivePath + string + string2
+				//+ Screenshot.pathExtension;
 
 		try {
 
 			String y = vendorname;
-
-			boolean c = driver.getPageSource().contains(y);
-
+			boolean c=false;
+		//	boolean c = driver.getPageSource().contains(y);
+			
 			if (c == true) {
 
 				Reporter.log("Added  vendor is listed :Pass");
@@ -272,7 +489,7 @@ public class VendorPage extends LibraryPage {
 			switchToNativeContext();
 			Assert.assertTrue(false);
 			Reporter.log("Added new vendor is listed   :Fail");
-			takeScreenshot(finalPath1);
+		//ß	takeScreenshot(finalPath1);
 		}
 
 		return this;
@@ -386,10 +603,12 @@ public class VendorPage extends LibraryPage {
 		String string1 = "Success";
 		String string2 = "Issue";
 
-		String finalPath = Screenshot.drivePath + string + string1
+		/*
+		 String finalPath = Screenshot.drivePath + string + string1
 				+ Screenshot.pathExtension;
 		String finalPath1 = Screenshot.drivePath + string + string2
 				+ Screenshot.pathExtension;
+		*/		
 		try {
 
 			switchToNativeContext();
@@ -451,7 +670,7 @@ public class VendorPage extends LibraryPage {
 
 		} catch (Exception e) {
 			switchToNativeContext();
-			takeScreenshot(finalPath1);
+		//	takeScreenshot(finalPath1);
 			Reporter.log("view vendor detail  :Fail");
 			Assert.assertTrue(false);
 		}
