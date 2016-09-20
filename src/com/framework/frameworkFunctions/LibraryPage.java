@@ -1,4 +1,4 @@
-package com.components.pages;
+package com.framework.frameworkFunctions;
 
 import java.util.Set;
 
@@ -8,9 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.testng.Reporter;
 
-import com.framework.utilities.FrameworkReporter;
-import com.framework.utilities.Starter;
-import com.framework.utilities.ConfigFile;
+import com.framework.*;
+import com.framework.reporting.*;
 import com.gargoylesoftware.htmlunit.javascript.host.Element;
 
 import io.appium.java_client.AppiumDriver;
@@ -32,7 +31,7 @@ public class LibraryPage  {
 	
 	private static AppiumDriver<WebElement> driver;
 	
-	LibraryPage(){
+	protected LibraryPage(){
 		driver = (AppiumDriver<WebElement>) Starter.getDriver();
 	}
 	
@@ -84,6 +83,28 @@ public class LibraryPage  {
 			FrameworkReporter.info("Cleared text from web Element "+ stringVal[0] );
 		}catch (Exception e) {
 			FrameworkReporter.fail("Issue while clearning text from an element "+ stringVal[0]);
+			e.printStackTrace();
+		}
+		return true;		
+		
+	}
+	
+	/**
+	 * @function sendText
+	 * @author Sysco Automation
+	 * @description Send text to web element
+	 * @param stringVal - Locators value, textVal - Text value
+	 * @date 20-09-2016
+	 */
+	
+	public Boolean sendText(String[] stringVal,String textVal){
+		
+		try{
+			waitForElementToBeClickable(stringVal);
+			driver.findElement(getLocatorsType(stringVal)).sendKeys(textVal);;
+			FrameworkReporter.info("Entered text to web Element "+ stringVal[0] );
+		}catch (Exception e) {
+			FrameworkReporter.fail("Issue while entering text to an element "+ stringVal[0]);
 			e.printStackTrace();
 		}
 		return true;		

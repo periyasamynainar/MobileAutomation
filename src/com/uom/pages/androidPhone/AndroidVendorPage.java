@@ -1,10 +1,9 @@
-package com.androidComponents.pages;
+package com.uom.pages.androidPhone;
 
 import java.util.logging.Logger;
 
-import com.commonFunction.FunctionLibrary;
-import com.components.pages.VendorPage;
-import com.framework.utilities.FrameworkReporter;
+import com.uom.pages.common.VendorPage;
+
 
 public class AndroidVendorPage extends VendorPage {
 	

@@ -1,4 +1,4 @@
-package com.components.pages;
+package com.uom.pages.common;
 		
 		/**
 		 ********************************************************************************************************************************************
@@ -18,22 +18,16 @@ package com.components.pages;
 		 ********************************************************************************************************************************************
 		 **/
 
-import io.appium.java_client.ios.IOSDriver;
-
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.logging.Logger;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.Reporter;
 
-import com.androidComponents.pages.AndroidAccountsPage;
-import com.framework.utilities.ConfigFile;
-import com.iosComponents.pages.IOSAccountsPage;
-import com.iosTabletComponents.pages.IOSTabletPage;
-
-
+import com.framework.frameworkFunctions.*;
+import com.uom.pages.androidPhone.AndroidAccountsPage;
+import com.framework.configuration.*;
 
 
 public class AccountsPage extends LibraryPage{

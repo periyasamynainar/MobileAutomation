@@ -1,8 +1,8 @@
-package com.iosComponents.pages;
+package com.uom.pages.iOSPhone;
 
 import java.util.logging.Logger;
 
-import com.components.pages.VendorPage;
+import com.uom.pages.common.VendorPage;
 
 public class IOSVendorPage extends VendorPage {
 

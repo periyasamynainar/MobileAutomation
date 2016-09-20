@@ -17,7 +17,7 @@
 		 ********************************************************************************************************************************************
 		 ********************************************************************************************************************************************
 		 **/
-package com.components.pages;
+package com.uom.pages.common;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -27,11 +27,12 @@ import java.util.logging.Logger;
 import org.testng.Assert;
 import org.testng.Reporter;
 
-import com.androidComponents.pages.AndroidVendorPage;
-import com.commonFunction.FunctionLibrary;
-import com.framework.utilities.FrameworkReporter;
-import com.framework.utilities.ConfigFile;
-
+import com.uom.pages.androidPhone.AndroidVendorPage;
+import com.uom.commonFunctions.FunctionLibrary;
+import com.framework.*;
+import com.framework.frameworkFunctions.*;
+import com.framework.configuration.*;
+import com.framework.reporting.*;
 import io.appium.java_client.ios.IOSDriver;
 
 public class VendorPage extends LibraryPage {
@@ -219,13 +220,14 @@ public class VendorPage extends LibraryPage {
 	 * @Function verifySupplierInSupplierList
 	 * @author Gayathri_Anand
 	 * @description	Verify whether the passed supplier is displayed in the supplier list
-	 * @param supplierName - Supplier name
+	 * @param supplierName - Supplier name, isExpected - true or false whether supplier is expected or not
 	 * @date 19-09-2016
 	 */
-	public VendorPage verifySupplierInSupplierList(String supplierName){
+	public VendorPage verifySupplierInSupplierList(String supplierName,boolean isExpected){
 		if(lst_Suppliers[0].contains("{dynamic1}")){
 			lst_Suppliers[0]=lst_Suppliers[0].replace("{dynamic1}",supplierName);
 		}
+		if(isExpected){
 			if(isElementPresentAfterWait(lst_Suppliers,5)){
 				FrameworkReporter.pass("Supplier '"+supplierName+"' is displayed in the supplier list");
 				FunctionLibrary.consolePrint("PASSED: Supplier '"+supplierName+"' is displayed in the supplier list");
@@ -234,6 +236,17 @@ public class VendorPage extends LibraryPage {
 				FrameworkReporter.fail("Supplier '"+supplierName+"' is not displayed in the supplier list");
 				FunctionLibrary.consolePrint("FAILED: Supplier '"+supplierName+"' is not displayed in the supplier list");
 			}
+		}
+		else{
+			if(!isElementPresent(lst_Suppliers)){
+				FrameworkReporter.pass("Supplier '"+supplierName+"' is not displayed in the supplier list");
+				FunctionLibrary.consolePrint("PASSED: Supplier '"+supplierName+"' is not displayed in the supplier list");
+			}
+			else{
+				FrameworkReporter.fail("Supplier '"+supplierName+"' is displayed in the supplier list");
+				FunctionLibrary.consolePrint("FAILED: Supplier '"+supplierName+"' is displayed in the supplier list");
+			}
+		}
 		return this;
 	}
 	
@@ -331,6 +344,90 @@ public class VendorPage extends LibraryPage {
 		return this;
 	}
 	
+	/**
+	 * @Function deleteSupplier
+	 * @author Gayathri_Anand
+	 * @description	Delete a supplier
+	 * @date 20-09-2016
+	 */
+	public VendorPage deleteSupplier(){
+		clickElement(lnk_DeleteSupplier);
+		waitForElementPresent(btn_DeleteYes);
+		clickElement(btn_DeleteYes);
+		return this;
+	}
+	
+	/**
+	 * @Function clickOnEdit
+	 * @author Gayathri_Anand
+	 * @description	Click on Edit link
+	 * @date 20-09-2016
+	 */
+	public VendorPage clickOnEdit(){
+		clickElement(lnk_Edit);
+		
+		return this;
+	}
+	
+	/**
+	 * @Function enterSupplierDetails
+	 * @author Gayathri_Anand
+	 * @description	Enter supplier details
+	 * @param supplierName- supplier name, phoneNum - supplier phone number, address - supplier address, contactinfo - supplier contact info, email - supplier email, note - 
+	 * @date 20-09-2016
+	 */
+	public VendorPage enterSupplierDetails(String supplierName,String phoneNum,String address, String contactinfo, String email, String note){
+		FrameworkReporter.info("Entering supplier details");
+		if(!supplierName.isEmpty()){
+		clickElement(txt_SupplierName);
+		clear(txt_SupplierName);
+		sendText(txt_SupplierName,supplierName);
+		FrameworkReporter.info("Entered supplier name");
+		}
+		if(!phoneNum.isEmpty()){
+		clickElement(txt_PhoneNumber);
+		clear(txt_PhoneNumber);
+		sendText(txt_PhoneNumber,phoneNum);
+		FrameworkReporter.info("Entered supplier phone number");
+		}
+		if(!address.isEmpty()){
+		clickElement(txt_Address);
+		clear(txt_Address);
+		sendText(txt_Address,address);
+		FrameworkReporter.info("Entered supplier address");
+		}
+		if(!contactinfo.isEmpty()){
+		clickElement(txt_ContactInfo);
+		clear(txt_ContactInfo);
+		sendText(txt_ContactInfo,contactinfo);
+		FrameworkReporter.info("Entered supplier contactinfo");
+		}
+		if(!email.isEmpty()){
+		clickElement(txt_Email);
+		clear(txt_Email);
+		sendText(txt_Email,email);
+		FrameworkReporter.info("Entered supplier email");
+		}
+		if(!note.isEmpty()){
+		clickElement(txt_Note);
+		clear(txt_Note);
+		sendText(txt_Note,note);
+		FrameworkReporter.info("Entered supplier note");
+		}
+		return this;
+	}
+	
+	/**
+	 *  @Function clickOnCancel
+	 * @author Gayathri_Anand
+	 * @description	Click on Cancel
+	 * @date 20-09-2016
+	 */
+	public VendorPage clickOnCancel(){
+		clickElement(lnk_Cancel);
+		
+		return this;
+	}
 	////////////////////////////////////////////////////////////////////////////////////////////////
 	//We can remove the below functions - Above functions are created instead of below functions
 	/**
@@ -686,10 +783,10 @@ public class VendorPage extends LibraryPage {
 		String string1 = "Success";
 		String string2 = "Issue";
 
-		String finalPath = Screenshot.drivePath + string + string1
-				+ Screenshot.pathExtension;
-		String finalPath1 = Screenshot.drivePath + string + string2
-				+ Screenshot.pathExtension;
+	//	String finalPath = Screenshot.drivePath + string + string1
+	//			+ Screenshot.pathExtension;
+	//	String finalPath1 = Screenshot.drivePath + string + string2
+	//			+ Screenshot.pathExtension;
 		try {
 			
 			waitForElementToBeClickable(ADD_VendorDelete);
@@ -715,7 +812,7 @@ public class VendorPage extends LibraryPage {
 		catch (Exception e) {
 			switchToNativeContext();
 			Reporter.log("Deleting vender :Fail");
-			takeScreenshot(finalPath1);
+	//		takeScreenshot(finalPath1);
 			Assert.assertTrue(false);
 
 		}
@@ -727,8 +824,8 @@ public class VendorPage extends LibraryPage {
 	public VendorPage TapOnEdit(String string) throws InterruptedException, IOException {
 		String string2 = "Issue";
 
-		String finalPath1 = Screenshot.drivePath + string + string2
-				+ Screenshot.pathExtension;
+		//String finalPath1 = Screenshot.drivePath + string + string2
+		//		+ Screenshot.pathExtension;
 
 		try {
 			waitForElementToBeClickable(Edit);
@@ -741,8 +838,8 @@ public class VendorPage extends LibraryPage {
 
 		} catch (Exception e) {
 			switchToNativeContext();
-			Reporter.log("tap on Edit :Fail");
-			takeScreenshot(finalPath1);
+		//	Reporter.log("tap on Edit :Fail");
+		//	takeScreenshot(finalPath1);
 			Assert.assertTrue(false);
 		}
 
@@ -754,8 +851,8 @@ public class VendorPage extends LibraryPage {
 
 			String string2 = "Issue";
 
-			String finalPath1 = Screenshot.drivePath + string + string2
-				+ Screenshot.pathExtension;
+		//	String finalPath1 = Screenshot.drivePath + string + string2
+		//		+ Screenshot.pathExtension;
 
 		Reporter.log("Selecting vendor");
 		try {
@@ -765,9 +862,9 @@ public class VendorPage extends LibraryPage {
 
 			waitFor(2);
 
-			final String VD_Vendorname = 
-					"//*[@id='list-item']//*[contains(text(),'" + vendorName
-							+ "')]";
+			final String[] VD_Vendorname = 
+				{"//*[@id='list-item']//*[contains(text(),'" + vendorName
+							+ "')]",XPATH};
 
 			Boolean flag = isElementPresent(VD_Vendorname);
 			if ((flag)) {
@@ -783,7 +880,7 @@ public class VendorPage extends LibraryPage {
 
 		catch (Exception e) {
 			switchToNativeContext();
-			takeScreenshot(finalPath1);
+		//	takeScreenshot(finalPath1);
 			Reporter.log("Deleted supplier is not listed on supplier page :Fail");
 					
 			Assert.assertTrue(false);
@@ -797,8 +894,8 @@ public class VendorPage extends LibraryPage {
 
 		String string2 = "Issue";
 
-			String finalPath1 = Screenshot.drivePath + string + string2
-				+ Screenshot.pathExtension;
+		//	String finalPath1 = Screenshot.drivePath + string + string2
+		//		+ Screenshot.pathExtension;
 
 		Reporter.log("Searching for cancelled supplier");
 		try {
@@ -806,9 +903,9 @@ public class VendorPage extends LibraryPage {
 			String vendorName = name;
 			System.out.println(vendorName);
 
-			final String VD_Vendorname = 
-					"//*[@id='list-item']//*[contains(text(),'" + vendorName
-							+ "')]";
+			final String[] VD_Vendorname = 
+				{"//*[@id='list-item']//*[contains(text(),'" + vendorName
+							+ "')]",XPATH};
 
 			waitFor(6);
 			if (isElementPresent(VD_Vendorname)) {
@@ -821,7 +918,7 @@ public class VendorPage extends LibraryPage {
 
 		catch (Exception e) {
 			switchToNativeContext();
-			takeScreenshot(finalPath1);
+		//	takeScreenshot(finalPath1);
 			Reporter.log("Supplier which was cancelleld is not present: Fail");
 				
 			Assert.assertTrue(false);
@@ -836,8 +933,8 @@ public class VendorPage extends LibraryPage {
 			String string) throws InterruptedException, IOException {
 		String string2 = "Issue";
 
-			String finalPath1 = Screenshot.drivePath + string + string2
-				+ Screenshot.pathExtension;
+		//	String finalPath1 = Screenshot.drivePath + string + string2
+	//			+ Screenshot.pathExtension;
 		Reporter.log("Adding vendor details");
 		try {
 
@@ -845,42 +942,42 @@ public class VendorPage extends LibraryPage {
 			waitForElementToBeClickable(ADD_VendorName);
 			clickElement(ADD_VendorName);
 			if (isElementPresent(ADD_VendorName)) {
-				clearElement(ADD_VendorName);
+				clear(ADD_VendorName);
 				sendText(ADD_VendorName, name);
 
 			}
 			waitForElementToBeClickable(ADD_VendorNumberLabel);
 			if (isElementPresent(ADD_VendorNumber)) {
 				clickElement(ADD_VendorNumber);
-				clearElement(ADD_VendorNumber);
+				clear(ADD_VendorNumber);
 				sendText(ADD_VendorNumber, number);
 
 			}
 			waitForElementToBeClickable(ADD_VendorAddressLabel);
 			if (isElementPresent(ADD_VendorAddress)) {
 				clickElement(ADD_VendorAddress);
-				clearElement(ADD_VendorAddress);
+				clear(ADD_VendorAddress);
 				sendText(ADD_VendorAddress, address);
 
 			}
 			waitForElementToBeClickable(ADD_VendorContactInfoLabel);
 			if (isElementPresent(ADD_VendorContactInfo)) {
 				clickElement(ADD_VendorContactInfo);
-				clearElement(ADD_VendorContactInfo);
+				clear(ADD_VendorContactInfo);
 				sendText(ADD_VendorContactInfo, contactinfo);
 
 			}
 			waitForElementToBeClickable(ADD_VendorEmailLabel);
 			if (isElementPresent(ADD_VendorEmail)) {
 				clickElement(ADD_VendorEmail);
-				clearElement(ADD_VendorEmail);
+				clear(ADD_VendorEmail);
 				sendText(ADD_VendorEmail, email);
 
 			}
 			waitForElementToBeClickable(ADD_VendorNoteLabel);
 			if (isElementPresent(ADD_VendorNote)) {
 				clickElement(ADD_VendorNote);
-				clearElement(ADD_VendorNote);
+				clear(ADD_VendorNote);
 				sendText(ADD_VendorNote, note);
 				waitFor(5);
 
@@ -890,7 +987,7 @@ public class VendorPage extends LibraryPage {
 
 		} catch (Exception e) {
 			switchToNativeContext();
-			takeScreenshot(finalPath1);
+		//	takeScreenshot(finalPath1);
 			Reporter.log("Vendor details entered  :Fail");
 			Assert.assertTrue(false);
 		}
@@ -905,8 +1002,8 @@ public class VendorPage extends LibraryPage {
 	public VendorPage TapOnCancel(String string) throws InterruptedException, IOException {
 		String string2 = "Issue";
 
-		String finalPath1 = Screenshot.drivePath + string + string2
-				+ Screenshot.pathExtension;
+		//String finalPath1 = Screenshot.drivePath + string + string2
+		//		+ Screenshot.pathExtension;
 
 		try {
 		
@@ -921,7 +1018,7 @@ public class VendorPage extends LibraryPage {
 		} catch (Exception e) {
 			switchToNativeContext();
 			Reporter.log("Tapped on Cancel :Fail");
-			takeScreenshot(finalPath1);
+		//	takeScreenshot(finalPath1);
 			Assert.assertTrue(false);
 		}
 
