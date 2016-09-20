@@ -16,7 +16,7 @@
  ********************************************************************************************************************************************
  ********************************************************************************************************************************************
  **/
-package com.components.pages;
+package com.uom.pages.common;
 
 import java.io.IOException;
 import java.util.Set;
@@ -32,9 +32,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.Reporter;
 
-
-
-
+import com.framework.frameworkFunctions.LibraryPage;
 
 public class SetupInventoryPage extends LibraryPage {
 	private static final Logger LOGGER= Logger.getLogger(SetupInventoryPage.class.getCanonicalName());

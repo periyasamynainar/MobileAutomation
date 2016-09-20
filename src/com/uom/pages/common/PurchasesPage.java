@@ -17,7 +17,7 @@
 		 ********************************************************************************************************************************************
 		 ********************************************************************************************************************************************
 		 **/
-package com.components.pages;
+package com.uom.pages.common;
 
 import io.appium.java_client.ios.IOSDriver;
 
@@ -26,6 +26,8 @@ import java.util.logging.Logger;
 
 import org.testng.Assert;
 import org.testng.Reporter;
+
+import com.framework.frameworkFunctions.LibraryPage;
 
 
 public class PurchasesPage extends LibraryPage {

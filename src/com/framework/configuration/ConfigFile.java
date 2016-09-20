@@ -1,4 +1,4 @@
-package com.framework.utilities;
+package com.framework.configuration;
 
 import java.io.File;
 import java.io.FileInputStream;

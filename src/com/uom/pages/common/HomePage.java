@@ -17,12 +17,14 @@
 		 ********************************************************************************************************************************************
 		 ********************************************************************************************************************************************
 		 **/
-package com.components.pages;
+package com.uom.pages.common;
 import java.io.IOException;
 import java.util.logging.Logger;
 
 import org.testng.Assert;
 import org.testng.Reporter;
+
+import com.framework.frameworkFunctions.LibraryPage;
 
 
 

@@ -1,6 +1,6 @@
-package com.commonFunction;
+package com.uom.commonFunctions;
 
-import com.framework.utilities.ConfigFile;
+import com.framework.configuration.*;;
 
 public class FunctionLibrary {
 

@@ -17,17 +17,18 @@
 		 ********************************************************************************************************************************************
 		 ********************************************************************************************************************************************
 		 **/
-		package com.components.pages;
+		package com.uom.pages.common;
 		import java.io.IOException;
 		
 		import java.util.Set;
 		import java.util.logging.Logger;
 		
 		import org.testng.Assert;
-		import org.testng.Reporter;		
-		
-		
-		import io.appium.java_client.android.AndroidDriver;
+		import org.testng.Reporter;
+
+import com.framework.frameworkFunctions.LibraryPage;
+
+import io.appium.java_client.android.AndroidDriver;
 		import io.appium.java_client.ios.IOSDriver;
 		
 		public class CategoryPage extends LibraryPage {

@@ -17,7 +17,7 @@
 		 ********************************************************************************************************************************************
 		 ********************************************************************************************************************************************
 		 **/
-package com.components.pages;
+package com.uom.pages.common;
 
 import java.io.IOException;
 import java.util.List;
@@ -27,6 +27,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.Reporter;
+
+import com.framework.frameworkFunctions.LibraryPage;
 
 
 

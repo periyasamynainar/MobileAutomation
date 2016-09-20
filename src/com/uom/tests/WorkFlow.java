@@ -1,15 +1,12 @@
 
-package com.components.tests;
+package com.uom.tests;
 
 
 import java.io.IOException;
 import java.lang.reflect.Method;
-
-import com.DataRead.Excel;
-import com.ExcelSheetObject.FirstClass;
-import com.components.pages.*;
-import com.framework.utilities.Starter;
-
+import com.framework.*;
+import com.uom.pages.common.*;
+import com.framework.dataread.*;
 import java.net.URL;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;

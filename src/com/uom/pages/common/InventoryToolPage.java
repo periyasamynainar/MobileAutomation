@@ -17,7 +17,7 @@
 		 ********************************************************************************************************************************************
 		 ********************************************************************************************************************************************
 		 **/
-package com.components.pages;
+package com.uom.pages.common;
 import java.io.IOException;
 import java.util.logging.Logger;
 
@@ -28,7 +28,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.Reporter;
 
-
+import com.framework.frameworkFunctions.LibraryPage;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileDriver;

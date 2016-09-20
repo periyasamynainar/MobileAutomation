@@ -1,4 +1,4 @@
-package com.iosComponents.pages;
+package com.uom.pages.iOSPhone;
 		
 		/**
 		 ********************************************************************************************************************************************
@@ -26,7 +26,7 @@ import java.util.logging.Logger;
 import org.testng.Assert;
 import org.testng.Reporter;
 
-import com.components.pages.AccountsPage;
+import com.uom.pages.common.AccountsPage;
 
 
 
