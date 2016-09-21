@@ -6,61 +6,44 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-
 import com.framework.configuration.ConfigFile;
-
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 
 public class Starter {
-
-
 	
-	public static ThreadLocal<WebDriver> localThread = new ThreadLocal<WebDriver>();
 
 	public static DesiredCapabilities cap;
 //	static{			
 	public static String strPlatformName, strPlatformVersion, strDeviceName, strAutoWebView, strUDID, strAppPath;
 	public static String strHost, strPort ;	
 	public static Boolean boolIsAppVal;
-	AppiumDriver<WebElement> driver ;
-	
-	
-	
-	public void startup() {		
-		
+	public static WebDriver driver ;	
+	public void startup() {				
 		try {		
 			URL urlObj = new URL("http://"+ strHost + ":"+ strPort+ "/wd/hub");
-			
 			switch(strPlatformName){			
 				case "android":
 					driver = new AndroidDriver<WebElement>(urlObj, getAndroidCapabilities());
-					localThread.set(driver);
 					break;
 				case "ios":
 					driver = new IOSDriver<WebElement>(urlObj, getIOSCapabilities());	
-					localThread.set(driver);
 					break;
 				case "desktop":
-					driver = (AppiumDriver<WebElement>) new RemoteWebDriver(urlObj, getDesktopCapabilities());	
+					driver =new RemoteWebDriver(urlObj, getDesktopCapabilities());	
+					break;
 				default:
 					System.out.println("Specify correct platformType in testType parameters in test.properties file");
 			}
 		}catch(Exception e){
 			e.printStackTrace();
-		}
-						
-		localThread.set(driver);
-	//	localThread.get().manage().window().maximize();
-		System.out.print("local Thread"+ localThread.toString()+ "   ");
-		System.out.println("driver"+ localThread.get().toString()); 
+		}		
 		
 	}
 	
 	public static WebDriver getDriver(){
-		//LibraryPage.setWebDriver(localThread.get());      // This line of code is used to send current thread instance to library page class
-		return localThread.get();
+		return driver;
 	}
 	
 	
@@ -119,7 +102,7 @@ public class Starter {
 		strHost = ConfigFile.getProperty("selenium.host");
 		strPort = ConfigFile.getProperty("selenium.port");
 		
-		if(ConfigFile.getProperty("testType")==null | ConfigFile.getProperty("testType")=="null"){
+		if(ConfigFile.getProperty("testType")==null | ConfigFile.getProperty("testType").trim().isEmpty()){
 			strPlatformName = "";			
 		}else{
 			strPlatformName = ConfigFile.getProperty("testType").toLowerCase();}		

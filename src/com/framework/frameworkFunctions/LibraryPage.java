@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.testng.Reporter;
 
 import com.framework.*;
+import com.framework.configuration.ConfigFile;
 import com.framework.reporting.*;
 import com.gargoylesoftware.htmlunit.javascript.host.Element;
 
@@ -29,10 +30,15 @@ public class LibraryPage  {
 	public static final Integer TIMEOUT = 60;
 	
 	
-	private static AppiumDriver<WebElement> driver;
+	private static AppiumDriver<WebElement> driver1;
+	private static WebDriver driver;
 	
 	protected LibraryPage(){
-		driver = (AppiumDriver<WebElement>) Starter.getDriver();
+		
+			driver = Starter.getDriver();
+			//driver1 = (AppiumDriver<WebElement>)driver;
+		
+		
 	}
 	
 	
@@ -45,7 +51,7 @@ public class LibraryPage  {
 	
 	/**
 	 * @function clickElement
-	 * @author Periyasamy_Nainar
+	 * @author SyscoAutomation
 	 * @description Click on UI Elements
 	 * @param stringVal - Locators value
 	 * @date 15-09-2016
@@ -69,7 +75,7 @@ public class LibraryPage  {
 	
 	/**
 	 * @function clear
-	 * @author Periyasamy_Nainar
+	 * @author SyscoAutomation
 	 * @description Clear text from web element
 	 * @param stringVal - Locators value
 	 * @date 15-09-2016
@@ -113,7 +119,7 @@ public class LibraryPage  {
 	
 	/**
 	 * @function waitFor
-	 * @author Periyasamy_Nainar
+	 * @author SyscoAutomation
 	 * @description Wait for some time - for synchronization
 	 * @param  iSecValue- Number of seconds to wait
 	 * @date 15-09-2016
@@ -131,7 +137,7 @@ public class LibraryPage  {
 	
 	/**
 	 * @function waitForElementPresent
-	 * @author Periyasamy_Nainar
+	 * @author SyscoAutomation
 	 * @description Wait for an element to be present - until maximum timeout unit  
 	 * @param stringVal - Locators value
 	 * @date 15-09-2016
@@ -174,7 +180,7 @@ public class LibraryPage  {
 	
 	/**
 	 * @function waitForElementToBeClickable
-	 * @author Periyasamy_Nainar
+	 * @author SyscoAutomation
 	 * @description Wait for an element to be clickable - until maximum timeout unit  
 	 * @param stringVal - Locators value
 	 * @date 15-09-2016
@@ -216,7 +222,7 @@ public class LibraryPage  {
 	
 	/**
 	 * @function waitForElementPresent
-	 * @author Periyasamy_Nainar
+	 * @author SyscoAutomation
 	 * @description Wait for an element to present - until specified amount of timeUnit 
 	 * @param stringVal - Locators value, iTimeUnit - Number of seconds to wait
 	 * @date 15-09-2016
@@ -258,7 +264,7 @@ public class LibraryPage  {
 	
 	/**
 	 * @function waitForElementToBeClickable
-	 * @author Periyasamy_Nainar
+	 * @author SyscoAutomation
 	 * @description Wait for an element to be clickable - Specify amount of time 
 	 * @param stringVal - Locators value, iTimeUnit - Number of seconds to wait
 	 * @date 15-09-2016
@@ -301,7 +307,7 @@ public class LibraryPage  {
 	
 	/**
 	 * @function isElementPresent
-	 * @author Periyasamy_Nainar
+	 * @author SyscoAutomation
 	 * @description Check whether an element is present or not, return true if an element present else return false. 
 	 * @param stringVal - Locators value
 	 * @date 15-09-2016
@@ -335,7 +341,7 @@ public class LibraryPage  {
 	
 	/**
 	 * @function isElementPresentAfterWait
-	 * @author Periyasamy_Nainar
+	 * @author SyscoAutomation
 	 * @description Check whether an element is present or not after waiting for specify amount of time, return true if an element present else return false. 
 	 * @param stringVal - Locators value, iSec - Time unit for specified amount of time
 	 * @date 15-09-2016
@@ -375,7 +381,7 @@ public class LibraryPage  {
 	
 	/**
 	 * @function isElementClickable
-	 * @author Periyasamy_Nainar
+	 * @author SyscoAutomation
 	 * @description Check whether an element is clickable or not, return true if an element present else return false. 
 	 * @param stringVal - Locators value
 	 * @date 15-09-2016
@@ -406,7 +412,7 @@ public class LibraryPage  {
 	
 	/**
 	 * @function isElementClickableAfterWait
-	 * @author Periyasamy_Nainar
+	 * @author SyscoAutomation
 	 * @description Check whether an element is clickable or not after waiting for specify amount of time, return true if an element present else return false. 
 	 * @param stringVal - Locators value, iSec - Number of seconds to wait
 	 * @date 15-09-2016
@@ -445,7 +451,7 @@ public class LibraryPage  {
 	
 	/**
 	 * @function getElementText
-	 * @author Periyasamy_Nainar
+	 * @author SyscoAutomation
 	 * @description get the text value or content form an element 
 	 * @param stringVal - Locators value
 	 * @date 15-09-2016
@@ -460,7 +466,7 @@ public class LibraryPage  {
 
 	/**
 	 * @function getLocatorsType
-	 * @author Periyasamy_Nainar
+	 * @author SyscoAutomation
 	 * @description get Locators type before identifying an element
 	 * @param stringVal - Locators value as array of strings with locators type
 	 * @date 15-09-2016
@@ -505,21 +511,22 @@ public class LibraryPage  {
 	
 	/**
 	 * @function switchToWebContext
-	 * @author Periyasamy_Nainar
+	 * @author SyscoAutomation
 	 * @description switch to web context before perform any action on webview elements 
 	 * @date 15-09-2016
 	 */
 	 public  LibraryPage switchToWebContext(){
-			Set<String> contextNames1 = driver.getContextHandles();
+		
+			Set<String> contextNames1 = ((AppiumDriver<WebElement>) driver).getContextHandles();
 			
-			System.out.println(driver.getContext());
-			if(driver.getContext().contains("WEBVIEW_")){
+			System.out.println(((AppiumDriver<WebElement>) driver).getContext());
+			if(driver1.getContext().contains("WEBVIEW_")){
 					// Dont do anything if the current context is webview
 			}else{
 				for (String contextName : contextNames1){
 				System.out.println("inside loop "+contextNames1);
 					if(contextName.contains("WEBVIEW_")){
-							driver.context(contextName);
+							driver1.context(contextName);
 						//	Appium
 						break;
 					}
@@ -530,13 +537,13 @@ public class LibraryPage  {
 	 
 	 /**
 	 * @function switchToNativeContext
-	 * @author Periyasamy_Nainar
+	 * @author SyscoAutomation
 	 * @description switch to native context before perform any action on native elements 
 	 * @date 15-09-2016
 	 */
 	public  LibraryPage switchToNativeContext(){
-	if(!(driver.getContext().contains("NATIVE_APP"))){
-		driver.context("NATIVE_APP");
+	if(!(driver1.getContext().contains("NATIVE_APP"))){
+		driver1.context("NATIVE_APP");
 	}
 	return this;
 	}

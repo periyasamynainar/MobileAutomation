@@ -15,25 +15,19 @@ public class ConfigFile {
 
 	
 public static Set<Entry<Object, Object>> obj ;
-public static	Map<Object, Object> mapObject = new HashMap<>();
+public static Map<Object, Object> mapObject = new HashMap<>();
 	
 	static{
 	
 	File file = new File("configuration files\\config.properties");	
 	Properties prop = new Properties();
-	
 	try {
-		prop.load(new FileInputStream(file));
-		
-		obj = prop.entrySet();
-		
+		prop.load(new FileInputStream(file));		
+		obj = prop.entrySet();		
 		for(Entry<Object, Object> en: obj){
-			System.out.println(en.getKey()+" ="+ " "+ en.getValue() );
-			
-			mapObject.put(en.getKey(), en.getValue());		
-			
-		}
-			
+			System.out.println(en.getKey()+" ="+ " "+ en.getValue() );			
+			mapObject.put(en.getKey(), en.getValue());					
+		}			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -43,10 +37,8 @@ public static	Map<Object, Object> mapObject = new HashMap<>();
 		}
 }
 
-	public static String getProperty(String str){
-	
-	return mapObject.get(str).toString();
-	
+	public static String getProperty(String str){	
+	return mapObject.get(str).toString();	
 }
 
 
